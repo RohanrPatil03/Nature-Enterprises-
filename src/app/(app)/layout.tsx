@@ -31,7 +31,6 @@ const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/documents", icon: FileText, label: "Document Library" },
   { href: "/toolbox", icon: Wrench, label: "Toolbox" },
-  { href: "/resources", icon: Link2, label: "External Resources" },
   { href: "/forum", icon: MessageSquare, label: "Community Forum" },
 ]
 
