@@ -1,3 +1,4 @@
+
 "use client"
 import {
   Card,
@@ -22,12 +23,6 @@ const documents = {
     { title: "Flat Roof Installation Guide", description: "Best practices for installing solar on commercial flat roofs.", size: "4.8 MB" },
     { title: "Solar PPA Agreement Template", description: "A template for Power Purchase Agreements.", size: "500 KB" },
     { title: "C&I Permitting Checklist", description: "A checklist for commercial and industrial solar permitting.", size: "250 KB" },
-  ],
-  utility: [
-    { title: "Utility-Scale Project Proposal", description: "A template for creating proposals for large-scale solar farms.", size: "3.2 MB" },
-    { title: "Environmental Impact Assessment", description: "Checklist for environmental considerations in utility projects.", size: "1.8 MB" },
-    { title: "Grid Interconnection Standards", description: "Technical standards for connecting to the national grid.", size: "10.2 MB" },
-    { title: "Solar Farm O&M Plan", description: "Operations and maintenance plan template for large-scale sites.", size: "2.1 MB" },
   ],
 }
 
@@ -64,7 +59,6 @@ export default function DocumentsPage() {
         <TabsList>
           <TabsTrigger value="residential">Residential</TabsTrigger>
           <TabsTrigger value="commercial">Commercial</TabsTrigger>
-          <TabsTrigger value="utility">Utility-Scale</TabsTrigger>
         </TabsList>
       </div>
       <TabsContent value="residential">
@@ -75,11 +69,6 @@ export default function DocumentsPage() {
       <TabsContent value="commercial">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {documents.commercial.map(doc => <DocumentCard key={doc.title} {...doc} />)}
-        </div>
-      </TabsContent>
-      <TabsContent value="utility">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {documents.utility.map(doc => <DocumentCard key={doc.title} {...doc} />)}
         </div>
       </TabsContent>
     </Tabs>
