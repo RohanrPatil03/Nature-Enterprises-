@@ -1,6 +1,6 @@
 export function Logo() {
   return (
-    <div className="flex items-center gap-3 font-headline font-bold text-xl group" aria-label="Solar Resource Hub">
+    <div className="flex items-center gap-3 font-headline font-bold text-xl group" aria-label="Green Energy">
       <div className="p-2 bg-primary text-primary-foreground rounded-lg transition-transform duration-300 ease-in-out group-hover:scale-110">
         <svg
           className="w-6 h-6"
@@ -29,7 +29,7 @@ export function Logo() {
           />
         </svg>
       </div>
-      <span className="group-data-[state=collapsed]:hidden">Solar Resource Hub</span>
+      <span className="group-data-[state=collapsed]:hidden">Green Energy</span>
     </div>
   )
 }

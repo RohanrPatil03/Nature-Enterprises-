@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: 'Solar Resource Hub',
-  description: 'Free resources for your solar company',
+  title: 'Green Energy',
+  description: 'Your partner in renewable energy',
 };
 
 export default function RootLayout({
