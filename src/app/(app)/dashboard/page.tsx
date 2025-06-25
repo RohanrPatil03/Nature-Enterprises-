@@ -71,29 +71,7 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        <Card className="flex flex-col">
-          <CardHeader>
-            <CardTitle className="font-headline">Quick Links</CardTitle>
-          </CardHeader>
-          <CardContent className="flex-grow">
-            <div className="space-y-4">
-              <Link href="/toolbox" className="flex items-center justify-between p-3 rounded-lg hover:bg-secondary transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="bg-secondary p-3 rounded-lg">
-                    <Wrench className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold font-headline">Toolbox</h3>
-                    <p className="text-sm text-muted-foreground">Calculators and design aids</p>
-
-                  </div>
-                </div>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground" />
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
+      <div className="grid gap-8">
         <Card className="flex flex-col overflow-hidden">
           <Image
             src="https://placehold.co/600x400.png"
