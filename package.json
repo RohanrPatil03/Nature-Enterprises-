@@ -1,7 +1,9 @@
 {
-  "name": "nextn",
+  "name": "nature-enterprises-desktop",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
+  "homepage": "./",
   "scripts": {
     "dev": "next dev --turbopack -p 9002",
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
@@ -9,7 +11,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "electron:dev": "concurrently \"npm:dev\" \"wait-on http://localhost:9002 && electron .\"",
+    "electron:build": "next build && electron-builder"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.8.0",
@@ -39,6 +43,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "dotenv": "^16.5.0",
+    "electron-is-dev": "^3.0.1",
     "firebase": "^11.9.1",
     "genkit": "^1.8.0",
     "lucide-react": "^0.475.0",
@@ -57,9 +62,38 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "concurrently": "^8.2.2",
+    "electron": "^31.2.1",
+    "electron-builder": "^24.13.3",
     "genkit-cli": "^1.8.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.nature.enterprises",
+    "productName": "Nature Enterprises",
+    "files": [
+      "out/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "public",
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "public/favicon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "public/favicon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "public/favicon.ico"
+    }
   }
 }
