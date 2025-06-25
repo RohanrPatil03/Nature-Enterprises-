@@ -11,13 +11,6 @@ export interface ProposalData {
     monthlyBill: number;
     roofSize: number;
     panelType: string;
-    solarPanelCapacity: number;
-    inverterBrand: string;
-    inverterCapacity: number;
-    circuitBreakers: string;
-    acdcLots: number;
-    bosLots: number;
-    installationLocation: string;
 }
 
 export interface ProposalDocument extends ProposalData {

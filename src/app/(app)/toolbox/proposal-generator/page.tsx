@@ -20,7 +20,6 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { saveProposal } from "@/services/proposalService";
@@ -41,13 +40,6 @@ const proposalFormSchema = z.object({
   monthlyBill: z.coerce.number().positive({ message: 'Monthly bill must be a positive number.' }),
   roofSize: z.coerce.number().positive({ message: 'Roof size must be a positive number.' }),
   panelType: z.string().min(1, { message: 'Please select a panel type.' }),
-  solarPanelCapacity: z.coerce.number().positive({ message: 'Solar panel capacity must be a positive number.' }),
-  inverterBrand: z.string().min(1, { message: 'Please select an inverter brand.' }),
-  inverterCapacity: z.coerce.number().positive({ message: 'Inverter capacity must be a positive number.' }),
-  circuitBreakers: z.string().min(1, { message: 'Please select an option for circuit breakers.' }),
-  acdcLots: z.coerce.number().int().positive({ message: 'Lots must be a positive integer.' }),
-  bosLots: z.coerce.number().int().positive({ message: 'Lots must be a positive integer.' }),
-  installationLocation: z.string().min(1, { message: "Please select an installation location." }),
 });
 
 export default function ProposalGeneratorPage() {
@@ -70,13 +62,6 @@ export default function ProposalGeneratorPage() {
       monthlyBill: undefined,
       roofSize: undefined,
       panelType: '',
-      solarPanelCapacity: undefined,
-      inverterBrand: '',
-      inverterCapacity: undefined,
-      circuitBreakers: '',
-      acdcLots: 1,
-      bosLots: 1,
-      installationLocation: '',
     },
   });
 
@@ -278,150 +263,6 @@ export default function ProposalGeneratorPage() {
                     </FormItem>
                   )}
                 />
-
-                <Separator className="my-4" />
-
-                <div>
-                    <h3 className="text-xl font-headline mb-2">Bill of Materials</h3>
-                    <p className="text-sm text-muted-foreground mb-6">Enter the details for the major components of the system.</p>
-                    <div className="space-y-8">
-                        <FormField
-                            control={form.control}
-                            name="solarPanelCapacity"
-                            render={({ field }) => (
-                                <FormItem>
-                                <FormLabel>Solar Panel Capacity (W)</FormLabel>
-                                <FormDescription>Waaree/Adani or Equivalent</FormDescription>
-                                <FormControl>
-                                    <Input type="number" placeholder="540" {...field} value={field.value ?? ''} />
-                                </FormControl>
-                                <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <FormField
-                                control={form.control}
-                                name="inverterBrand"
-                                render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Grid Tie Inverter Brand</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                        <FormControl>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder="Select a brand" />
-                                        </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                            <SelectItem value="Growatt">Growatt</SelectItem>
-                                            <SelectItem value="GoodWe">GoodWe</SelectItem>
-                                            <SelectItem value="Sofar">Sofar</SelectItem>
-                                            <SelectItem value="Evvo">Evvo</SelectItem>
-                                            <SelectItem value="Equivalent">Equivalent</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
-                                </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="inverterCapacity"
-                                render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Inverter Capacity (kW)</FormLabel>
-                                    <FormControl>
-                                    <Input type="number" placeholder="5" {...field} value={field.value ?? ''} step="0.1" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                                )}
-                            />
-                        </div>
-                        <FormField
-                          control={form.control}
-                          name="acdcLots"
-                          render={({ field }) => (
-                          <FormItem>
-                              <FormLabel>AC & DC Junction Box (Lots)</FormLabel>
-                              <FormDescription>ACDB & DCDB as per MNRE Guideline</FormDescription>
-                              <FormControl>
-                              <Input type="number" placeholder="1" {...field} value={field.value ?? ''} step="1" />
-                              </FormControl>
-                              <FormMessage />
-                          </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name="circuitBreakers"
-                            render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Circuit Breakers</FormLabel>
-                                <FormDescription>ABB/Siemens/Phoenix Contact or Equivalent</FormDescription>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                    <FormControl>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Select an option" />
-                                    </Trigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                        <SelectItem value="As Required">As Required</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                            )}
-                        />
-                        <FormItem>
-                            <FormLabel>Energy & Net Meter</FormLabel>
-                            <p className="text-sm text-muted-foreground">DISCOM/MSEDCL Approved</p>
-                        </FormItem>
-
-                        <FormItem>
-                            <FormLabel>Structure</FormLabel>
-                            <p className="text-sm text-muted-foreground">Pre GI</p>
-                        </FormItem>
-                        
-                        <FormField
-                          control={form.control}
-                          name="bosLots"
-                          render={({ field }) => (
-                          <FormItem>
-                              <FormLabel>Balance of System (Lots)</FormLabel>
-                              <FormDescription>MNRE/MSEDCL approved AC&DC Cables upto DB, Earthing Kit With Lighting Arrestor</FormDescription>
-                              <FormControl>
-                              <Input type="number" placeholder="1" {...field} value={field.value ?? ''} step="1" />
-                              </FormControl>
-                              <FormMessage />
-                          </FormItem>
-                          )}
-                        />
-                         <FormField
-                          control={form.control}
-                          name="installationLocation"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Location of Installation</FormLabel>
-                              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                <FormControl>
-                                  <SelectTrigger>
-                                    <SelectValue placeholder="Select a location" />
-                                  </SelectTrigger>
-                                </FormControl>
-                                <SelectContent>
-                                  <SelectItem value="Roof mounted">Roof mounted</SelectItem>
-                                  <SelectItem value="Ground mounted">Ground mounted</SelectItem>
-                                </SelectContent>
-                              </Select>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                    </div>
-                </div>
-
                 <Button type="submit" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>
