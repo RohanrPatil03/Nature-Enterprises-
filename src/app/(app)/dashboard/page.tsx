@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -16,26 +17,29 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { ArrowUpRight, Wrench, PlusCircle, Home, Building2, Users } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
-import { getProposals } from "@/services/proposalService"
+import { getProposals, ProposalDocument } from "@/services/proposalService"
 import { Skeleton } from "@/components/ui/skeleton"
+import { formatDistanceToNow } from 'date-fns'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default function DashboardPage() {
   const [customerCount, setCustomerCount] = useState(0)
+  const [recentProposals, setRecentProposals] = useState<ProposalDocument[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function fetchCount() {
+    async function fetchData() {
       try {
         const proposals = await getProposals()
         setCustomerCount(proposals.length)
+        setRecentProposals(proposals.slice(0, 5))
       } catch (error) {
-        console.error("Failed to fetch customer count", error)
+        console.error("Failed to fetch dashboard data", error)
       } finally {
         setLoading(false)
       }
     }
-    fetchCount()
+    fetchData()
   }, [])
 
   return (
@@ -109,28 +113,45 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-8">
-        <Card className="flex flex-col overflow-hidden">
-          <Image
-            src="https://placehold.co/600x400.png"
-            alt="Solar panels on a roof"
-            data-ai-hint="solar panels"
-            width={600}
-            height={400}
-            className="object-cover w-full h-48"
-          />
+        <Card>
           <CardHeader>
-            <CardTitle className="font-headline">Go Solar with Confidence</CardTitle>
+            <CardTitle>Recent Customers</CardTitle>
+            <CardDescription>
+              Your 5 most recently added customers.
+            </CardDescription>
           </CardHeader>
-          <CardContent className="flex-grow">
-            <p className="text-muted-foreground">Our curated resources are designed to empower your solar journey, from initial planning to final installation. Get the data and tools you need to succeed.</p>
+          <CardContent>
+            {loading ? (
+               <div className="space-y-4">
+                  <div className="flex items-center space-x-4"><Skeleton className="h-10 w-10 rounded-full" /><div className="space-y-2"><Skeleton className="h-4 w-[200px]" /><Skeleton className="h-4 w-[150px]" /></div></div>
+                  <div className="flex items-center space-x-4"><Skeleton className="h-10 w-10 rounded-full" /><div className="space-y-2"><Skeleton className="h-4 w-[200px]" /><Skeleton className="h-4 w-[150px]" /></div></div>
+                  <div className="flex items-center space-x-4"><Skeleton className="h-10 w-10 rounded-full" /><div className="space-y-2"><Skeleton className="h-4 w-[200px]" /><Skeleton className="h-4 w-[150px]" /></div></div>
+               </div>
+            ) : recentProposals.length > 0 ? (
+              <div className="space-y-4">
+                {recentProposals.map((proposal) => (
+                  <div key={proposal.id} className="flex items-center">
+                    <Avatar className="h-9 w-9">
+                       <AvatarImage src="https://placehold.co/100x100.png" alt="Avatar" data-ai-hint="person avatar" />
+                      <AvatarFallback>{proposal.name.substring(0, 2).toUpperCase()}</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">{proposal.name}</p>
+                      <p className="text-sm text-muted-foreground">{proposal.address}</p>
+                    </div>
+                    <div className="ml-auto font-medium text-muted-foreground text-xs">
+                        {proposal.createdAt ? formatDistanceToNow(proposal.createdAt.toDate(), { addSuffix: true }) : ''}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+                 <div className="text-center py-10 text-muted-foreground">
+                    <Users className="mx-auto h-12 w-12" />
+                    <p className="mt-4">No customers have been added yet.</p>
+                </div>
+            )}
           </CardContent>
-          <div className="p-6 pt-0">
-            <Button asChild>
-              <Link href="/toolbox">
-                Explore Tools <ArrowUpRight className="ml-2" />
-              </Link>
-            </Button>
-          </div>
         </Card>
       </div>
     </div>
