@@ -1,6 +1,6 @@
 
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, enableIndexedDbPersistence } from "firebase/firestore";
 
 // IMPORTANT: Replace the configuration below with your own Firebase project's configuration.
 // You can find this in your Firebase project settings under "Project settings" > "General".
@@ -22,5 +22,12 @@ if (getApps().length === 0) {
 }
 
 const db = getFirestore(app);
+
+// Enable offline persistence for a more robust offline experience
+try {
+    enableIndexedDbPersistence(db);
+} catch (error) {
+    console.error("Error enabling offline persistence: ", error);
+}
 
 export { app, db };
