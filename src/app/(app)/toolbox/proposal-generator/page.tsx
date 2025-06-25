@@ -290,7 +290,7 @@ export default function ProposalGeneratorPage() {
                             name="solarPanelCapacity"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel>Solar Panel Capacity (Wp)</FormLabel>
+                                <FormLabel>Solar Panel Capacity</FormLabel>
                                 <FormDescription>Waaree/Adani or Equivalent</FormDescription>
                                 <FormControl>
                                     <Input type="number" placeholder="540" {...field} value={field.value ?? ''} />
@@ -364,7 +364,7 @@ export default function ProposalGeneratorPage() {
                                     <FormControl>
                                     <SelectTrigger>
                                         <SelectValue placeholder="Select an option" />
-                                    </SelectTrigger>
+                                    </Trigger>
                                     </FormControl>
                                     <SelectContent>
                                         <SelectItem value="As Required">As Required</SelectItem>
