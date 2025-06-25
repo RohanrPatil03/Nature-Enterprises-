@@ -17,37 +17,22 @@ import {
 } from "@/components/ui/sidebar"
 
 import {
-  BookMarked,
-  LayoutDashboard,
-  MessageSquare,
-  Settings,
-  Wrench,
-  Link as LinkIcon,
+  FileText
 } from "lucide-react"
 
 import { Logo } from "@/components/logo"
 import { UserNav } from "@/components/user-nav"
 
 const navItems = [
-  { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { href: "/documents", icon: BookMarked, label: "Document Library" },
-  { href: "/toolbox", icon: Wrench, label: "Toolbox" },
-  { href: "/resources", icon: LinkIcon, label: "External Resources" },
-  { href: "/forum", icon: MessageSquare, label: "Community Forum" },
+  { href: "/toolbox/proposal-generator", icon: FileText, label: "Proposal Generator" },
 ]
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
-  const currentNavItem = navItems
-    .slice()
-    .sort((a, b) => b.href.length - a.href.length)
-    .find(item => pathname.startsWith(item.href));
+  const currentNavItem = navItems.find(item => pathname.startsWith(item.href));
 
   const getIsActive = (href: string) => {
-      if (href === "/dashboard") {
-          return pathname === href;
-      }
       return pathname.startsWith(href);
   }
 
@@ -75,16 +60,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter>
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <Link href="#">
-                <SidebarMenuButton tooltip="Settings">
-                  <Settings />
-                  <span>Settings</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-          </SidebarMenu>
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
@@ -92,7 +67,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-2">
                 <SidebarTrigger className="md:hidden" />
                 <h1 className="text-2xl font-headline font-bold">
-                    {currentNavItem?.label || 'Dashboard'}
+                    {currentNavItem?.label || 'Proposal Generator'}
                 </h1>
             </div>
             <UserNav />
