@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardContent,
@@ -5,13 +6,22 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, BookMarked, Wrench, MessageSquare } from "lucide-react"
+import { ArrowUpRight, BookMarked, Wrench, MessageSquare, PlusCircle } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 export default function DashboardPage() {
   return (
     <div className="space-y-8">
+      <div className="flex items-center justify-end">
+        <Button asChild>
+          <Link href="/toolbox/proposal-generator">
+            <PlusCircle className="mr-2 h-4 w-4" />
+            Add New Customer
+          </Link>
+        </Button>
+      </div>
+
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
