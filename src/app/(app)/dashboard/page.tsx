@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, BookMarked, Wrench, MessageSquare, PlusCircle } from "lucide-react"
+import { ArrowUpRight, Wrench, PlusCircle } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -22,19 +22,7 @@ export default function DashboardPage() {
         </Button>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Documents</CardTitle>
-            <BookMarked className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">125</div>
-            <p className="text-xs text-muted-foreground">
-              +12 since last month
-            </p>
-          </CardContent>
-        </Card>
+      <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Tools & Calculators</CardTitle>
@@ -44,18 +32,6 @@ export default function DashboardPage() {
             <div className="text-2xl font-bold">12</div>
             <p className="text-xs text-muted-foreground">
               +2 new tools added
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Forum Topics</CardTitle>
-            <MessageSquare className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">573</div>
-            <p className="text-xs text-muted-foreground">
-              +201 since last month
             </p>
           </CardContent>
         </Card>
@@ -80,18 +56,6 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent className="flex-grow">
             <div className="space-y-4">
-              <Link href="/documents" className="flex items-center justify-between p-3 rounded-lg hover:bg-secondary transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="bg-secondary p-3 rounded-lg">
-                    <BookMarked className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold font-headline">Document Library</h3>
-                    <p className="text-sm text-muted-foreground">Guides, datasheets, and more</p>
-                  </div>
-                </div>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground" />
-              </Link>
               <Link href="/toolbox" className="flex items-center justify-between p-3 rounded-lg hover:bg-secondary transition-colors">
                 <div className="flex items-center gap-4">
                   <div className="bg-secondary p-3 rounded-lg">
@@ -101,18 +65,6 @@ export default function DashboardPage() {
                     <h3 className="font-semibold font-headline">Toolbox</h3>
                     <p className="text-sm text-muted-foreground">Calculators and design aids</p>
 
-                  </div>
-                </div>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground" />
-              </Link>
-              <Link href="/forum" className="flex items-center justify-between p-3 rounded-lg hover:bg-secondary transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="bg-secondary p-3 rounded-lg">
-                    <MessageSquare className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold font-headline">Community Forum</h3>
-                    <p className="text-sm text-muted-foreground">Ask questions and share knowledge</p>
                   </div>
                 </div>
                 <ArrowUpRight className="h-5 w-5 text-muted-foreground" />
@@ -137,8 +89,8 @@ export default function DashboardPage() {
           </CardContent>
           <div className="p-6 pt-0">
             <Button asChild>
-              <Link href="/documents">
-                Explore Resources <ArrowUpRight className="ml-2" />
+              <Link href="/toolbox">
+                Explore Tools <ArrowUpRight className="ml-2" />
               </Link>
             </Button>
           </div>
