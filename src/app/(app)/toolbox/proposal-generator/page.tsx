@@ -71,19 +71,15 @@ export default function ProposalGeneratorPage() {
       await saveProposal(values);
       toast({
         title: "Success!",
-        description: "The proposal has been saved to your database.",
+        description: "Customer details have been saved.",
       });
-
-      const params = new URLSearchParams({
-        ...Object.fromEntries(Object.entries(values).map(([key, value]) => [key, String(value)])),
-      });
-      router.push(`/proposal?${params.toString()}`);
+      router.push('/dashboard');
 
     } catch (error) {
         console.error(error);
         toast({
-            title: "Error Saving Proposal",
-            description: "Could not save the proposal. Please ensure your Firebase configuration in src/lib/firebase.ts is correct and try again.",
+            title: "Error Saving Customer",
+            description: "Could not save the customer. Please ensure your Firebase configuration in src/lib/firebase.ts is correct and try again.",
             variant: "destructive",
         });
         setIsSubmitting(false);
@@ -93,9 +89,9 @@ export default function ProposalGeneratorPage() {
   return (
     <Card className="max-w-2xl mx-auto">
         <CardHeader>
-            <CardTitle className="font-headline">Generate a Proposal</CardTitle>
+            <CardTitle className="font-headline">Add New Customer</CardTitle>
             <CardDescription>
-                Fill in the customer's details below. The data will be saved automatically and a printable proposal will be generated.
+                Fill in the customer's details below. This data will be saved to your database for future operations like billing and proposal generation.
             </CardDescription>
         </CardHeader>
         <CardContent>
@@ -272,10 +268,10 @@ export default function ProposalGeneratorPage() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Saving and Generating...
+                      Saving Customer...
                     </>
                   ) : (
-                    'Save and Generate Proposal'
+                    'Save Customer'
                   )}
                 </Button>
               </form>
