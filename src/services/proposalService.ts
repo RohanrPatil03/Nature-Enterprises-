@@ -17,7 +17,7 @@ export interface ProposalData {
     circuitBreakers: string;
     acdcLots: number;
     bosLots: number;
-    installationLots: number;
+    installationLocation: string;
 }
 
 export interface ProposalDocument extends ProposalData {

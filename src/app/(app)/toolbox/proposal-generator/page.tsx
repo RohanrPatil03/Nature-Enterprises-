@@ -47,7 +47,7 @@ const proposalFormSchema = z.object({
   circuitBreakers: z.string().min(1, { message: 'Please select an option for circuit breakers.' }),
   acdcLots: z.coerce.number().int().positive({ message: 'Lots must be a positive integer.' }),
   bosLots: z.coerce.number().int().positive({ message: 'Lots must be a positive integer.' }),
-  installationLots: z.coerce.number().int().positive({ message: 'Lots must be a positive integer.' }),
+  installationLocation: z.string().min(1, { message: "Please select an installation location." }),
 });
 
 export default function ProposalGeneratorPage() {
@@ -76,7 +76,7 @@ export default function ProposalGeneratorPage() {
       circuitBreakers: '',
       acdcLots: 1,
       bosLots: 1,
-      installationLots: 1,
+      installationLocation: '',
     },
   });
 
@@ -400,16 +400,23 @@ export default function ProposalGeneratorPage() {
                         />
                          <FormField
                           control={form.control}
-                          name="installationLots"
+                          name="installationLocation"
                           render={({ field }) => (
-                          <FormItem>
-                              <FormLabel>Location of Installation (Lots)</FormLabel>
-                              <FormDescription>Roof mounted</FormDescription>
-                              <FormControl>
-                              <Input type="number" placeholder="1" {...field} value={field.value ?? ''} step="1" />
-                              </FormControl>
+                            <FormItem>
+                              <FormLabel>Location of Installation</FormLabel>
+                              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormControl>
+                                  <SelectTrigger>
+                                    <SelectValue placeholder="Select a location" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  <SelectItem value="Roof mounted">Roof mounted</SelectItem>
+                                  <SelectItem value="Ground mounted">Ground mounted</SelectItem>
+                                </SelectContent>
+                              </Select>
                               <FormMessage />
-                          </FormItem>
+                            </FormItem>
                           )}
                         />
                     </div>
