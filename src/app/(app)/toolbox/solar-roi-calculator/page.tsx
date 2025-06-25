@@ -84,7 +84,7 @@ export default function SolarRoiCalculatorPage() {
                   <FormItem>
                     <FormLabel>Total System Cost (₹)</FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder="350000" {...field} />
+                      <Input type="number" placeholder="350000" {...field} value={field.value ?? ''} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -97,7 +97,7 @@ export default function SolarRoiCalculatorPage() {
                   <FormItem>
                     <FormLabel>Average Monthly Electricity Bill (₹)</FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder="4000" {...field} />
+                      <Input type="number" placeholder="4000" {...field} value={field.value ?? ''} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

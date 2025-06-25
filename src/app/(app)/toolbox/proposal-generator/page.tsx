@@ -126,7 +126,7 @@ export default function ProposalGeneratorPage() {
                       <FormItem>
                         <FormLabel>Connected Load (kW)</FormLabel>
                         <FormControl>
-                          <Input type="number" placeholder="3" {...field} step="0.1" />
+                          <Input type="number" placeholder="3" {...field} value={field.value ?? ''} step="0.1" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -139,7 +139,7 @@ export default function ProposalGeneratorPage() {
                       <FormItem>
                         <FormLabel>Average Monthly Bill (₹)</FormLabel>
                         <FormControl>
-                          <Input type="number" placeholder="10000" {...field} />
+                          <Input type="number" placeholder="10000" {...field} value={field.value ?? ''} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -155,7 +155,7 @@ export default function ProposalGeneratorPage() {
                       <FormItem>
                         <FormLabel>Roof Size (sq. ft.)</FormLabel>
                         <FormControl>
-                          <Input type="number" placeholder="600" {...field} />
+                          <Input type="number" placeholder="600" {...field} value={field.value ?? ''} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -168,7 +168,7 @@ export default function ProposalGeneratorPage() {
                       <FormItem>
                         <FormLabel>Proposed System Size (kW)</FormLabel>
                         <FormControl>
-                          <Input type="number" placeholder="5" {...field} step="0.1" />
+                          <Input type="number" placeholder="5" {...field} value={field.value ?? ''} step="0.1" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
