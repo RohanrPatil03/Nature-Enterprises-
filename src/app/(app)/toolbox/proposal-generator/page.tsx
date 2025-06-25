@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -16,6 +16,8 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { useToast } from "@/hooks/use-toast"
+import { Loader2 } from "lucide-react"
 
 const proposalFormSchema = z.object({
   name: z.string().min(2, {
@@ -26,7 +28,9 @@ const proposalFormSchema = z.object({
 });
 
 export default function ProposalGeneratorPage() {
-  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  
   const form = useForm<z.infer<typeof proposalFormSchema>>({
     resolver: zodResolver(proposalFormSchema),
     defaultValues: {
@@ -36,13 +40,42 @@ export default function ProposalGeneratorPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof proposalFormSchema>) {
-    const params = new URLSearchParams({
-      name: values.name,
-      systemSize: values.systemSize.toString(),
-      monthlyBill: values.monthlyBill.toString(),
-    });
-    router.push(`/proposal?${params.toString()}`);
+  async function onSubmit(values: z.infer<typeof proposalFormSchema>) {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/generateProposalPdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to generate PDF.');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `proposal-${values.name.replace(/\s+/g, '-').toLowerCase()}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      a.remove();
+
+    } catch (error) {
+      console.error(error);
+      toast({
+          variant: "destructive",
+          title: "Error Generating PDF",
+          description: error instanceof Error ? error.message : "Could not generate the proposal PDF. Please try again.",
+      })
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -50,7 +83,7 @@ export default function ProposalGeneratorPage() {
         <CardHeader>
             <CardTitle className="font-headline">Generate a Proposal</CardTitle>
             <CardDescription>
-                Fill in the customer's details below to generate a printable PDF proposal.
+                Fill in the customer's details below to generate a downloadable PDF proposal.
             </CardDescription>
         </CardHeader>
         <CardContent>
@@ -101,7 +134,16 @@ export default function ProposalGeneratorPage() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit">Generate Proposal</Button>
+                <Button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Generating...
+                    </>
+                  ) : (
+                    'Generate Proposal'
+                  )}
+                </Button>
               </form>
             </Form>
         </CardContent>
