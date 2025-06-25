@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
 export default function RootPage() {
-  redirect('/toolbox/proposal-generator')
+  redirect('/dashboard')
 }

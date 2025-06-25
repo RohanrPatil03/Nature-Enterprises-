@@ -17,28 +17,40 @@ import {
 } from "@/components/ui/sidebar"
 
 import {
-  FileText
+  LayoutDashboard,
+  FileText,
+  Wrench,
+  Link2,
+  MessageSquare,
 } from "lucide-react"
 
 import { Logo } from "@/components/logo"
 import { UserNav } from "@/components/user-nav"
 
 const navItems = [
-  { href: "/toolbox/proposal-generator", icon: FileText, label: "Proposal Generator" },
+  { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+  { href: "/documents", icon: FileText, label: "Document Library" },
+  { href: "/toolbox", icon: Wrench, label: "Toolbox" },
+  { href: "/resources", icon: Link2, label: "External Resources" },
+  { href: "/forum", icon: MessageSquare, label: "Community Forum" },
 ]
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
-  const currentNavItem = navItems.find(item => pathname.startsWith(item.href));
-
   const getIsActive = (href: string) => {
-      return pathname.startsWith(href);
+    // For toolbox, we want to match /toolbox and /toolbox/*
+    if (href === '/toolbox') {
+        return pathname.startsWith('/toolbox');
+    }
+    return pathname === href;
   }
+  
+  const currentNavItem = navItems.find(item => getIsActive(item.href));
 
   return (
     <SidebarProvider>
-      <Sidebar variant="sidebar" collapsible="icon">
+      <Sidebar>
         <SidebarHeader>
           <Logo />
         </SidebarHeader>
@@ -63,11 +75,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-4 border-b bg-background/80 px-4 backdrop-blur-sm sm:px-6">
+        <header className="sticky top-0 z-30 flex h-14 items-center justify-between gap-4 border-b bg-background/80 px-4 backdrop-blur-sm sm:px-6">
             <div className="flex items-center gap-2">
                 <SidebarTrigger className="md:hidden" />
                 <h1 className="text-2xl font-headline font-bold">
-                    {currentNavItem?.label || 'Proposal Generator'}
+                    {currentNavItem?.label || 'Solar Resource Hub'}
                 </h1>
             </div>
             <UserNav />
