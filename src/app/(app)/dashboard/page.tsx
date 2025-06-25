@@ -19,8 +19,8 @@ import { ArrowUpRight, PlusCircle, Home, Building2, Users } from "lucide-react"
 import Link from "next/link"
 import { getProposals, ProposalDocument } from "@/services/proposalService"
 import { Skeleton } from "@/components/ui/skeleton"
-import { formatDistanceToNow } from 'date-fns'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { TimeAgo } from "@/components/time-ago"
 
 export default function DashboardPage() {
   const [customerCount, setCustomerCount] = useState(0)
@@ -128,7 +128,7 @@ export default function DashboardPage() {
                       <p className="text-sm text-muted-foreground">{proposal.address}</p>
                     </div>
                     <div className="ml-auto font-medium text-muted-foreground text-xs">
-                        {proposal.createdAt ? formatDistanceToNow(proposal.createdAt.toDate(), { addSuffix: true }) : ''}
+                        <TimeAgo timestamp={proposal.createdAt} />
                     </div>
                   </div>
                 ))}
