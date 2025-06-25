@@ -3,6 +3,7 @@ import { db } from '@/lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export interface ProposalData {
+    customerType: string;
     name: string;
     address: string;
     load: number;

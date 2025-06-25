@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -17,6 +17,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Loader2 } from "lucide-react";
@@ -24,6 +25,9 @@ import { useToast } from "@/hooks/use-toast";
 import { saveProposal } from "@/services/proposalService";
 
 const proposalFormSchema = z.object({
+  customerType: z.enum(['Residential', 'Commercial'], {
+    required_error: 'You must select a customer type.',
+  }),
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.',
   }),
@@ -40,11 +44,15 @@ const proposalFormSchema = z.object({
 export default function ProposalGeneratorPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { toast } = useToast();
+
+  const customerTypeParam = searchParams.get('customerType');
   
   const form = useForm<z.infer<typeof proposalFormSchema>>({
     resolver: zodResolver(proposalFormSchema),
     defaultValues: {
+      customerType: customerTypeParam === 'Commercial' ? 'Commercial' : 'Residential',
       name: '',
       address: '',
       load: undefined,
@@ -91,6 +99,41 @@ export default function ProposalGeneratorPage() {
         <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <FormField
+                  control={form.control}
+                  name="customerType"
+                  render={({ field }) => (
+                    <FormItem className="space-y-3">
+                      <FormLabel>Customer Type</FormLabel>
+                      <FormControl>
+                        <RadioGroup
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          className="flex items-center space-x-6"
+                        >
+                          <FormItem className="flex items-center space-x-2 space-y-0">
+                            <FormControl>
+                              <RadioGroupItem value="Residential" />
+                            </FormControl>
+                            <FormLabel className="font-normal">
+                              Residential
+                            </FormLabel>
+                          </FormItem>
+                          <FormItem className="flex items-center space-x-2 space-y-0">
+                            <FormControl>
+                              <RadioGroupItem value="Commercial" />
+                            </FormControl>
+                            <FormLabel className="font-normal">
+                              Commercial
+                            </FormLabel>
+                          </FormItem>
+                        </RadioGroup>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name="name"

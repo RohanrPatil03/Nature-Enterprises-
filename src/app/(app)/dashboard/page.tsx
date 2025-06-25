@@ -6,7 +6,13 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, Wrench, PlusCircle } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { ArrowUpRight, Wrench, PlusCircle, Home, Building2 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -14,12 +20,28 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-end">
-        <Button asChild>
-          <Link href="/toolbox/proposal-generator">
-            <PlusCircle className="mr-2 h-4 w-4" />
-            Add New Customer
-          </Link>
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button>
+              <PlusCircle className="mr-2 h-4 w-4" />
+              Add New Customer
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem asChild>
+              <Link href="/toolbox/proposal-generator?customerType=Residential">
+                <Home className="mr-2 h-4 w-4" />
+                <span>Residential</span>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/toolbox/proposal-generator?customerType=Commercial">
+                <Building2 className="mr-2 h-4 w-4" />
+                <span>Commercial</span>
+              </Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">

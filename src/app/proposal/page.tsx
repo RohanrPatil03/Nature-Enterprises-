@@ -19,6 +19,7 @@ function ProposalContent() {
 
   const name = searchParams.get('name') || 'N/A';
   const address = searchParams.get('address') || 'N/A';
+  const customerType = searchParams.get('customerType') || 'N/A';
   const load = parseFloat(searchParams.get('load') || '0');
   const systemSize = parseFloat(searchParams.get('systemSize') || '0');
   const monthlyBill = parseFloat(searchParams.get('monthlyBill') || '0');
@@ -45,7 +46,7 @@ function ProposalContent() {
                         <p className="text-muted-foreground mt-2">Your Partner in Renewable Energy</p>
                     </div>
                     <div className="text-right">
-                         <h1 className="text-3xl font-bold font-headline text-primary">Solar Proposal</h1>
+                         <h1 className="text-3xl font-bold font-headline text-primary">{customerType} Proposal</h1>
                          <p className="text-muted-foreground">Date: {currentDate || '...'}</p>
                     </div>
                 </header>
