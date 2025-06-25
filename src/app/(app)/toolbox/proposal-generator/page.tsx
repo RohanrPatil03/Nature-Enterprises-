@@ -45,6 +45,9 @@ const proposalFormSchema = z.object({
   inverterBrand: z.string().min(1, { message: 'Please select an inverter brand.' }),
   inverterCapacity: z.coerce.number().positive({ message: 'Inverter capacity must be a positive number.' }),
   circuitBreakers: z.string().min(1, { message: 'Please select an option for circuit breakers.' }),
+  acdcLots: z.coerce.number().int().positive({ message: 'Lots must be a positive integer.' }),
+  bosLots: z.coerce.number().int().positive({ message: 'Lots must be a positive integer.' }),
+  installationLots: z.coerce.number().int().positive({ message: 'Lots must be a positive integer.' }),
 });
 
 export default function ProposalGeneratorPage() {
@@ -71,6 +74,9 @@ export default function ProposalGeneratorPage() {
       inverterBrand: '',
       inverterCapacity: undefined,
       circuitBreakers: '',
+      acdcLots: 1,
+      bosLots: 1,
+      installationLots: 1,
     },
   });
 
@@ -332,10 +338,20 @@ export default function ProposalGeneratorPage() {
                                 )}
                             />
                         </div>
-                        <FormItem>
-                            <FormLabel>AC & DC Junction Box</FormLabel>
-                            <p className="text-sm text-muted-foreground">ACDB & DCDB as per MNRE Guideline (1 Lot)</p>
-                        </FormItem>
+                        <FormField
+                          control={form.control}
+                          name="acdcLots"
+                          render={({ field }) => (
+                          <FormItem>
+                              <FormLabel>AC & DC Junction Box (Lots)</FormLabel>
+                              <FormDescription>ACDB & DCDB as per MNRE Guideline</FormDescription>
+                              <FormControl>
+                              <Input type="number" placeholder="1" {...field} value={field.value ?? ''} step="1" />
+                              </FormControl>
+                              <FormMessage />
+                          </FormItem>
+                          )}
+                        />
 
                         <FormField
                             control={form.control}
@@ -368,14 +384,34 @@ export default function ProposalGeneratorPage() {
                             <p className="text-sm text-muted-foreground">Pre GI</p>
                         </FormItem>
                         
-                        <FormItem>
-                            <FormLabel>Balance of System</FormLabel>
-                            <p className="text-sm text-muted-foreground">MNRE/MSEDCL approved AC&DC Cables upto DB, Earthing Kit With Lighting Arrestor (1 Lot)</p>
-                        </FormItem>
-                         <FormItem>
-                            <FormLabel>Location of Installation</FormLabel>
-                            <p className="text-sm text-muted-foreground">Roof mounted (1 Lot)</p>
-                        </FormItem>
+                        <FormField
+                          control={form.control}
+                          name="bosLots"
+                          render={({ field }) => (
+                          <FormItem>
+                              <FormLabel>Balance of System (Lots)</FormLabel>
+                              <FormDescription>MNRE/MSEDCL approved AC&DC Cables upto DB, Earthing Kit With Lighting Arrestor</FormDescription>
+                              <FormControl>
+                              <Input type="number" placeholder="1" {...field} value={field.value ?? ''} step="1" />
+                              </FormControl>
+                              <FormMessage />
+                          </FormItem>
+                          )}
+                        />
+                         <FormField
+                          control={form.control}
+                          name="installationLots"
+                          render={({ field }) => (
+                          <FormItem>
+                              <FormLabel>Location of Installation (Lots)</FormLabel>
+                              <FormDescription>Roof mounted</FormDescription>
+                              <FormControl>
+                              <Input type="number" placeholder="1" {...field} value={field.value ?? ''} step="1" />
+                              </FormControl>
+                              <FormMessage />
+                          </FormItem>
+                          )}
+                        />
                     </div>
                 </div>
 

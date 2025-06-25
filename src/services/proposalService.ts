@@ -15,6 +15,9 @@ export interface ProposalData {
     inverterBrand: string;
     inverterCapacity: number;
     circuitBreakers: string;
+    acdcLots: number;
+    bosLots: number;
+    installationLots: number;
 }
 
 export interface ProposalDocument extends ProposalData {
