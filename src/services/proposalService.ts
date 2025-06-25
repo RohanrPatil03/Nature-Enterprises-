@@ -5,6 +5,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 export interface ProposalData {
     customerType: string;
     name: string;
+    connectionType: string;
     address: string;
     load: number;
     systemSize: number;

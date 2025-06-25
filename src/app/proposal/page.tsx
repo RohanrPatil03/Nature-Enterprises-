@@ -20,6 +20,7 @@ function ProposalContent() {
   const name = searchParams.get('name') || 'N/A';
   const address = searchParams.get('address') || 'N/A';
   const customerType = searchParams.get('customerType') || 'N/A';
+  const connectionType = searchParams.get('connectionType') || 'N/A';
   const load = parseFloat(searchParams.get('load') || '0');
   const systemSize = parseFloat(searchParams.get('systemSize') || '0');
   const monthlyBill = parseFloat(searchParams.get('monthlyBill') || '0');
@@ -61,7 +62,7 @@ function ProposalContent() {
                 
                 <section>
                     <h2 className="text-2xl font-bold font-headline mb-6 text-center text-primary">Site & System Details</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
                         <div className="rounded-lg border bg-card text-card-foreground p-4">
                             <h3 className="text-sm text-muted-foreground font-medium">Connected Load</h3>
                             <p className="text-2xl font-bold">{load.toFixed(1)} kW</p>
@@ -77,6 +78,10 @@ function ProposalContent() {
                         <div className="rounded-lg border bg-card text-card-foreground p-4">
                             <h3 className="text-sm text-muted-foreground font-medium">Panel Type</h3>
                             <p className="text-2xl font-bold">{panelType}</p>
+                        </div>
+                        <div className="rounded-lg border bg-card text-card-foreground p-4">
+                            <h3 className="text-sm text-muted-foreground font-medium">Connection Type</h3>
+                            <p className="text-2xl font-bold">{connectionType}</p>
                         </div>
                     </div>
                 </section>
@@ -105,7 +110,7 @@ function ProposalContent() {
                          <Card>
                             <CardHeader>
                                 <CardTitle className="text-lg text-muted-foreground font-medium">Payback Period</CardTitle>
-                            </CardHeader>
+                            </Header>
                             <CardContent>
                                 <p className="text-3xl font-bold">{paybackPeriod > 0 ? paybackPeriod.toFixed(1) : 'N/A'} years</p>
                             </CardContent>
