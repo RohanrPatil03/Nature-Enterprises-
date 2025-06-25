@@ -93,7 +93,7 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-6 border-t text-center text-xs text-muted-foreground">
-                    <p>Thank you for considering Green Energy!</p>
+                    <p>Thank you for considering Nature Enterprises!</p>
                     <p>www.green-energy-example.com | (123) 456-7890</p>
                 </footer>
             </Card>

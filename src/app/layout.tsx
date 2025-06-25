@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: 'Green Energy',
+  title: 'Nature Enterprises',
   description: 'Your partner in renewable energy',
 };
 
