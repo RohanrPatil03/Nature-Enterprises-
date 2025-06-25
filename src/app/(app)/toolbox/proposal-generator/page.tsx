@@ -89,14 +89,14 @@ export default function ProposalGeneratorPage() {
         description: "Customer details have been saved.",
       });
       router.push('/dashboard');
-
     } catch (error) {
         console.error(error);
         toast({
             title: "Error Saving Customer",
-            description: "Could not save the customer. Please ensure your Firebase configuration in src/lib/firebase.ts is correct and try again.",
+            description: "Could not save the customer. Please try again.",
             variant: "destructive",
         });
+    } finally {
         setIsSubmitting(false);
     }
   }
@@ -290,7 +290,7 @@ export default function ProposalGeneratorPage() {
                             name="solarPanelCapacity"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel>Solar Panel Capacity</FormLabel>
+                                <FormLabel>Solar Panel Capacity (W)</FormLabel>
                                 <FormDescription>Waaree/Adani or Equivalent</FormDescription>
                                 <FormControl>
                                     <Input type="number" placeholder="540" {...field} value={field.value ?? ''} />
