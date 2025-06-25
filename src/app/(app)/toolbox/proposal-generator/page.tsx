@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -18,6 +19,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { saveProposal } from "@/services/proposalService";
 
 const proposalFormSchema = z.object({
   name: z.string().min(2, {
@@ -30,6 +33,7 @@ const proposalFormSchema = z.object({
 export default function ProposalGeneratorPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const { toast } = useToast();
   
   const form = useForm<z.infer<typeof proposalFormSchema>>({
     resolver: zodResolver(proposalFormSchema),
@@ -40,14 +44,31 @@ export default function ProposalGeneratorPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof proposalFormSchema>) {
+  async function onSubmit(values: z.infer<typeof proposalFormSchema>) {
     setIsSubmitting(true);
-    const params = new URLSearchParams({
-      name: values.name,
-      systemSize: values.systemSize.toString(),
-      monthlyBill: values.monthlyBill.toString(),
-    });
-    router.push(`/proposal?${params.toString()}`);
+    try {
+      await saveProposal(values);
+      toast({
+        title: "Success!",
+        description: "The proposal has been saved to your database.",
+      });
+
+      const params = new URLSearchParams({
+        name: values.name,
+        systemSize: values.systemSize.toString(),
+        monthlyBill: values.monthlyBill.toString(),
+      });
+      router.push(`/proposal?${params.toString()}`);
+
+    } catch (error) {
+        console.error(error);
+        toast({
+            title: "Error Saving Proposal",
+            description: "Could not save the proposal. Please ensure your Firebase configuration in src/lib/firebase.ts is correct and try again.",
+            variant: "destructive",
+        });
+        setIsSubmitting(false);
+    }
   }
 
   return (
@@ -55,7 +76,7 @@ export default function ProposalGeneratorPage() {
         <CardHeader>
             <CardTitle className="font-headline">Generate a Proposal</CardTitle>
             <CardDescription>
-                Fill in the customer's details below to generate a printable PDF proposal.
+                Fill in the customer's details below. The data will be saved automatically and a printable proposal will be generated.
             </CardDescription>
         </CardHeader>
         <CardContent>
@@ -110,10 +131,10 @@ export default function ProposalGeneratorPage() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Generating...
+                      Saving and Generating...
                     </>
                   ) : (
-                    'Generate Proposal'
+                    'Save and Generate Proposal'
                   )}
                 </Button>
               </form>
