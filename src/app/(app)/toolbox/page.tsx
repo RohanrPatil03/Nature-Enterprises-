@@ -8,18 +8,20 @@ import {
 } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, Calculator, MapPin, SunDim } from "lucide-react"
+import { ArrowUpRight, Calculator, MapPin, SunDim, FileText } from "lucide-react"
+import Link from "next/link"
 
 const tools = {
   design: [
-    { title: "PV System Sizer", description: "Calculate the optimal number of panels and inverter size for your needs.", icon: Calculator },
-    { title: "Shade Analysis Tool", description: "Estimate energy loss due to shading from nearby objects.", icon: SunDim },
-    { title: "Panel Layout Designer", description: "Visually arrange panels on a roof for maximum efficiency.", icon: MapPin },
+    { title: "PV System Sizer", description: "Calculate the optimal number of panels and inverter size for your needs.", icon: Calculator, href: "#" },
+    { title: "Shade Analysis Tool", description: "Estimate energy loss due to shading from nearby objects.", icon: SunDim, href: "#" },
+    { title: "Panel Layout Designer", description: "Visually arrange panels on a roof for maximum efficiency.", icon: MapPin, href: "#" },
   ],
   analysis: [
-    { title: "Solar ROI Calculator", description: "Estimate your return on investment and payback period.", icon: Calculator },
-    { title: "Energy Production Estimator", description: "Forecast monthly and annual energy output based on your location.", icon: SunDim },
-    { title: "Incentive Finder", description: "Discover local and federal rebates and tax credits available to you.", icon: MapPin },
+    { title: "Solar ROI Calculator", description: "Estimate your return on investment and payback period.", icon: Calculator, href: "#" },
+    { title: "Energy Production Estimator", description: "Forecast monthly and annual energy output based on your location.", icon: SunDim, href: "#" },
+    { title: "Incentive Finder", description: "Discover local and federal rebates and tax credits available to you.", icon: MapPin, href: "#" },
+    { title: "Proposal Generator", description: "Create a professional proposal for your customers.", icon: FileText, href: "/toolbox/proposal-generator" },
   ],
 }
 
@@ -27,9 +29,10 @@ type ToolCardProps = {
   title: string;
   description: string;
   icon: React.ElementType;
+  href?: string;
 };
 
-function ToolCard({ title, description, icon: Icon }: ToolCardProps) {
+function ToolCard({ title, description, icon: Icon, href = "#" }: ToolCardProps) {
     return (
         <Card className="flex flex-col">
             <CardHeader className="flex-grow">
@@ -40,7 +43,9 @@ function ToolCard({ title, description, icon: Icon }: ToolCardProps) {
                 <CardDescription>{description}</CardDescription>
             </CardHeader>
             <CardFooter>
-                <Button>Launch Tool <ArrowUpRight className="ml-2 h-4 w-4" /></Button>
+                <Button asChild>
+                    <Link href={href}>Launch Tool <ArrowUpRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
             </CardFooter>
         </Card>
     );
@@ -48,7 +53,7 @@ function ToolCard({ title, description, icon: Icon }: ToolCardProps) {
 
 export default function ToolboxPage() {
   return (
-    <Tabs defaultValue="design" className="w-full">
+    <Tabs defaultValue="analysis" className="w-full">
       <div className="flex items-center justify-between mb-4">
         <TabsList>
           <TabsTrigger value="design">Design & Sizing</TabsTrigger>
