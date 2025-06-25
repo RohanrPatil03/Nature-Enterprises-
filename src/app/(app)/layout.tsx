@@ -20,7 +20,7 @@ import {
   LayoutDashboard,
   FileText,
   Wrench,
-  Link2,
+  Users,
   MessageSquare,
 } from "lucide-react"
 
@@ -29,9 +29,8 @@ import { UserNav } from "@/components/user-nav"
 
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { href: "/documents", icon: FileText, label: "Document Library" },
+  { href: "/customers", icon: Users, label: "Customers" },
   { href: "/toolbox", icon: Wrench, label: "Toolbox" },
-  { href: "/forum", icon: MessageSquare, label: "Community Forum" },
 ]
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {

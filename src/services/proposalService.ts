@@ -1,6 +1,5 @@
-
 import { db } from '@/lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, getDocs, query, orderBy, Timestamp } from 'firebase/firestore';
 
 export interface ProposalData {
     customerType: string;
@@ -12,6 +11,27 @@ export interface ProposalData {
     monthlyBill: number;
     roofSize: number;
     panelType: string;
+}
+
+export interface ProposalDocument extends ProposalData {
+    id: string;
+    createdAt: Timestamp;
+}
+
+export async function getProposals(): Promise<ProposalDocument[]> {
+    try {
+        const proposalsCol = collection(db, "proposals");
+        const q = query(proposalsCol, orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(q);
+        const proposals: ProposalDocument[] = [];
+        querySnapshot.forEach((doc) => {
+            proposals.push({ id: doc.id, ...doc.data() } as ProposalDocument);
+        });
+        return proposals;
+    } catch (error) {
+        console.error("Error getting documents from Firestore: ", error);
+        throw new Error("Could not get proposals from Firestore.");
+    }
 }
 
 export async function saveProposal(proposalData: ProposalData): Promise<string> {

@@ -1,4 +1,6 @@
+'use client'
 
+import { useEffect, useState } from "react"
 import {
   Card,
   CardContent,
@@ -12,11 +14,30 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ArrowUpRight, Wrench, PlusCircle, Home, Building2 } from "lucide-react"
+import { ArrowUpRight, Wrench, PlusCircle, Home, Building2, Users } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { getProposals } from "@/services/proposalService"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function DashboardPage() {
+  const [customerCount, setCustomerCount] = useState(0)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchCount() {
+      try {
+        const proposals = await getProposals()
+        setCustomerCount(proposals.length)
+      } catch (error) {
+        console.error("Failed to fetch customer count", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchCount()
+  }, [])
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-end">
@@ -44,16 +65,16 @@ export default function DashboardPage() {
         </DropdownMenu>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Tools & Calculators</CardTitle>
             <Wrench className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">12</div>
+            <div className="text-2xl font-bold">2</div>
             <p className="text-xs text-muted-foreground">
-              +2 new tools added
+              Ready to use
             </p>
           </CardContent>
         </Card>
@@ -67,6 +88,22 @@ export default function DashboardPage() {
             <p className="text-xs text-muted-foreground">
               Online now
             </p>
+          </CardContent>
+        </Card>
+         <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Customers</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            {loading ? (
+              <Skeleton className="h-8 w-12" />
+            ) : (
+              <div className="text-2xl font-bold">{customerCount}</div>
+            )}
+            <Link href="/customers" className="text-xs text-muted-foreground hover:underline flex items-center">
+              View all customers <ArrowUpRight className="ml-1 h-3 w-3" />
+            </Link>
           </CardContent>
         </Card>
       </div>
