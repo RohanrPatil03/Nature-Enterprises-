@@ -7,12 +7,13 @@ import {
   CardFooter
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, FileText } from "lucide-react"
+import { ArrowUpRight, FileText, Calculator } from "lucide-react"
 import Link from "next/link"
 
 const tools = {
   analysis: [
     { title: "Proposal Generator", description: "Create a professional proposal for your customers.", icon: FileText, href: "/toolbox/proposal-generator" },
+    { title: "Solar ROI Calculator", description: "Estimate the return on investment for a solar installation.", icon: Calculator, href: "/toolbox/solar-roi-calculator" },
   ],
 }
 
