@@ -4,8 +4,12 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export interface ProposalData {
     name: string;
+    address: string;
+    load: number;
     systemSize: number;
     monthlyBill: number;
+    roofSize: number;
+    panelType: string;
 }
 
 export async function saveProposal(proposalData: ProposalData): Promise<string> {

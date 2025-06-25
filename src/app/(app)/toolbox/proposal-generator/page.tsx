@@ -17,6 +17,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -26,8 +27,14 @@ const proposalFormSchema = z.object({
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.',
   }),
+  address: z.string().min(5, {
+    message: 'Please enter a valid address.',
+  }),
+  load: z.coerce.number().positive({ message: 'Load must be a positive number.' }),
   systemSize: z.coerce.number().positive({ message: 'System size must be a positive number.' }),
   monthlyBill: z.coerce.number().positive({ message: 'Monthly bill must be a positive number.' }),
+  roofSize: z.coerce.number().positive({ message: 'Roof size must be a positive number.' }),
+  panelType: z.string().min(1, { message: 'Please select a panel type.' }),
 });
 
 export default function ProposalGeneratorPage() {
@@ -39,8 +46,12 @@ export default function ProposalGeneratorPage() {
     resolver: zodResolver(proposalFormSchema),
     defaultValues: {
       name: '',
+      address: '',
+      load: undefined,
       systemSize: undefined,
       monthlyBill: undefined,
+      roofSize: undefined,
+      panelType: '',
     },
   });
 
@@ -54,9 +65,7 @@ export default function ProposalGeneratorPage() {
       });
 
       const params = new URLSearchParams({
-        name: values.name,
-        systemSize: values.systemSize.toString(),
-        monthlyBill: values.monthlyBill.toString(),
+        ...Object.fromEntries(Object.entries(values).map(([key, value]) => [key, String(value)])),
       });
       router.push(`/proposal?${params.toString()}`);
 
@@ -95,38 +104,104 @@ export default function ProposalGeneratorPage() {
                     </FormItem>
                   )}
                 />
-                <FormField
-                  control={form.control}
-                  name="systemSize"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>System Size (kW)</FormLabel>
-                      <FormControl>
-                        <Input type="number" placeholder="5" {...field} step="0.1" />
-                      </FormControl>
-                       <FormDescription>
-                        Enter the total kilowatt capacity of the solar panel system.
-                      </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
                  <FormField
                   control={form.control}
-                  name="monthlyBill"
+                  name="address"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Average Monthly Electricity Bill (₹)</FormLabel>
+                      <FormLabel>Customer Address</FormLabel>
                       <FormControl>
-                        <Input type="number" placeholder="10000" {...field} />
+                        <Input placeholder="123 Solar Lane, Sun City" {...field} />
                       </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <FormField
+                    control={form.control}
+                    name="load"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Connected Load (kW)</FormLabel>
+                        <FormControl>
+                          <Input type="number" placeholder="3" {...field} step="0.1" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="monthlyBill"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Average Monthly Bill (₹)</FormLabel>
+                        <FormControl>
+                          <Input type="number" placeholder="10000" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                   <FormField
+                    control={form.control}
+                    name="roofSize"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Roof Size (sq. ft.)</FormLabel>
+                        <FormControl>
+                          <Input type="number" placeholder="600" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                   <FormField
+                    control={form.control}
+                    name="systemSize"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Proposed System Size (kW)</FormLabel>
+                        <FormControl>
+                          <Input type="number" placeholder="5" {...field} step="0.1" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="panelType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Panel Type</FormLabel>
+                       <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a panel type" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Monocrystalline">Monocrystalline</SelectItem>
+                          <SelectItem value="Polycrystalline">Polycrystalline</SelectItem>
+                          <SelectItem value="Thin-Film">Thin-Film</SelectItem>
+                        </SelectContent>
+                      </Select>
                       <FormDescription>
-                        Enter the customer's average monthly bill in Indian Rupees.
+                        Choose the type of solar panel for the installation.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+
                 <Button type="submit" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>

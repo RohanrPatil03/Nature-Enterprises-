@@ -18,8 +18,12 @@ function ProposalContent() {
   }, []);
 
   const name = searchParams.get('name') || 'N/A';
+  const address = searchParams.get('address') || 'N/A';
+  const load = parseFloat(searchParams.get('load') || '0');
   const systemSize = parseFloat(searchParams.get('systemSize') || '0');
   const monthlyBill = parseFloat(searchParams.get('monthlyBill') || '0');
+  const roofSize = parseFloat(searchParams.get('roofSize') || '0');
+  const panelType = searchParams.get('panelType') || 'N/A';
   
   const systemCost = systemSize * 70000; // Example: ₹70,000 per kW
   const yearlySavings = monthlyBill * 12;
@@ -48,28 +52,53 @@ function ProposalContent() {
                 
                 <section className="my-8">
                     <h2 className="text-xl font-semibold font-headline mb-2">Prepared For:</h2>
-                    <p className="text-lg">{name}</p>
+                    <p className="text-lg font-bold">{name}</p>
+                    <p className="text-muted-foreground">{address}</p>
+                </section>
+
+                <Separator className="my-8" />
+                
+                <section>
+                    <h2 className="text-2xl font-bold font-headline mb-6 text-center text-primary">Site & System Details</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div className="rounded-lg border bg-card text-card-foreground p-4">
+                            <h3 className="text-sm text-muted-foreground font-medium">Connected Load</h3>
+                            <p className="text-2xl font-bold">{load.toFixed(1)} kW</p>
+                        </div>
+                         <div className="rounded-lg border bg-card text-card-foreground p-4">
+                            <h3 className="text-sm text-muted-foreground font-medium">Roof Size</h3>
+                            <p className="text-2xl font-bold">{roofSize.toLocaleString('en-IN')} sq. ft.</p>
+                        </div>
+                        <div className="rounded-lg border bg-card text-card-foreground p-4">
+                            <h3 className="text-sm text-muted-foreground font-medium">Proposed System</h3>
+                            <p className="text-2xl font-bold">{systemSize.toFixed(1)} kW</p>
+                        </div>
+                        <div className="rounded-lg border bg-card text-card-foreground p-4">
+                            <h3 className="text-sm text-muted-foreground font-medium">Panel Type</h3>
+                            <p className="text-2xl font-bold">{panelType}</p>
+                        </div>
+                    </div>
                 </section>
 
                 <Separator className="my-8" />
 
                 <section>
-                    <h2 className="text-2xl font-bold font-headline mb-6 text-center text-primary">System Overview & Financials</h2>
+                    <h2 className="text-2xl font-bold font-headline mb-6 text-center text-primary">Financial Overview</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                         <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg text-muted-foreground font-medium">System Size</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-3xl font-bold">{systemSize.toFixed(1)} kW</p>
-                            </CardContent>
-                        </Card>
-                         <Card>
                             <CardHeader>
                                 <CardTitle className="text-lg text-muted-foreground font-medium">Estimated Cost</CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <p className="text-3xl font-bold">₹{systemCost.toLocaleString('en-IN')}</p>
+                            </CardContent>
+                        </Card>
+                         <Card>
+                            <CardHeader>
+                                <CardTitle className="text-lg text-muted-foreground font-medium">Yearly Savings</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-3xl font-bold">₹{yearlySavings.toLocaleString('en-IN')}</p>
                             </CardContent>
                         </Card>
                          <Card>
