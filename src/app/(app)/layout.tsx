@@ -19,7 +19,6 @@ import {
 
 import {
   LayoutDashboard,
-  FileText,
   Wrench,
   Users,
 } from "lucide-react"
@@ -30,7 +29,6 @@ import { UserNav } from "@/components/user-nav"
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/customers", icon: Users, label: "Customers" },
-  { href: "/documents", icon: FileText, label: "Documents" },
   { href: "/toolbox", icon: Wrench, label: "Toolbox" },
 ]
 
