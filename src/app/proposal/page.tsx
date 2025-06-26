@@ -153,6 +153,10 @@ function ProposalContent() {
                     </div>
                 </header>
 
+                <div className="text-center my-4">
+                    <p className="font-bold text-red-600 tracking-wider">CONFIDENTIAL</p>
+                </div>
+                
                 <section className="mt-8 flex justify-between">
                     <div>
                         <p className="font-bold">To: {name}</p>
@@ -162,14 +166,14 @@ function ProposalContent() {
                         <p><span className="font-bold">Date:</span> {currentDate || '...'}</p>
                     </div>
                 </section>
-                
-                <div className="text-center my-4">
-                    <p className="font-bold text-red-600 tracking-wider">CONFIDENTIAL</p>
-                </div>
 
+                <div className="mt-6">
+                    <p><span className="font-bold">Subject:</span> Proposal for a {systemSize.toFixed(2)}kW Rooftop Solar System</p>
+                </div>
+                
                 <section className="mt-6 space-y-4 text-gray-800 leading-relaxed text-justify">
                     <p>Hello Sir/Madam,</p>
-                    <p>Thank you for taking interest in investing in solar energy. We are Indian Solar Energy business with <span className="font-bold">local presence since 2016</span>. We have helped over <span className="font-bold">500 customers</span> harness solar energy to reduce their energy bills and save environment. We strongly believe in working to improve living standards of poor and middle-class families across India. We are doing this by generating local employment for unemployed youth and by <span className="font-bold">conveniently providing affordable & reliable</span> solar energy solutions.</p>
+                    <p>Thank you for taking interest in investing in solar energy. We are an Indo-Australian Solar Energy business with <span className="font-bold">local presence since 2016</span>. We have helped over <span className="font-bold">500 customers</span> harness solar energy to reduce their energy bills and save environment. We strongly believe in working to improve living standards of poor and middle-class families across India. We are doing this by generating local employment for unemployed youth and by <span className="font-bold">conveniently providing affordable & reliable</span> solar energy solutions.</p>
                     <p>Together we can make difference to Global Warming. This is a <span className="font-bold">long-term investment</span> and a project that will help not only you, but also the movement towards a sustainable energy future. Producing <span className="font-bold">your own clean energy</span> is a major step to having an energy-independence, a future which draws closer each day.</p>
                     <p>As the cost of energy from power grids continues to rise each year, many businesses/households are seeking long-term alternatives to reduce their energy bills. Solar energy is a <span className="font-bold">great alternative</span> to the power from the electricity grid and saves thousands of rupees substantially in the long run while also benefiting the environment.</p>
                     <p>We have conducted a detailed study of your energy requirements, site details, sunlight at the site to design a solar energy equipment. In this proposal, we have included details regarding the expected impact that a Solar system will have on your overall energy costs. You'll also find information showing payback period of the system given your current and projected energy use, and what your savings beyond that point will be.</p>
