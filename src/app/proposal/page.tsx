@@ -517,7 +517,7 @@ function ProposalContent() {
                             </tr>
                             <tr className="border-b border-gray-300 align-top">
                                 <td className="p-2 border-r border-gray-300 font-semibold">Subsidy</td>
-                                <td className="p-2">The CFA/subsidy will be available only for residential applications registered till 31.03.2025 in the National Portal and will be released by Central Govt after clearance by inspecting authority (DISCOM) on successful commissioning and installation of metering system as per specified procedure. The CFA is not be applicable with retrospective effect. Subsidy will be released by the Government based on their schedule that is outside our control. Therefore, Affordable Energy shall not be responsible for the subsidy payment. Our scope is limited only to apply & submit documents required for the subsidy claim as per Government rule on National Portal.</td>
+                                <td className="p-2">The CFA/subsidy will be available only for residential applications registered till 31.03.2025 in the National Portal and will be released by Central Govt after clearance by inspecting authority (DISCOM) on successful commissioning and installation of metering system as per specified procedure. The CFA is not be applicable with retrospective effect. Subsidy will be released by the Government based on their schedule that is outside our control. Therefore, Nature Enterprises shall not be responsible for the subsidy payment. Our scope is limited only to apply & submit documents required for the subsidy claim as per Government rule on National Portal.</td>
                             </tr>
                             <tr className="border-b border-gray-300 align-top">
                                 <td className="p-2 border-r border-gray-300 font-semibold">Taxes & Duties</td>
@@ -652,19 +652,56 @@ function ProposalContent() {
                 
                 <section className="flex justify-center my-16">
                     <div className="grid grid-cols-3 grid-rows-3 gap-x-8 gap-y-12 w-full max-w-2xl items-center text-gray-700">
-                        <div className="text-center font-bold uppercase">CONSULT<br/>WITH YOU</div>
-                        <div className="text-center font-bold uppercase">DEVELOP<br/>SOLUTION</div>
-                        <div className="text-center font-bold uppercase">MAKE<br/>RECOMMENDATIONS</div>
-                        
-                        <div className="text-center font-bold uppercase">REMOTE<br/>MONITORING</div>
-                        <div className="flex justify-center items-center p-4 bg-gray-100 rounded-full border-4 border-gray-300 shadow-md">
-                             <Logo showText={false} />
+                        {/* Row 1 */}
+                        {/* Step 1 */}
+                        <div className="text-center font-bold uppercase">
+                            <span className="text-2xl text-primary font-headline">1.</span>
+                            <p className="mt-1">CONSULT<br/>WITH YOU</p>
                         </div>
-                        <div className="text-center font-bold uppercase">DESIGN, FABRICATE<br/>& INSTALL</div>
+                        {/* Step 2 */}
+                        <div className="text-center font-bold uppercase">
+                            <span className="text-2xl text-primary font-headline">2.</span>
+                            <p className="mt-1">DEVELOP<br/>SOLUTION</p>
+                        </div>
+                        {/* Step 3 */}
+                        <div className="text-center font-bold uppercase">
+                            <span className="text-2xl text-primary font-headline">3.</span>
+                            <p className="mt-1">MAKE<br/>RECOMMENDATIONS</p>
+                        </div>
+
+                        {/* Row 2 */}
+                        {/* Step 8 */}
+                        <div className="text-center font-bold uppercase">
+                            <span className="text-2xl text-primary font-headline">8.</span>
+                            <p className="mt-1">REMOTE<br/>MONITORING</p>
+                        </div>
                         
-                        <div className="text-center font-bold uppercase">ON-GOING<br/>MAINTENANCE</div>
-                        <div className="text-center font-bold uppercase">ON-SITE<br/>MANAGEMENT</div>
-                        <div className="text-center font-bold uppercase">TEST, COMMISSION<br/>& TRAINING</div>
+                        <div className="flex justify-center items-center p-4 bg-gray-100 rounded-full border-4 border-gray-300 shadow-md">
+                            <Logo showText={false} />
+                        </div>
+                        
+                        {/* Step 4 */}
+                        <div className="text-center font-bold uppercase">
+                            <span className="text-2xl text-primary font-headline">4.</span>
+                            <p className="mt-1">DESIGN, FABRICATE<br/>& INSTALL</p>
+                        </div>
+
+                        {/* Row 3 */}
+                        {/* Step 7 */}
+                        <div className="text-center font-bold uppercase">
+                            <span className="text-2xl text-primary font-headline">7.</span>
+                            <p className="mt-1">ON-GOING<br/>MAINTENANCE</p>
+                        </div>
+                        {/* Step 6 */}
+                        <div className="text-center font-bold uppercase">
+                            <span className="text-2xl text-primary font-headline">6.</span>
+                            <p className="mt-1">ON-SITE<br/>MANAGEMENT</p>
+                        </div>
+                        {/* Step 5 */}
+                        <div className="text-center font-bold uppercase">
+                            <span className="text-2xl text-primary font-headline">5.</span>
+                            <p className="mt-1">TEST, COMMISSION<br/>& TRAINING</p>
+                        </div>
                     </div>
                 </section>
 
