@@ -539,6 +539,34 @@ function ProposalContent() {
                 </footer>
             </main>
 
+            {/* Page 8 */}
+            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4">
+                    <div></div>
+                    <div className="w-1/4">
+                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                    </div>
+                </header>
+                <div className="text-center my-4">
+                    <h2 className="text-lg font-bold text-red-600 tracking-wide">Benefits of going solar with us</h2>
+                </div>
+                <section className="mt-8 space-y-4 text-gray-800 leading-relaxed text-justify text-sm">
+                    <p><span className="font-bold">1. Experienced company working since 2016 in Solar Industry</span> - We believe in Integrity, Respect & Win-Win business practices. We have served 500+ happy customers till date with our best-in-class solar systems and reliable after sales services. We are Affordable at the same time Convenient & Reliable.</p>
+                    <p><span className="font-bold">2. We will save you money</span> - While there are up-front costs, our customised design ensures utilisation of the last ray of sunlight to minimise your energy bills. With combined over 40 years of experience, our design and finance teams evaluate multiple designs to explore and identify right design that will deliver best return on investment for our customers. In most cases, you will recover your investment in less than three years.</p>
+                    <p><span className="font-bold">3. We make it convenient for you</span> - Our unique business model ensures hassle free delivery and operation of the solar systems supplied by us. There is good chance of having our friendly distributor or installer right near you to ensure timely support. Many times, you don't have to call support number but walk/drive to our representative near you.</p>
+                    <p><span className="font-bold">4. Our people and equipment is highly reliable</span> - We use best quality material around the world to build solar systems for our customers. This is supported with the world class customer service from our employees. This will ensure smooth project delivery and reliable operation of the equipment the equipment supplied by us.</p>
+                    <p><span className="font-bold">5. Our local support will give you peace of mind</span> - In most cases there will be a local support person near you whom you can talk face-to-face about the support you need. There is no need to talk to the machines to get the support.</p>
+                    <p><span className="font-bold">6. Talk to our customers before you decide</span> - We highly recommend you talking to our customers and physically having a look at our projects. Our customers will tell you about the quality of our services while our equipment quality will talk for itself.</p>
+                    <p><span className="font-bold">7. We help you to get finance for your solar solutions</span> - Our strong relationships with local MFIs and nationalised banks will help you in getting the loan for your solar system. With nationalised banks, you can avail loans at subsidised rates.</p>
+                    <p><span className="font-bold">8. Not enough capital! No issue</span> - We can offer our solar solutions on instalments to ensure your daily life spending is not disturbed. Talk to us if you need more information. Our modularised design gets you started with very small investment that you can expand as you go.</p>
+                    <p><span className="font-bold">9. Insure your system and be worry free</span> - Our obligation free insurance will provide you peace of mind in case of damage to your solar system. Talk to us if you need to protect your system.</p>
+                </section>
+                <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
+                    <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "अफोर्डेबल सोलार एनर्जी" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 8 of 10</p>
+                </footer>
+            </main>
+
         </div>
     </div>
   );
