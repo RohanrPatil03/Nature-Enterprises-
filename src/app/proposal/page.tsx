@@ -200,10 +200,9 @@ function ProposalContent() {
 
             {/* Page 3 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4">
-                    <div></div>
-                    <div className="w-1/4">
-                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                 <header className="flex justify-end items-start pb-4">
+                    <div className="w-1/3">
+                        <Logo />
                     </div>
                 </header>
 
@@ -264,10 +263,9 @@ function ProposalContent() {
 
             {/* Page 4 - Placeholder */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4">
-                    <div></div>
-                    <div className="w-1/4">
-                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                 <header className="flex justify-end items-start pb-4">
+                    <div className="w-1/3">
+                        <Logo />
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -280,10 +278,9 @@ function ProposalContent() {
 
             {/* Page 5 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4">
-                    <div></div>
-                    <div className="w-1/4">
-                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                 <header className="flex justify-end items-start pb-4">
+                    <div className="w-1/3">
+                        <Logo />
                     </div>
                 </header>
 
@@ -322,10 +319,9 @@ function ProposalContent() {
             
             {/* Page 6 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4">
-                    <div></div>
-                    <div className="w-1/4">
-                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                 <header className="flex justify-end items-start pb-4">
+                    <div className="w-1/3">
+                        <Logo />
                     </div>
                 </header>
 
@@ -447,10 +443,9 @@ function ProposalContent() {
 
             {/* Page 7 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4">
-                    <div></div>
-                    <div className="w-1/4">
-                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                 <header className="flex justify-end items-start pb-4">
+                    <div className="w-1/3">
+                        <Logo />
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -563,10 +558,9 @@ function ProposalContent() {
 
             {/* Page 8 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4">
-                    <div></div>
-                    <div className="w-1/4">
-                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                 <header className="flex justify-end items-start pb-4">
+                    <div className="w-1/3">
+                        <Logo />
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -591,10 +585,9 @@ function ProposalContent() {
 
             {/* Page 9 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4">
-                    <div></div>
-                    <div className="w-1/4">
-                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                 <header className="flex justify-end items-start pb-4">
+                    <div className="w-1/3">
+                        <Logo />
                     </div>
                 </header>
                 <div className="text-center my-8">
@@ -608,8 +601,8 @@ function ProposalContent() {
                         <div className="text-center font-bold uppercase">MAKE<br/>RECOMMENDATIONS</div>
                         
                         <div className="text-center font-bold uppercase">REMOTE<br/>MONITORING</div>
-                        <div className="p-4 bg-gray-100 rounded-full border-4 border-gray-300 shadow-md">
-                             <img src="/logo-affordable.png" alt="Affordable Energy Logo" className="w-full" />
+                        <div className="flex justify-center items-center p-4 bg-gray-100 rounded-full border-4 border-gray-300 shadow-md">
+                             <Logo showText={false} />
                         </div>
                         <div className="text-center font-bold uppercase">DESIGN, FABRICATE<br/>& INSTALL</div>
                         
@@ -631,10 +624,9 @@ function ProposalContent() {
 
             {/* Page 10 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4">
-                    <div></div>
-                    <div className="w-1/4">
-                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                 <header className="flex justify-end items-start pb-4">
+                    <div className="w-1/3">
+                        <Logo />
                     </div>
                 </header>
                 <div className="text-center my-4">

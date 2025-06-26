@@ -1,6 +1,8 @@
-export function Logo() {
+import { cn } from "@/lib/utils";
+
+export function Logo({ showText = true }: { showText?: boolean }) {
   return (
-    <div className="flex items-center gap-3 font-headline font-bold text-xl group" aria-label="Nature Enterprises">
+    <div className={cn("flex items-center font-headline font-bold text-xl group", { "gap-3": showText })} aria-label="Nature Enterprises">
       <div className="p-2 bg-primary text-primary-foreground rounded-lg transition-transform duration-300 ease-in-out group-hover:scale-110">
         <svg
           className="w-6 h-6"
@@ -29,7 +31,7 @@ export function Logo() {
           />
         </svg>
       </div>
-      <span className="group-data-[state=collapsed]:hidden">Nature Enterprises</span>
+      {showText && <span className="group-data-[state=collapsed]:hidden">Nature Enterprises</span>}
     </div>
   )
 }
