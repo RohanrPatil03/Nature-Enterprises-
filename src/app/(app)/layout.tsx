@@ -1,3 +1,4 @@
+
 "use client"
 
 import Link from "next/link"
@@ -21,7 +22,6 @@ import {
   FileText,
   Wrench,
   Users,
-  MessageSquare,
 } from "lucide-react"
 
 import { Logo } from "@/components/logo"
@@ -32,7 +32,6 @@ const navItems = [
   { href: "/customers", icon: Users, label: "Customers" },
   { href: "/documents", icon: FileText, label: "Documents" },
   { href: "/toolbox", icon: Wrench, label: "Toolbox" },
-  { href: "/forum", icon: MessageSquare, label: "Forum" },
 ]
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -49,7 +48,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const currentNavItem = navItems.find(item => getIsActive(item.href));
 
   const getPageTitle = () => {
-    if (pathname === '/forum') return 'Community Forum';
     if (currentNavItem) return currentNavItem.label;
     return 'Solar Resource Hub';
   }
