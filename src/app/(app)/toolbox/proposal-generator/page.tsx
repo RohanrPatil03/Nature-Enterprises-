@@ -31,6 +31,7 @@ const proposalFormSchema = z.object({
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.',
   }),
+  consumerNumber: z.string().min(1, { message: 'Please enter a consumer number.' }),
   connectionType: z.string().min(1, { message: 'Please select a connection type.' }),
   address: z.string().min(5, {
     message: 'Please enter a valid address.',
@@ -55,6 +56,7 @@ export default function ProposalGeneratorPage() {
     defaultValues: {
       customerType: customerTypeParam === 'Commercial' ? 'Commercial' : 'Residential',
       name: '',
+      consumerNumber: '',
       connectionType: '',
       address: '',
       load: undefined,
@@ -145,6 +147,24 @@ export default function ProposalGeneratorPage() {
                     </FormItem>
                   )}
                 />
+
+                <FormField
+                  control={form.control}
+                  name="consumerNumber"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Consumer Number</FormLabel>
+                      <FormControl>
+                        <Input placeholder="284840008604" {...field} />
+                      </FormControl>
+                      <FormDescription>
+                        Enter the customer's consumer number(s), separated by commas if multiple.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name="connectionType"

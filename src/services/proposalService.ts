@@ -4,6 +4,7 @@ import { collection, addDoc, serverTimestamp, getDocs, query, orderBy, Timestamp
 export interface ProposalData {
     customerType: string;
     name: string;
+    consumerNumber: string;
     connectionType: string;
     address: string;
     load: number;

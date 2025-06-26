@@ -19,6 +19,11 @@ function ProposalContent() {
   const name = searchParams.get('name') || 'N/A';
   const address = searchParams.get('address') || 'N/A';
   const systemSize = parseFloat(searchParams.get('systemSize') || '0');
+  const consumerNumber = searchParams.get('consumerNumber') || 'N/A';
+  const load = parseFloat(searchParams.get('load') || '0');
+  const connectionType = searchParams.get('connectionType') || 'N/A';
+  const customerType = searchParams.get('customerType') || 'N/A';
+  const monthlyBill = parseFloat(searchParams.get('monthlyBill') || '0');
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8 flex justify-center print:bg-white">
@@ -124,6 +129,71 @@ function ProposalContent() {
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 10</p>
                 </footer>
             </main>
+
+            {/* Page 3 */}
+            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4">
+                    <div></div>
+                    <div className="w-1/4">
+                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                    </div>
+                </header>
+
+                <div className="text-center my-4">
+                    <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Project Feasibility Report (DPR)</h2>
+                </div>
+
+                <section className="mt-8">
+                    <h3 className="font-bold text-blue-800 mb-2">Customer Details</h3>
+                    <table className="w-full border-collapse border border-gray-300 text-left">
+                        <tbody>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-r border-gray-300 font-semibold w-1/3">Customer Name ग्राहकाचे नाव:</td>
+                                <td className="p-2">{name}</td>
+                            </tr>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Consumer Number ग्राहक क्रमांक:</td>
+                                <td className="p-2">{consumerNumber}</td>
+                            </tr>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Sanctioned Load:</td>
+                                <td className="p-2">{load.toFixed(2)}KW</td>
+                            </tr>
+                             <tr className="border-b border-gray-300">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Connection Type:</td>
+                                <td className="p-2">{connectionType}</td>
+                            </tr>
+                             <tr className="border-b border-gray-300">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Consumer Category:</td>
+                                <td className="p-2">{customerType}</td>
+                            </tr>
+                             <tr>
+                                <td className="p-2 border-r border-gray-300 font-semibold">Avg. Monthly Bill:</td>
+                                <td className="p-2">₹{monthlyBill.toLocaleString('en-IN')}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section className="mt-8">
+                    <h3 className="font-bold text-blue-800 mb-2">Report Summary</h3>
+                    <div className="space-y-4 text-gray-800 leading-relaxed text-justify">
+                        <p>A basic study was carried out to understand energy requirements of {name}, {address}. The available solar irradiation at the site and using our proprietary tools we have calculated suitable solar options that can be installed on the site based on the available roof space for renewable energy installation.</p>
+                        <p>Considering solar irradiation data at site and average electricity consumption required the customer has been recommended to <span className="font-bold">install a {systemSize.toFixed(2)}kW solar system.</span> This system will meet current demand while delivering <span className="font-bold">1140% ROI</span> (simple Return on investment) and <span className="font-bold">2.2 years to payback</span> at <span className="font-bold">57% IRR</span> (Internal rate of return). We believe this system will <span className="font-bold">save you over ₹34,20,649 over 25 years.</span> Please note typical life of solar panels is about 40 years. Please note average consumption is much lower than the designed capacity. Therefore, the actual returns will be higher than the above numbers.</p>
+                        <p>The investment for solar equipment will be <span className="font-bold">₹3,00,000.</span> Considering annual electricity saving of <span className="font-bold">₹74,655</span> and accelerated depreciation/subsidy of <span className="font-bold">₹78,000,</span> the net investment during the first year will be <span className="font-bold">₹1,47,345.</span></p>
+                        <p>Current average monthly bill is ₹{monthlyBill.toLocaleString('en-IN')} and average monthly energy bill with solar will be <span className="font-bold">₹0.00</span> (Note: Only Energy charges considered. Customer may still have to pay fixed charges of Utility Company and excess energy usage beyond design capacity of solar system)</p>
+                        <p>We recommend using net metering in this project as the client has most use during summer months. This will save cost associated with the batteries and increase return on the investment.</p>
+                        <p>{name}, {address} यांचा वीज वापर समजून घेण्यासाठी बेसिक स्टडी करण्यात आला. त्यांची वीजेची गरज, जागेवर मिळणारी सौर ऊर्जा व उपलब्ध जागा या माहितीवरून आमचे प्रोप्रायटरी टूल्स वापरून आम्ही त्यांना लागणाऱ्या योग्य सौर ऊर्जा उपकरणाची शिफारस करत आहोत. या कपॅसिटीचे उपकरण व आमची मूल्यवर्धित सेवा आपल्याला आपल्या गुंतवणुकीवर जास्तीत जास्त परतावा मिळवुन देईल.</p>
+                        <p>जागेवर मिळणारी सौर उर्जा व सरासरी वीज वापर याचा विचार करून आपल्याला {systemSize.toFixed(2)}kW कपॅसिटीचे सौर विजनिर्मिती उपकरण बसवण्याची शिफारस करत आहोत. या कपॅसिटीचे उपकरण आम्ही दिलेल्या किंमतीत घेतल्यास ते तुमची सध्याची</p>
+                    </div>
+                </section>
+                
+                <footer className="mt-12 pt-4 text-center relative">
+                    <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 10</p>
+                </footer>
+            </main>
+
         </div>
     </div>
   );
