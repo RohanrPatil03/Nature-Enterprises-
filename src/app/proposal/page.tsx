@@ -29,31 +29,61 @@ const handleSavePdf = () => {
     }
 };
 
+interface ProposalRenderData {
+    name: string;
+    address: string;
+    systemSize: number;
+    consumerNumber: string;
+    load: number;
+    connectionType: string;
+    customerType: string;
+    monthlyBill: number;
+    roofSize: number;
+    installationLocation: string;
+    inverterCapacity: string;
+    designInstallationCost: number;
+    incentives: number;
+    ppaProcessingCost: number;
+    gstPercentage: number;
+}
+
 function ProposalContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [currentDate, setCurrentDate] = useState('');
+  const [data, setData] = useState<ProposalRenderData | null>(null);
 
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString('en-GB'));
-  }, []);
+    
+    setData({
+        name: searchParams.get('name') || 'N/A',
+        address: searchParams.get('address') || 'N/A',
+        systemSize: parseFloat(searchParams.get('systemSize') || '0'),
+        consumerNumber: searchParams.get('consumerNumber') || 'N/A',
+        load: parseFloat(searchParams.get('load') || '0'),
+        connectionType: searchParams.get('connectionType') || 'N/A',
+        customerType: searchParams.get('customerType') || 'N/A',
+        monthlyBill: parseFloat(searchParams.get('monthlyBill') || '0'),
+        roofSize: parseFloat(searchParams.get('roofSize') || '0'),
+        installationLocation: searchParams.get('installationLocation') || 'Roof Mounted',
+        inverterCapacity: searchParams.get('inverterCapacity') || '5.00kW',
+        designInstallationCost: parseFloat(searchParams.get('systemCost') || '0'),
+        incentives: parseFloat(searchParams.get('incentives') || '0'),
+        ppaProcessingCost: parseFloat(searchParams.get('ppaProcessingCost') || '0'),
+        gstPercentage: parseFloat(searchParams.get('gstPercentage') || '0'),
+    });
+  }, [searchParams]);
 
-  const name = searchParams.get('name') || 'N/A';
-  const address = searchParams.get('address') || 'N/A';
-  const systemSize = parseFloat(searchParams.get('systemSize') || '0');
-  const consumerNumber = searchParams.get('consumerNumber') || 'N/A';
-  const load = parseFloat(searchParams.get('load') || '0');
-  const connectionType = searchParams.get('connectionType') || 'N/A';
-  const customerType = searchParams.get('customerType') || 'N/A';
-  const monthlyBill = parseFloat(searchParams.get('monthlyBill') || '0');
-  const roofSize = parseFloat(searchParams.get('roofSize') || '0');
-  const installationLocation = searchParams.get('installationLocation') || 'Roof Mounted';
-  const inverterCapacity = searchParams.get('inverterCapacity') || '5.00kW';
+  if (!data) {
+    return <ProposalSkeleton />;
+  }
 
-  const designInstallationCost = parseFloat(searchParams.get('systemCost') || '0');
-  const incentives = parseFloat(searchParams.get('incentives') || '0');
-  const ppaProcessingCost = parseFloat(searchParams.get('ppaProcessingCost') || '0');
-  const gstPercentage = parseFloat(searchParams.get('gstPercentage') || '0');
+  const { 
+    name, address, systemSize, consumerNumber, load, connectionType, customerType,
+    monthlyBill, roofSize, installationLocation, inverterCapacity,
+    designInstallationCost, incentives, ppaProcessingCost, gstPercentage 
+  } = data;
 
   // Constants for calculations
   const COST_PER_UNIT = 10.05;
@@ -685,7 +715,10 @@ function ProposalSkeleton() {
     return (
         <div className="min-h-screen bg-gray-50 p-4 sm:p-8 flex justify-center">
             <div className="w-full max-w-4xl space-y-6">
-                <Skeleton className="h-10 w-48 ml-auto" />
+                <div className="flex justify-between items-center p-6 print:hidden">
+                    <Skeleton className="h-10 w-32" />
+                    <Skeleton className="h-10 w-48" />
+                </div>
                 <div className="p-4 sm:p-8 md:p-12 border rounded-lg bg-white">
                     <div className="flex justify-between items-start pb-8 border-b">
                         <div>
@@ -720,3 +753,5 @@ export default function ProposalPage() {
     </Suspense>
   )
 }
+
+    
