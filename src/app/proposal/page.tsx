@@ -49,7 +49,6 @@ interface ProposalRenderData {
 
 function ProposalContent() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [currentDate, setCurrentDate] = useState('');
   const [data, setData] = useState<ProposalRenderData | null>(null);
 
@@ -75,7 +74,7 @@ function ProposalContent() {
         ppaProcessingCost: parseFloat(params.get('ppaProcessingCost') || '0'),
         gstPercentage: parseFloat(params.get('gstPercentage') || '0'),
     });
-  }, [searchParams]);
+  }, []);
 
   if (!data) {
     return <ProposalSkeleton />;
@@ -223,7 +222,7 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
-                    <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "अफोर्डेबल सोलार एनर्जी" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                    <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 8</p>
                 </footer>
             </main>
@@ -380,7 +379,7 @@ function ProposalContent() {
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing & Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(ppaProcessingCost)}</td></tr>
                             <tr className="border-b-2 border-gray-400"><td className="p-2 border-x border-gray-300 font-semibold">System Cost</td><td className="p-2 border-x border-gray-300 text-right font-semibold">{formatCurrency(tableSystemCost)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST @ {gstPercentage}% (70:30 ratio for Goods & Services)</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(gstAmount)}</td></tr>
-                            <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Amount Payable to Affordable Solar Energy</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(amountPayable)}</td></tr>
+                            <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Amount Payable to Nature Enterprises</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(amountPayable)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Rebate/Subsidy from Government</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(incentives)}</td></tr>
                             <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Real Cost to the Customer</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(realCostToCustomer)}</td></tr>
                         </tbody>
@@ -472,7 +471,7 @@ function ProposalContent() {
                 
 
                 <footer className="mt-12 pt-4 text-center relative">
-                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "अफोर्डेबल सोलार एनर्जी" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 8</p>
                 </footer>
             </main>
@@ -628,7 +627,7 @@ function ProposalContent() {
                     <p><span className="font-bold">9. Insure your system and be worry free</span> - Our obligation free insurance will provide you peace of mind in case of damage to your solar system. Talk to us if you need to protect your system.</p>
                 </section>
                 <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
-                    <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "अफोर्डेबल सोलार एनर्जी" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                    <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 8</p>
                 </footer>
             </main>
@@ -670,7 +669,7 @@ function ProposalContent() {
                 </section>
 
                 <section className="mt-24 text-xs text-red-600 text-justify space-y-1">
-                    <p>Please note this document contains confidential and/or privileged information for the sole use of the intended recipient(s). All electronically supplied data must be checked against an applicable hardcopy version which shall be the only document which Affordable Solar Energy Pvt Ltd warrants accuracy. If you are not the intended recipient, any use, distribution or copying of the information contained in this document is strictly prohibited. If you have received this document in error, please return the sender, immediately delete and destroy any copies of this document. The information provided in this document is solely based on the data provided by the recipient at this point of time. All values are determined mathematically based on standardised conditions. The actual operating results will be dictated significantly by the actual irradiation conditions, the actual efficiency, operating conditions and individual consumption behaviour and can deviate from the calculated results.</p>
+                    <p>Please note this document contains confidential and/or privileged information for the sole use of the intended recipient(s). All electronically supplied data must be checked against an applicable hardcopy version which shall be the only document which Nature Enterprises warrants accuracy. If you are not the intended recipient, any use, distribution or copying of the information contained in this document is strictly prohibited. If you have received this document in error, please return the sender, immediately delete and destroy any copies of this document. The information provided in this document is solely based on the data provided by the recipient at this point of time. All values are determined mathematically based on standardised conditions. The actual operating results will be dictated significantly by the actual irradiation conditions, the actual efficiency, operating conditions and individual consumption behaviour and can deviate from the calculated results.</p>
                 </section>
 
                 <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
