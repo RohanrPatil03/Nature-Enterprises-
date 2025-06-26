@@ -24,6 +24,45 @@ function ProposalContent() {
   const connectionType = searchParams.get('connectionType') || 'N/A';
   const customerType = searchParams.get('customerType') || 'N/A';
   const monthlyBill = parseFloat(searchParams.get('monthlyBill') || '0');
+  const roofSize = parseFloat(searchParams.get('roofSize') || '0');
+  const systemCost = parseFloat(searchParams.get('systemCost') || '0');
+  const incentives = parseFloat(searchParams.get('incentives') || '0');
+
+  // Constants for calculations
+  const COST_PER_UNIT = 10.05;
+  const ANNUAL_TARIFF_ESCALATION = 0.04;
+  const SYSTEM_LIFETIME_YEARS = 25;
+  const AVG_ANNUAL_UNITS_PER_KW = 1400;
+
+  // Calculations
+  const avgRequiredMonthlyOutput = monthlyBill / COST_PER_UNIT;
+  const avgRequiredAnnualOutput = avgRequiredMonthlyOutput * 12;
+
+  const expectedAnnualOutput = systemSize * AVG_ANNUAL_UNITS_PER_KW;
+  const expectedMonthlyOutput = expectedAnnualOutput / 12;
+  const expectedMonthlyOutputMin = expectedMonthlyOutput * 0.7;
+  const expectedMonthlyOutputMax = expectedMonthlyOutput * 1.2;
+
+  const firstYearSavings = expectedAnnualOutput * COST_PER_UNIT;
+  
+  let lifetimeValue = 0;
+  for (let i = 0; i < SYSTEM_LIFETIME_YEARS; i++) {
+    lifetimeValue += expectedAnnualOutput * (COST_PER_UNIT * Math.pow(1 + ANNUAL_TARIFF_ESCALATION, i));
+  }
+
+  const netInvestment = systemCost - incentives;
+
+  const costPerUnitWithSolar = systemCost > 0 && expectedAnnualOutput > 0
+    ? systemCost / (expectedAnnualOutput * SYSTEM_LIFETIME_YEARS)
+    : 0;
+  
+  const formatCurrency = (value: number) => {
+    return `₹ ${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
+  };
+  
+  const formatUnits = (value: number) => {
+    return `${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })} Units`;
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8 flex justify-center print:bg-white">
@@ -191,6 +230,64 @@ function ProposalContent() {
                 <footer className="mt-12 pt-4 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 10</p>
+                </footer>
+            </main>
+
+            {/* Page 4 - Placeholder */}
+            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4">
+                    <div></div>
+                    <div className="w-1/4">
+                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                    </div>
+                </header>
+                <div className="text-center my-4">
+                    <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Placeholder Page 4</h2>
+                </div>
+                 <footer className="mt-12 pt-4 text-center relative" style={{top: '75vh'}}>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 10</p>
+                </footer>
+            </main>
+
+            {/* Page 5 */}
+            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4">
+                    <div></div>
+                    <div className="w-1/4">
+                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                    </div>
+                </header>
+
+                <div className="my-4">
+                    <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing and Payback</h2>
+                    <p className="mt-2">In the table below, you can find basic pricing for our recommended solar solution. Please note these numbers are based on the 25 years of life.</p>
+                    <p className="mt-1">खालील टेबल सौर ऊर्जा उपकरणा विषयी सर्व माहिती देते.</p>
+                </div>
+                
+                <section className="mt-8">
+                    <table className="w-full border-collapse border border-gray-300 text-left text-xs">
+                        <tbody>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold w-1/3">System Capacity</td><td className="p-2 border-r border-gray-300 font-semibold w-1/3">सिस्टिम कपॅसिटी</td><td className="p-2 font-bold">{systemSize.toFixed(2)}kW</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Required roof space</td><td className="p-2 border-r border-gray-300 font-semibold">छतावर लागणारी जागा</td><td className="p-2">{roofSize.toLocaleString('en-IN')} Sq. feet</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Average required annual output</td><td className="p-2 border-r border-gray-300 font-semibold">वार्षिक विजेची गरज</td><td className="p-2">{formatUnits(avgRequiredAnnualOutput)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Expected annual output</td><td className="p-2 border-r border-gray-300 font-semibold">वार्षिक विजनिर्माण</td><td className="p-2">{formatUnits(expectedAnnualOutput)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Average required monthly output</td><td className="p-2 border-r border-gray-300 font-semibold">विजेची गरज</td><td className="p-2">{formatUnits(avgRequiredMonthlyOutput)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Expected monthly output</td><td className="p-2 border-r border-gray-300 font-semibold">विजनिर्माण</td><td className="p-2">{formatUnits(expectedMonthlyOutput)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Expected monthly output range</td><td className="p-2 border-r border-gray-300 font-semibold">विजनिर्माण</td><td className="p-2">{formatUnits(expectedMonthlyOutputMin)} to {formatUnits(expectedMonthlyOutputMax)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Lifetime value of electricity generated</td><td className="p-2 border-r border-gray-300 font-semibold">होणारी वीज बचत</td><td className="p-2">{formatCurrency(lifetimeValue)} ({SYSTEM_LIFETIME_YEARS} years)</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Installed system cost</td><td className="p-2 border-r border-gray-300 font-semibold">सिस्टिमचा खर्च</td><td className="p-2">{formatCurrency(systemCost)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">First year value of electricity generated</td><td className="p-2 border-r border-gray-300 font-semibold">पहिल्या वर्षीची वीज बचत</td><td className="p-2">{formatCurrency(firstYearSavings)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Rebate/Subsidy</td><td className="p-2 border-r border-gray-300 font-semibold">सरकारी सवलत</td><td className="p-2">{formatCurrency(incentives)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Net investment</td><td className="p-2 border-r border-gray-300 font-semibold">पहिल्या वर्षात नेट गुंतवणूक</td><td className="p-2">{formatCurrency(netInvestment)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Cost/unit without Solar</td><td className="p-2 border-r border-gray-300 font-semibold">सध्याचा पर युनिट खर्च</td><td className="p-2">₹ {COST_PER_UNIT.toFixed(2)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Cost/unit with Solar</td><td className="p-2 border-r border-gray-300 font-semibold">नवीन पर युनिट खर्च</td><td className="p-2">₹ {costPerUnitWithSolar.toFixed(2)}</td></tr>
+                            <tr><td className="p-2 border-r border-gray-300 font-semibold">Rebate/Subsidy</td><td className="p-2 border-r border-gray-300 font-semibold">सरकारी सवलत</td><td className="p-2">Subsidy</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <footer className="mt-12 pt-4 text-center relative">
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 10</p>
                 </footer>
             </main>
 

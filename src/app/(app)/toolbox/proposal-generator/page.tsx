@@ -41,6 +41,8 @@ const proposalFormSchema = z.object({
   monthlyBill: z.coerce.number().positive({ message: 'Monthly bill must be a positive number.' }),
   roofSize: z.coerce.number().positive({ message: 'Roof size must be a positive number.' }),
   panelType: z.string().min(1, { message: 'Please select a panel type.' }),
+  systemCost: z.coerce.number().positive({ message: 'System cost must be a positive number.' }),
+  incentives: z.coerce.number().nonnegative({ message: 'Incentives must be a non-negative number.' }).default(0),
 });
 
 export default function ProposalGeneratorPage() {
@@ -64,6 +66,8 @@ export default function ProposalGeneratorPage() {
       monthlyBill: undefined,
       roofSize: undefined,
       panelType: '',
+      systemCost: undefined,
+      incentives: 0,
     },
   });
 
@@ -251,6 +255,35 @@ export default function ProposalGeneratorPage() {
                         <FormLabel>Proposed System Size (kW)</FormLabel>
                         <FormControl>
                           <Input type="number" placeholder="5" {...field} value={field.value ?? ''} step="0.1" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <FormField
+                    control={form.control}
+                    name="systemCost"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Total System Cost (₹)</FormLabel>
+                        <FormControl>
+                          <Input type="number" placeholder="300000" {...field} value={field.value ?? ''} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                   <FormField
+                    control={form.control}
+                    name="incentives"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Rebate/Subsidy (₹)</FormLabel>
+                        <FormControl>
+                          <Input type="number" placeholder="78000" {...field} value={field.value ?? ''} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

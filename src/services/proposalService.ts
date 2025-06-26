@@ -1,3 +1,4 @@
+
 import { db } from '@/lib/firebase';
 import { collection, addDoc, serverTimestamp, getDocs, query, orderBy, Timestamp } from 'firebase/firestore';
 
@@ -12,6 +13,8 @@ export interface ProposalData {
     monthlyBill: number;
     roofSize: number;
     panelType: string;
+    systemCost: number;
+    incentives: number;
 }
 
 export interface ProposalDocument extends ProposalData {
