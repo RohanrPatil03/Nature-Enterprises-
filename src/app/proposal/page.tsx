@@ -1,11 +1,11 @@
 
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import React, { Suspense, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Printer } from 'lucide-react';
+import { Printer, ArrowLeft } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const handleSavePdf = () => {
@@ -31,6 +31,7 @@ const handleSavePdf = () => {
 
 function ProposalContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [currentDate, setCurrentDate] = useState('');
 
   useEffect(() => {
@@ -95,7 +96,11 @@ function ProposalContent() {
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8 flex justify-center print:bg-white">
         <div className="w-full max-w-4xl space-y-6 bg-white shadow-lg print:shadow-none print:space-y-0">
-            <div className="flex justify-end p-6 print:hidden">
+            <div className="flex justify-between items-center p-6 print:hidden">
+                <Button onClick={() => router.back()} variant="outline">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Go Back
+                </Button>
                 <Button onClick={handleSavePdf}>
                     <Printer className="mr-2 h-4 w-4" />
                     Save as PDF
@@ -110,8 +115,8 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>123 Renewable Way, Green City, 12345</p>
-                        <p>Phone: +1 (555) 123-4567</p>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
                         <p>CIN: U12345XX2024PTC123456</p>
                         <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
@@ -132,10 +137,6 @@ function ProposalContent() {
                     <p className="font-bold text-red-600 tracking-wider">CONFIDENTIAL</p>
                 </div>
 
-                <section className="mt-8">
-                    <p><span className="font-bold">Subject:</span> Proposal for the design, supply, installation, commissioning and support of a {systemSize.toFixed(2)}kW Roof Top Solar System</p>
-                </section>
-
                 <section className="mt-6 space-y-4 text-gray-800 leading-relaxed text-justify">
                     <p>Hello Sir/Madam,</p>
                     <p>Thank you for taking interest in investing in solar energy. We are an Indo-Australian Solar Energy business with <span className="font-bold">local presence since 2016</span>. We have helped over <span className="font-bold">500 customers</span> harness solar energy to reduce their energy bills and save environment. We strongly believe in working to improve living standards of poor and middle-class families across India. We are doing this by generating local employment for unemployed youth and by <span className="font-bold">conveniently providing affordable & reliable</span> solar energy solutions.</p>
@@ -147,9 +148,9 @@ function ProposalContent() {
 
                 <section className="mt-8">
                     <p>Regards,</p>
-                    <p className="font-bold mt-4">Solar Consultant</p>
+                    <p className="font-bold mt-4">Aniket R Patil</p>
                     <p>Director of Marketing</p>
-                    <p>Mobile: +1 (555) 123-4567</p>
+                    <p>Mobile: 9595943332</p>
                     <p>Email: info@nature-enterprises.com</p>
                     <p>Website: www.nature-enterprises.com</p>
                 </section>
@@ -168,8 +169,8 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>123 Renewable Way, Green City, 12345</p>
-                        <p>Phone: +1 (555) 123-4567</p>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
                         <p>CIN: U12345XX2024PTC123456</p>
                         <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
@@ -187,7 +188,7 @@ function ProposalContent() {
 
                 <section className="mt-8">
                     <p>धन्यवाद,</p>
-                    <p className="font-bold mt-4">Admin Name</p>
+                    <p className="font-bold mt-4">Aniket R Patil</p>
                     <p>मार्केटिंग डायरेक्टर</p>
                 </section>
 
@@ -644,7 +645,7 @@ function ProposalContent() {
                    <div>
                         <p>To</p>
                         <p className="font-bold">Nature Enterprises</p>
-                        <p>123 Renewable Way, Green City, 12345</p>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
                    </div>
                    <div className="mt-6">
                         <p><span className="font-bold">Subject:</span> <span className="underline">Purchase Order for the design, supply, install & commission the Solar power system</span></p>
