@@ -49,6 +49,7 @@ interface ProposalRenderData {
 
 function ProposalContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [currentDate, setCurrentDate] = useState('');
   const [data, setData] = useState<ProposalRenderData | null>(null);
 
@@ -74,7 +75,7 @@ function ProposalContent() {
         ppaProcessingCost: parseFloat(params.get('ppaProcessingCost') || '0'),
         gstPercentage: parseFloat(params.get('gstPercentage') || '0'),
     });
-  }, []);
+  }, [searchParams]);
 
   if (!data) {
     return <ProposalSkeleton />;
@@ -146,11 +147,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
 
@@ -200,11 +200,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
 
@@ -237,11 +236,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
 
@@ -308,11 +306,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
 
@@ -357,11 +354,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
 
@@ -489,11 +485,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -612,11 +607,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -647,11 +641,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
                 <div className="text-center my-8">
@@ -694,11 +687,10 @@ function ProposalContent() {
                     </div>
                     <div className="text-right text-xs space-y-1">
                         <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
                         <p>Phone: 9595943332</p>
                         <p>Web: www.nature-enterprises.com</p>
-                        <p>CIN: U12345XX2024PTC123456</p>
-                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
                 <div className="text-center my-4">
