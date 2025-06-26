@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
+import Link from 'next/link';
 import { getProposals, ProposalDocument } from '@/services/proposalService';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Users } from 'lucide-react';
+import { Users, ArrowUpRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function CustomersPage() {
     const [proposals, setProposals] = useState<ProposalDocument[]>([]);
@@ -20,13 +22,22 @@ export default function CustomersPage() {
                 setProposals(data);
             } catch (error) {
                 console.error(error);
-                // TODO: Add user-facing error message, e.g., using a toast
             } finally {
                 setLoading(false);
             }
         }
         fetchProposals();
     }, []);
+
+    const generateProposalUrl = (proposal: ProposalDocument) => {
+        const params = new URLSearchParams();
+        Object.entries(proposal).forEach(([key, value]) => {
+            if (key !== 'id' && key !== 'createdAt' && value !== undefined && value !== null) {
+                params.append(key, value.toString());
+            }
+        });
+        return `/proposal?${params.toString()}`;
+    };
 
     return (
         <Card>
@@ -55,7 +66,8 @@ export default function CustomersPage() {
                                 <TableHead>Customer Name</TableHead>
                                 <TableHead>Type</TableHead>
                                 <TableHead className="hidden md:table-cell">Address</TableHead>
-                                <TableHead className="text-right">Date Added</TableHead>
+                                <TableHead className="hidden md:table-cell text-center">Date Added</TableHead>
+                                <TableHead className="text-right">Actions</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -68,8 +80,16 @@ export default function CustomersPage() {
                                         </Badge>
                                     </TableCell>
                                     <TableCell className="hidden md:table-cell">{proposal.address}</TableCell>
-                                    <TableCell className="text-right">
+                                    <TableCell className="hidden md:table-cell text-center">
                                         {proposal.createdAt ? format(proposal.createdAt.toDate(), 'PP') : 'N/A'}
+                                    </TableCell>
+                                    <TableCell className="text-right">
+                                        <Button asChild variant="outline" size="sm">
+                                            <Link href={generateProposalUrl(proposal)}>
+                                                View Proposal
+                                                <ArrowUpRight className="ml-2 h-4 w-4" />
+                                            </Link>
+                                        </Button>
                                     </TableCell>
                                 </TableRow>
                             ))}
