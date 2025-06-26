@@ -18,6 +18,7 @@ export interface ProposalData {
     ppaProcessingCost: number;
     gstPercentage: number;
     installationLocation: 'Roof Mounted' | 'Ground Mounted';
+    inverterCapacity: string;
 }
 
 export interface ProposalDocument extends ProposalData {

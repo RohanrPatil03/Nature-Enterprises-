@@ -48,6 +48,7 @@ const proposalFormSchema = z.object({
   ppaProcessingCost: z.coerce.number().nonnegative({ message: 'PPA cost must be a non-negative number.' }).default(0),
   gstPercentage: z.coerce.number().positive({ message: 'GST percentage must be a positive number.' }),
   incentives: z.coerce.number().nonnegative({ message: 'Incentives must be a non-negative number.' }).default(0),
+  inverterCapacity: z.string().min(1, { message: 'Please enter inverter capacity.' }),
 });
 
 export default function ProposalGeneratorPage() {
@@ -76,6 +77,7 @@ export default function ProposalGeneratorPage() {
       ppaProcessingCost: 10000,
       gstPercentage: 13.8,
       incentives: 0,
+      inverterCapacity: '5.00kW',
     },
   });
 
@@ -376,6 +378,29 @@ export default function ProposalGeneratorPage() {
                         />
                     </div>
                  </div>
+
+                 <div className="space-y-2">
+                    <h3 className="text-lg font-medium">Bill of Materials</h3>
+                    <div className="p-4 border rounded-lg space-y-6">
+                        <FormField
+                            control={form.control}
+                            name="inverterCapacity"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Grid Tie Inverter Capacity</FormLabel>
+                                <FormControl>
+                                <Input placeholder="5.00kW" {...field} />
+                                </FormControl>
+                                <FormDescription>
+                                    Enter the capacity of the inverter as it should appear on the proposal (e.g., 5.00kW).
+                                </FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                    </div>
+                 </div>
+
 
                 <Button type="submit" disabled={isSubmitting}>
                   {isSubmitting ? (

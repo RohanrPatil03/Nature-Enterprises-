@@ -26,6 +26,7 @@ function ProposalContent() {
   const monthlyBill = parseFloat(searchParams.get('monthlyBill') || '0');
   const roofSize = parseFloat(searchParams.get('roofSize') || '0');
   const installationLocation = searchParams.get('installationLocation') || 'Roof Mounted';
+  const inverterCapacity = searchParams.get('inverterCapacity') || '5.00kW';
 
   const designInstallationCost = parseFloat(searchParams.get('systemCost') || '0');
   const incentives = parseFloat(searchParams.get('incentives') || '0');
@@ -353,7 +354,7 @@ function ProposalContent() {
                             <tr className="border-b border-gray-300">
                                 <td className="p-2 border-x border-gray-300 font-semibold">Grid Tie Inverter</td>
                                 <td className="p-2 border-x border-gray-300">Growatt/GoodWe/Sofar/Evvo (or Equivalent) with Remote Monitoring System</td>
-                                <td className="p-2 border-x border-gray-300">5.00kW</td>
+                                <td className="p-2 border-x border-gray-300">{inverterCapacity}</td>
                             </tr>
                              <tr className="border-b border-gray-300">
                                 <td className="p-2 border-x border-gray-300 font-semibold">AC & DC Junction Box</td>
