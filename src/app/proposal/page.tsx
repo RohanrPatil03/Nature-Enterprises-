@@ -56,24 +56,25 @@ function ProposalContent() {
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString('en-GB'));
     
+    const params = new URLSearchParams(window.location.search);
     setData({
-        name: searchParams.get('name') || 'N/A',
-        address: searchParams.get('address') || 'N/A',
-        systemSize: parseFloat(searchParams.get('systemSize') || '0'),
-        consumerNumber: searchParams.get('consumerNumber') || 'N/A',
-        load: parseFloat(searchParams.get('load') || '0'),
-        connectionType: searchParams.get('connectionType') || 'N/A',
-        customerType: searchParams.get('customerType') || 'N/A',
-        monthlyBill: parseFloat(searchParams.get('monthlyBill') || '0'),
-        roofSize: parseFloat(searchParams.get('roofSize') || '0'),
-        installationLocation: searchParams.get('installationLocation') || 'Roof Mounted',
-        inverterCapacity: searchParams.get('inverterCapacity') || '5.00kW',
-        designInstallationCost: parseFloat(searchParams.get('systemCost') || '0'),
-        incentives: parseFloat(searchParams.get('incentives') || '0'),
-        ppaProcessingCost: parseFloat(searchParams.get('ppaProcessingCost') || '0'),
-        gstPercentage: parseFloat(searchParams.get('gstPercentage') || '0'),
+        name: params.get('name') || 'N/A',
+        address: params.get('address') || 'N/A',
+        systemSize: parseFloat(params.get('systemSize') || '0'),
+        consumerNumber: params.get('consumerNumber') || 'N/A',
+        load: parseFloat(params.get('load') || '0'),
+        connectionType: params.get('connectionType') || 'N/A',
+        customerType: params.get('customerType') || 'N/A',
+        monthlyBill: parseFloat(params.get('monthlyBill') || '0'),
+        roofSize: parseFloat(params.get('roofSize') || '0'),
+        installationLocation: params.get('installationLocation') || 'Roof Mounted',
+        inverterCapacity: params.get('inverterCapacity') || '5.00kW',
+        designInstallationCost: parseFloat(params.get('systemCost') || '0'),
+        incentives: parseFloat(params.get('incentives') || '0'),
+        ppaProcessingCost: parseFloat(params.get('ppaProcessingCost') || '0'),
+        gstPercentage: parseFloat(params.get('gstPercentage') || '0'),
     });
-  }, [searchParams]);
+  }, []);
 
   if (!data) {
     return <ProposalSkeleton />;
@@ -187,7 +188,7 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
                     <p className="font-bold text-blue-800">A MAHADISCOM, MNRE & MEDA Registered Partner!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 1 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 1 of 9</p>
                 </footer>
             </main>
 
@@ -224,7 +225,7 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "अफोर्डेबल सोलार एनर्जी" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 9</p>
                 </footer>
             </main>
 
@@ -232,7 +233,7 @@ function ProposalContent() {
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-end items-start pb-4">
                     <div className="w-1/3">
-                        <Logo />
+                        <Logo showText={false} />
                     </div>
                 </header>
 
@@ -277,40 +278,28 @@ function ProposalContent() {
                     <div className="space-y-4 text-gray-800 leading-relaxed text-justify">
                         <p>A basic study was carried out to understand energy requirements of {name}, {address}. The available solar irradiation at the site and using our proprietary tools we have calculated suitable solar options that can be installed on the site based on the available roof space for renewable energy installation.</p>
                         <p>Considering solar irradiation data at site and average electricity consumption required the customer has been recommended to <span className="font-bold">install a {systemSize.toFixed(2)}kW solar system.</span> This system will meet current demand while delivering <span className="font-bold">1140% ROI</span> (simple Return on investment) and <span className="font-bold">2.2 years to payback</span> at <span className="font-bold">57% IRR</span> (Internal rate of return). We believe this system will <span className="font-bold">save you over ₹34,20,649 over 25 years.</span> Please note typical life of solar panels is about 40 years. Please note average consumption is much lower than the designed capacity. Therefore, the actual returns will be higher than the above numbers.</p>
-                        <p>The investment for solar equipment will be <span className="font-bold">{formatCurrency(designInstallationCost)}.</span> Considering annual electricity saving of <span className="font-bold">₹74,655</span> and accelerated depreciation/subsidy of <span className="font-bold">{formatCurrency(incentives)},</span> the net investment during the first year will be <span className="font-bold">₹1,47,345.</span></p>
+                        <p>The investment for solar equipment will be <span className="font-bold">{formatCurrency(designInstallationCost)}.</span> Considering annual electricity saving of <span className="font-bold">{formatCurrency(firstYearSavings)}</span> and accelerated depreciation/subsidy of <span className="font-bold">{formatCurrency(incentives)},</span> the net investment during the first year will be <span className="font-bold">{formatCurrency(netInvestment)}.</span></p>
                         <p>Current average monthly bill is {formatCurrency(monthlyBill)} and average monthly energy bill with solar will be <span className="font-bold">₹0.00</span> (Note: Only Energy charges considered. Customer may still have to pay fixed charges of Utility Company and excess energy usage beyond design capacity of solar system)</p>
                         <p>We recommend using net metering in this project as the client has most use during summer months. This will save cost associated with the batteries and increase return on the investment.</p>
                         <p>{name}, {address} यांचा वीज वापर समजून घेण्यासाठी बेसिक स्टडी करण्यात आला. त्यांची वीजेची गरज, जागेवर मिळणारी सौर ऊर्जा व उपलब्ध जागा या माहितीवरून आमचे प्रोप्रायटरी टूल्स वापरून आम्ही त्यांना लागणाऱ्या योग्य सौर ऊर्जा उपकरणाची शिफारस करत आहोत. या कपॅसिटीचे उपकरण व आमची मूल्यवर्धित सेवा आपल्याला आपल्या गुंतवणुकीवर जास्तीत जास्त परतावा मिळवुन देईल.</p>
-                        <p>जागेवर मिळणारी सौर उर्जा व सरासरी वीज वापर याचा विचार करून आपल्याला {systemSize.toFixed(2)}kW कपॅसिटीचे सौर विजनिर्मिती उपकरण बसवण्याची शिफारस करत आहोत. या कपॅसिटीचे उपकरण आम्ही दिलेल्या किंमतीत घेतल्यास ते तुमची सध्याची</p>
+                        <p>जागेवर मिळणारी सौर उर्जा व सरासरी वीज वापर याचा विचार करून आपल्याला {systemSize.toFixed(2)}kW कपॅसिटीचे सौर विजनिर्मिती उपकरण बसवण्याची शिफारस करत आहोत. या कपॅसिटीचे उपकरण आम्ही दिलेल्या किंमतीत घेतल्यास ते तुमची सध्याची वीज गरज भागून गुंतवणुकीवर 1140% ROI (simple Return on Investment) इतका परतावा मिळेल व गुंतवलेली रक्कम 2.2 वर्षांत वसूल होईल. आम्हाला विश्वास आहे की वरती शिफारस केलेले उपकरण आपल्याला नंतरच्या 25 वर्षात ₹34,20,649 ची बचत करून देईल. सौर ऊर्जा उपकरणे 40 वर्षे टिकतात.</p>
+                        <p>सौरऊर्जा निर्मिती उपकरणाचा खर्च {formatCurrency(designInstallationCost)} इतका असेल. वर्षाचा विजखर्च {formatCurrency(firstYearSavings)} व पहिल्या वर्षी मिळणारा घसारा/सरकारी अनुदान {formatCurrency(incentives)} याचा विचार करून सौर ऊर्जा उपकरणासाठी नेट गुंतवणूक {formatCurrency(netInvestment)} इतकीच असेल.</p>
+                        <p>सध्याचे सरासरी मासिक बिल {formatCurrency(monthlyBill)} आहे आणि सौरऊर्जा प्रकल्प इंस्टॉल केल्या नंतर सरासरी मासिक बिल ₹0.00 असेल. (टीप: फक्त वीज आकार विचारात घ्या. ग्राहकाला स्थिर आकार आणि सौर प्रकल्पाच्या डिजाइन क्षमतेपेक्षा जास्त वापरलेल्या युनिट्सचे बिल भरावे लागेल)</p>
+                        <p>ग्राहकाचा जास्त वीज वापर दिवसा व उन्हाळ्यात असल्यामुळे या प्रोजेक्टसाठी आम्ही नेट मिटरिंग प्रकारची सिस्टिम वापरण्याचा सल्ला देतो. ज्या मुळे इतर महिन्यात तयार झालेली अतिरिक्त वीज उन्हाळ्यात वापरता येईल.</p>
                     </div>
                 </section>
                 
                 <footer className="mt-12 pt-4 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 4 - Placeholder */}
+            {/* Page 4 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-end items-start pb-4">
                     <div className="w-1/3">
-                        <Logo />
-                    </div>
-                </header>
-                <div className="text-center my-4">
-                    <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Placeholder Page 4</h2>
-                </div>
-                 <footer className="mt-12 pt-4 text-center relative" style={{top: '75vh'}}>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 10</p>
-                </footer>
-            </main>
-
-            {/* Page 5 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-end items-start pb-4">
-                    <div className="w-1/3">
-                        <Logo />
+                        <Logo showText={false} />
                     </div>
                 </header>
 
@@ -343,15 +332,15 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 text-center relative">
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 9</p>
                 </footer>
             </main>
             
-            {/* Page 6 */}
+            {/* Page 5 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-end items-start pb-4">
                     <div className="w-1/3">
-                        <Logo />
+                        <Logo showText={false} />
                     </div>
                 </header>
 
@@ -467,15 +456,15 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 text-center relative">
                      <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "अफोर्डेबल सोलार एनर्जी" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 7 */}
+            {/* Page 6 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-end items-start pb-4">
                     <div className="w-1/3">
-                        <Logo />
+                        <Logo showText={false} />
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -582,15 +571,15 @@ function ProposalContent() {
                 </section>
                 <footer className="mt-12 pt-4 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 8 */}
+            {/* Page 7 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-end items-start pb-4">
                     <div className="w-1/3">
-                        <Logo />
+                        <Logo showText={false} />
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -609,15 +598,15 @@ function ProposalContent() {
                 </section>
                 <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "अफोर्डेबल सोलार एनर्जी" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 8 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 9 */}
+            {/* Page 8 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-end items-start pb-4">
                     <div className="w-1/3">
-                        <Logo />
+                        <Logo showText={false} />
                     </div>
                 </header>
                 <div className="text-center my-8">
@@ -648,15 +637,15 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 9 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 8 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 10 */}
+            {/* Page 9 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-end items-start pb-4">
                     <div className="w-1/3">
-                        <Logo />
+                        <Logo showText={false} />
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -703,7 +692,7 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 text-center relative" style={{top: '5vh'}}>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 10 of 10</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 9 of 9</p>
                 </footer>
             </main>
         </div>
@@ -753,5 +742,3 @@ export default function ProposalPage() {
     </Suspense>
   )
 }
-
-    
