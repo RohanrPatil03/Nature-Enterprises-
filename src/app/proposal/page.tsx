@@ -423,6 +423,121 @@ function ProposalContent() {
                 </footer>
             </main>
 
+            {/* Page 7 */}
+            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4">
+                    <div></div>
+                    <div className="w-1/4">
+                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                    </div>
+                </header>
+                <div className="text-center my-4">
+                    <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Terms and Conditions</h2>
+                </div>
+                <section className="mt-8">
+                    <table className="w-full border-collapse border border-gray-300 text-left text-xs">
+                        <tbody>
+                            <tr className="border-b border-gray-300 align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold w-1/5">Payment Terms</td>
+                                <td className="p-2">
+                                    <ul className="list-disc list-inside">
+                                        <li>10% of order value as advance with the Purchase Order and</li>
+                                        <li>80% of order value against delivery of Material/System. (Pro rata basis)</li>
+                                        <li>10% of total order value before successful commissioning of the Power plant.</li>
+                                        <li>Delayed payments shall carry interest rate of 1.5% per day of Balance Amount.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Validity</td>
+                                <td className="p-2">7 days from date of submission</td>
+                            </tr>
+                            <tr className="border-b border-gray-300 align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold">System cost</td>
+                                <td className="p-2">Price given above includes cost of parts, installation, and commissioning. Installation costs are approximate. This is a standard proposal which may change as per site's conditions after conducting site survey.</td>
+                            </tr>
+                            <tr className="border-b border-gray-300 align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Subsidy</td>
+                                <td className="p-2">The CFA/subsidy will be available only for residential applications registered till 31.03.2025 in the National Portal and will be released by Central Govt after clearance by inspecting authority (DISCOM) on successful commissioning and installation of metering system as per specified procedure. The CFA is not be applicable with retrospective effect. Subsidy will be released by the Government based on their schedule that is outside our control. Therefore, Affordable Energy shall not be responsible for the subsidy payment. Our scope is limited only to apply & submit documents required for the subsidy claim as per Government rule on National Portal.</td>
+                            </tr>
+                            <tr className="border-b border-gray-300 align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Taxes & Duties</td>
+                                <td className="p-2">
+                                    <ul className="list-disc list-inside">
+                                        <li>All applicable GST will be charged as extra on actuals.</li>
+                                        <li>Statutory approvals from local authorities/state electricity distribution company (if require) etc.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr className="border-b border-gray-300 align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Warranty</td>
+                                <td className="p-2 space-y-2">
+                                    <div>
+                                        <p className="font-bold underline">Solar Module</p>
+                                        <p>25 Years Limited Warranty for Generation (10 Years 90% Power Output and next 15 years on 80% power Output) | 10 Years Limited Warranty on Product and Workmanship</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-bold underline">Inverter/Controller</p>
+                                        <p>5 - 8 Years Limited Warranty</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-bold underline">Balance of the System</p>
+                                        <p>The defect liability period shall be for 12 months commencing from date of actual commissioning (including deemed commissioning). During this period, we shall attend to issues free of cost, related to the Solar Photovoltaic system on receiving notification of such defect from the customer.</p>
+                                        <p>Parts and Components, which are repaired or replaced during such period, are warranted for the original warranty period only and shall not carry any extended warranty. If the equipment is not repairable at site, the same has to be sent at our workshop on freight prepaid basis after obtaining our consent in writing and we shall make good the defect and return back to you on freight to pay basis.</p>
+                                        <p>The warranty shall not apply to defects resulting from:</p>
+                                        <ol className="list-decimal list-inside pl-4">
+                                            <li>Wilful damage or negligence, normal wear and tear, Installation and/or maintenance by Purchaser or a third party without supplier's prior written consent.</li>
+                                            <li>Misuse or abuse of Equipment.</li>
+                                            <li>Modifications or alterations made by Purchaser or a third party without supplier's written consent.</li>
+                                        </ol>
+                                    </div>
+                                </td>
+                            </tr>
+                             <tr className="border-b border-gray-300 align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold">After Sales Services</td>
+                                <td className="p-2">
+                                    <ol className="list-decimal list-inside">
+                                        <li>We can provide AMC services at additional cost.</li>
+                                        <li>On-site Service calls will be charged on per day basis plus material charges.</li>
+                                    </ol>
+                                </td>
+                            </tr>
+                             <tr className="border-b border-gray-300 align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Delivery / Completion Period</td>
+                                <td className="p-2 space-y-2">
+                                    <p>Within 8 to 10 weeks from the date of your technically and commercially clear Purchase Order along with advance.</p>
+                                    <p>The Delivery/Completion shall be reasonably extended if:</p>
+                                    <ul className="list-disc list-inside pl-4">
+                                        <li>The technical or commercial data required by us to execute the order including advance payment are not made available in time or if subsequent changes, which delay the delivery, are made by the purchaser.</li>
+                                        <li>If the purchaser is behind the schedule with the work, he has to carry out to is late in fulfilling the contractual obligations.</li>
+                                    </ul>
+                                    <p>We shall retain the right on equipment, materials or parts supplied by us under this quotation until full value thereof as per our invoice has been fully paid to us as per terms and conditions.</p>
+                                </td>
+                            </tr>
+                              <tr className="border-b border-gray-300 align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Commissioning & Testing</td>
+                                <td className="p-2 space-y-2">
+                                    <p>If the grid is not made available by the customer to us within 15 days of the solar power plant being ready for grid connectivity because of which we cannot conduct the final performance tests, it shall be construed as "Deemed Commissioning" and final payment shall be made by the customer subsequent to such deemed commissioning.</p>
+                                    <p>Once the solar power plant is ready for connection to the Grid and we have conducted the test after such connection successfully whether in presence of the customer or not, the solar power plant shall be considered as commissioned and tested. Confirmation of such commissioning & testing should be accepted by the customer in writing and shall not be unreasonably withheld for no fault on our end.</p>
+                                </td>
+                            </tr>
+                            <tr className="align-top">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Limitation fo liability & Indemnity</td>
+                                <td className="p-2 space-y-2">
+                                    <p>In no event, we shall be liable for any special, punitive, indirect, or consequential damages of any nature whatsoever, nor for any losses or damages caused by reason of unavailability of the Equipment or the Facility, shutdowns or service interruptions, loss of use, loss of actual or potential profits or revenue, loss of reputation, inventory or use charges, interest charges or cost of capital or any claims made by the customer or other contracting parties or pollution remediation costs. The overall liability by us whether for liquidated damages or otherwise shall not be more than 5 % of the total order value.</p>
+                                    <p>Each Party shall indemnify and hold the other Party harmless from any claims by a third party for loss of or damage to property or death or personal injury arising out of or connected with that Party's negligence while engaged in its activities under the Contract. In the event, such damage or injury is caused by the joint or concurrent negligence of the Supplier/Contractor and the customer, the loss shall be borne by each Party in proportion to its negligence.</p>
+                                    <p>The Liquidated Damages shall be the customer's only remedy for delay in delivery and for any deviations in the supply of equipment and shall constitute the customer's only liability in these respects.</p>
+                                    <p>We strongly recommend having solar system insured after the installation as we will not be liable for the accidental damages.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <footer className="mt-12 pt-4 text-center relative">
+                    <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 10</p>
+                </footer>
+            </main>
 
         </div>
     </div>
