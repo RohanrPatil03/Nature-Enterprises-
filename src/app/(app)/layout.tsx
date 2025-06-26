@@ -22,6 +22,7 @@ import {
   Wrench,
   Users,
   MessageSquare,
+  Globe,
 } from "lucide-react"
 
 import { Logo } from "@/components/logo"
@@ -30,7 +31,10 @@ import { UserNav } from "@/components/user-nav"
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/customers", icon: Users, label: "Customers" },
+  { href: "/documents", icon: FileText, label: "Documents" },
   { href: "/toolbox", icon: Wrench, label: "Toolbox" },
+  { href: "/resources", icon: Globe, label: "Resources" },
+  { href: "/forum", icon: MessageSquare, label: "Forum" },
 ]
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -45,6 +49,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   }
   
   const currentNavItem = navItems.find(item => getIsActive(item.href));
+
+  const getPageTitle = () => {
+    if (pathname === '/resources') return 'External Resources';
+    if (pathname === '/forum') return 'Community Forum';
+    if (currentNavItem) return currentNavItem.label;
+    return 'Solar Resource Hub';
+  }
 
   return (
     <SidebarProvider>
@@ -77,7 +88,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-2">
                 <SidebarTrigger className="md:hidden" />
                 <h1 className="text-2xl font-headline font-bold">
-                    {currentNavItem?.label || 'Solar Resource Hub'}
+                    {getPageTitle()}
                 </h1>
             </div>
             <UserNav />
