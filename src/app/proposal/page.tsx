@@ -607,6 +607,61 @@ function ProposalContent() {
                 </footer>
             </main>
 
+            {/* Page 10 */}
+            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4">
+                    <div></div>
+                    <div className="w-1/4">
+                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                    </div>
+                </header>
+                <div className="text-center my-4">
+                    <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Purchase order/Letter of Intent (LOI)</h2>
+                </div>
+
+                <section className="mt-8 space-y-4 text-gray-800 leading-relaxed">
+                   <div>
+                        <p>To</p>
+                        <p className="font-bold">Nature Enterprises</p>
+                        <p>123 Renewable Way, Green City, 12345</p>
+                   </div>
+                   <div className="mt-6">
+                        <p><span className="font-bold">Subject:</span> <span className="underline">Purchase Order for the design, supply, install & commission the Solar power system</span></p>
+                   </div>
+
+                   <p className="mt-6">This has reference to proposing design, supply, install & commission the Solar power system as per the quotation submitted by you and agreed by us. We are pleased to issue this Purchase Order as an acceptance of the terms proposed by you with the quotation.</p>
+
+                   <ol className="list-decimal list-inside space-y-2 mt-4">
+                        <li>Plant capacity shall be {systemSize.toFixed(2)}KW.</li>
+                        <li>Price {formatCurrency(realCostToCustomer)}</li>
+                        <li>You will design, supply, install and commission proposed Solar power system as per MNRE specifications.</li>
+                        <li>Terms and Conditions will be as attached with the quotation and are available on <a href="http://www.nature-enterprises.com" className="text-blue-600 underline">www.nature-enterprises.com</a></li>
+                        <li>
+                            Our area of work (customer scope)
+                            <ul className="list-[lower-alpha] list-inside pl-6 mt-2 space-y-1">
+                                <li>We shall provide the shade free roof/other areas for the installation of the solar equipment; any additional infrastructure and civil work will be in our scope (If required).</li>
+                                <li>We shall extend our Sanctioned Load if required to be same or above the proposed Solar System Capacity & enhancement of existing supply/switchgears like ICTP/ICDP & RCCB/ELCB at metering panel/board/room (if required)</li>
+                                <li>Power Purchase Agreement (PPA) with local utility: Purchasing Stamp, Making & signing Power Purchase Agreement (PPA) with local utility & Other relevant agreements & documents as per guidelines by DISCOM, vendor shall facilitate the process if any support/guidance required.</li>
+                            </ul>
+                        </li>
+                   </ol>
+
+                    <p className="mt-6">Please proceed with the design, supply, and installation of the proposed solar power system.</p>
+                    <p>Warm Regards,</p>
+
+                    <div className="mt-20 space-y-2">
+                        <p><span className="font-bold">Name:</span> {name}</p>
+                        <p><span className="font-bold">Address:</span> {address}</p>
+                        <p className="mt-4"><span className="font-bold">Date:</span></p>
+                        <p className="mt-12"><span className="font-bold">Signature:</span></p>
+                    </div>
+
+                </section>
+
+                <footer className="mt-12 pt-4 text-center relative" style={{top: '5vh'}}>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 10 of 10</p>
+                </footer>
+            </main>
         </div>
     </div>
   );
@@ -651,3 +706,5 @@ export default function ProposalPage() {
     </Suspense>
   )
 }
+
+    
