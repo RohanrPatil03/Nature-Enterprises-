@@ -36,12 +36,17 @@ const proposalFormSchema = z.object({
   address: z.string().min(5, {
     message: 'Please enter a valid address.',
   }),
-  load: z.coerce.number().positive({ message: 'Load must be a positive number.' }),
+  load: z.coerce.number().positive({ message: 'Connected load must be a positive number.' }),
   systemSize: z.coerce.number().positive({ message: 'System size must be a positive number.' }),
   monthlyBill: z.coerce.number().positive({ message: 'Monthly bill must be a positive number.' }),
   roofSize: z.coerce.number().positive({ message: 'Roof size must be a positive number.' }),
   panelType: z.string().min(1, { message: 'Please select a panel type.' }),
+  installationLocation: z.enum(['Roof Mounted', 'Ground Mounted'], {
+    required_error: 'You must select an installation location.',
+  }),
   systemCost: z.coerce.number().positive({ message: 'System cost must be a positive number.' }),
+  ppaProcessingCost: z.coerce.number().nonnegative({ message: 'PPA cost must be a non-negative number.' }).default(0),
+  gstPercentage: z.coerce.number().positive({ message: 'GST percentage must be a positive number.' }),
   incentives: z.coerce.number().nonnegative({ message: 'Incentives must be a non-negative number.' }).default(0),
 });
 
@@ -66,7 +71,10 @@ export default function ProposalGeneratorPage() {
       monthlyBill: undefined,
       roofSize: undefined,
       panelType: '',
+      installationLocation: 'Roof Mounted',
       systemCost: undefined,
+      ppaProcessingCost: 10000,
+      gstPercentage: 13.8,
       incentives: 0,
     },
   });
@@ -97,7 +105,7 @@ export default function ProposalGeneratorPage() {
         <CardHeader>
             <CardTitle className="font-headline">Add New Customer</CardTitle>
             <CardDescription>
-                Fill in the customer's details below. This data will be saved to your database for future operations like billing and proposal generation.
+                Fill in the customer's details below. This data will be saved for proposal generation and other operations.
             </CardDescription>
         </CardHeader>
         <CardContent>
@@ -261,36 +269,6 @@ export default function ProposalGeneratorPage() {
                     )}
                   />
                 </div>
-
-                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <FormField
-                    control={form.control}
-                    name="systemCost"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Total System Cost (₹)</FormLabel>
-                        <FormControl>
-                          <Input type="number" placeholder="300000" {...field} value={field.value ?? ''} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                   <FormField
-                    control={form.control}
-                    name="incentives"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Rebate/Subsidy (₹)</FormLabel>
-                        <FormControl>
-                          <Input type="number" placeholder="78000" {...field} value={field.value ?? ''} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
                 <FormField
                   control={form.control}
                   name="panelType"
@@ -316,6 +294,89 @@ export default function ProposalGeneratorPage() {
                     </FormItem>
                   )}
                 />
+
+                <FormField
+                  control={form.control}
+                  name="installationLocation"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Location of Installation</FormLabel>
+                       <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a location" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Roof Mounted">Roof Mounted</SelectItem>
+                          <SelectItem value="Ground Mounted">Ground Mounted</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                 <div className="space-y-2">
+                    <h3 className="text-lg font-medium">Pricing Details</h3>
+                    <div className="p-4 border rounded-lg space-y-6">
+                        <FormField
+                            control={form.control}
+                            name="systemCost"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Design & Installation Cost (₹)</FormLabel>
+                                <FormControl>
+                                <Input type="number" placeholder="300000" {...field} value={field.value ?? ''} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <FormField
+                                control={form.control}
+                                name="ppaProcessingCost"
+                                render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>PPA Processing Cost (₹)</FormLabel>
+                                    <FormControl>
+                                    <Input type="number" placeholder="10000" {...field} value={field.value ?? ''} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="gstPercentage"
+                                render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>GST (%)</FormLabel>
+                                    <FormControl>
+                                    <Input type="number" placeholder="13.8" {...field} value={field.value ?? ''} step="0.1" />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
+                        </div>
+                        <FormField
+                            control={form.control}
+                            name="incentives"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Rebate/Subsidy (₹)</FormLabel>
+                                <FormControl>
+                                <Input type="number" placeholder="78000" {...field} value={field.value ?? ''} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                    </div>
+                 </div>
+
                 <Button type="submit" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>

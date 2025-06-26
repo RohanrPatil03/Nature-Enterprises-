@@ -25,8 +25,12 @@ function ProposalContent() {
   const customerType = searchParams.get('customerType') || 'N/A';
   const monthlyBill = parseFloat(searchParams.get('monthlyBill') || '0');
   const roofSize = parseFloat(searchParams.get('roofSize') || '0');
-  const systemCost = parseFloat(searchParams.get('systemCost') || '0');
+  const installationLocation = searchParams.get('installationLocation') || 'Roof Mounted';
+
+  const designInstallationCost = parseFloat(searchParams.get('systemCost') || '0');
   const incentives = parseFloat(searchParams.get('incentives') || '0');
+  const ppaProcessingCost = parseFloat(searchParams.get('ppaProcessingCost') || '0');
+  const gstPercentage = parseFloat(searchParams.get('gstPercentage') || '0');
 
   // Constants for calculations
   const COST_PER_UNIT = 10.05;
@@ -34,28 +38,30 @@ function ProposalContent() {
   const SYSTEM_LIFETIME_YEARS = 25;
   const AVG_ANNUAL_UNITS_PER_KW = 1400;
 
-  // Calculations
+  // Page 5 Calculations
   const avgRequiredMonthlyOutput = monthlyBill / COST_PER_UNIT;
   const avgRequiredAnnualOutput = avgRequiredMonthlyOutput * 12;
-
   const expectedAnnualOutput = systemSize * AVG_ANNUAL_UNITS_PER_KW;
   const expectedMonthlyOutput = expectedAnnualOutput / 12;
   const expectedMonthlyOutputMin = expectedMonthlyOutput * 0.7;
   const expectedMonthlyOutputMax = expectedMonthlyOutput * 1.2;
-
   const firstYearSavings = expectedAnnualOutput * COST_PER_UNIT;
   
   let lifetimeValue = 0;
   for (let i = 0; i < SYSTEM_LIFETIME_YEARS; i++) {
     lifetimeValue += expectedAnnualOutput * (COST_PER_UNIT * Math.pow(1 + ANNUAL_TARIFF_ESCALATION, i));
   }
-
-  const netInvestment = systemCost - incentives;
-
-  const costPerUnitWithSolar = systemCost > 0 && expectedAnnualOutput > 0
-    ? systemCost / (expectedAnnualOutput * SYSTEM_LIFETIME_YEARS)
+  const netInvestment = designInstallationCost - incentives;
+  const costPerUnitWithSolar = designInstallationCost > 0 && expectedAnnualOutput > 0
+    ? designInstallationCost / (expectedAnnualOutput * SYSTEM_LIFETIME_YEARS)
     : 0;
   
+  // Page 6 Calculations
+  const tableSystemCost = designInstallationCost + ppaProcessingCost;
+  const gstAmount = tableSystemCost * (gstPercentage / 100);
+  const amountPayable = tableSystemCost + gstAmount;
+  const realCostToCustomer = amountPayable - incentives;
+
   const formatCurrency = (value: number) => {
     return `₹ ${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
   };
@@ -159,7 +165,7 @@ function ProposalContent() {
 
                 <section className="mt-8">
                     <p>धन्यवाद,</p>
-                    <p className="font-bold mt-4">सुरज पाटील</p>
+                    <p className="font-bold mt-4">Admin Name</p>
                     <p>मार्केटिंग डायरेक्टर</p>
                 </section>
 
@@ -208,7 +214,7 @@ function ProposalContent() {
                             </tr>
                              <tr>
                                 <td className="p-2 border-r border-gray-300 font-semibold">Avg. Monthly Bill:</td>
-                                <td className="p-2">₹{monthlyBill.toLocaleString('en-IN')}</td>
+                                <td className="p-2">{formatCurrency(monthlyBill)}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -219,8 +225,8 @@ function ProposalContent() {
                     <div className="space-y-4 text-gray-800 leading-relaxed text-justify">
                         <p>A basic study was carried out to understand energy requirements of {name}, {address}. The available solar irradiation at the site and using our proprietary tools we have calculated suitable solar options that can be installed on the site based on the available roof space for renewable energy installation.</p>
                         <p>Considering solar irradiation data at site and average electricity consumption required the customer has been recommended to <span className="font-bold">install a {systemSize.toFixed(2)}kW solar system.</span> This system will meet current demand while delivering <span className="font-bold">1140% ROI</span> (simple Return on investment) and <span className="font-bold">2.2 years to payback</span> at <span className="font-bold">57% IRR</span> (Internal rate of return). We believe this system will <span className="font-bold">save you over ₹34,20,649 over 25 years.</span> Please note typical life of solar panels is about 40 years. Please note average consumption is much lower than the designed capacity. Therefore, the actual returns will be higher than the above numbers.</p>
-                        <p>The investment for solar equipment will be <span className="font-bold">₹3,00,000.</span> Considering annual electricity saving of <span className="font-bold">₹74,655</span> and accelerated depreciation/subsidy of <span className="font-bold">₹78,000,</span> the net investment during the first year will be <span className="font-bold">₹1,47,345.</span></p>
-                        <p>Current average monthly bill is ₹{monthlyBill.toLocaleString('en-IN')} and average monthly energy bill with solar will be <span className="font-bold">₹0.00</span> (Note: Only Energy charges considered. Customer may still have to pay fixed charges of Utility Company and excess energy usage beyond design capacity of solar system)</p>
+                        <p>The investment for solar equipment will be <span className="font-bold">{formatCurrency(designInstallationCost)}.</span> Considering annual electricity saving of <span className="font-bold">₹74,655</span> and accelerated depreciation/subsidy of <span className="font-bold">{formatCurrency(incentives)},</span> the net investment during the first year will be <span className="font-bold">₹1,47,345.</span></p>
+                        <p>Current average monthly bill is {formatCurrency(monthlyBill)} and average monthly energy bill with solar will be <span className="font-bold">₹0.00</span> (Note: Only Energy charges considered. Customer may still have to pay fixed charges of Utility Company and excess energy usage beyond design capacity of solar system)</p>
                         <p>We recommend using net metering in this project as the client has most use during summer months. This will save cost associated with the batteries and increase return on the investment.</p>
                         <p>{name}, {address} यांचा वीज वापर समजून घेण्यासाठी बेसिक स्टडी करण्यात आला. त्यांची वीजेची गरज, जागेवर मिळणारी सौर ऊर्जा व उपलब्ध जागा या माहितीवरून आमचे प्रोप्रायटरी टूल्स वापरून आम्ही त्यांना लागणाऱ्या योग्य सौर ऊर्जा उपकरणाची शिफारस करत आहोत. या कपॅसिटीचे उपकरण व आमची मूल्यवर्धित सेवा आपल्याला आपल्या गुंतवणुकीवर जास्तीत जास्त परतावा मिळवुन देईल.</p>
                         <p>जागेवर मिळणारी सौर उर्जा व सरासरी वीज वापर याचा विचार करून आपल्याला {systemSize.toFixed(2)}kW कपॅसिटीचे सौर विजनिर्मिती उपकरण बसवण्याची शिफारस करत आहोत. या कपॅसिटीचे उपकरण आम्ही दिलेल्या किंमतीत घेतल्यास ते तुमची सध्याची</p>
@@ -275,7 +281,7 @@ function ProposalContent() {
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Expected monthly output</td><td className="p-2 border-r border-gray-300 font-semibold">विजनिर्माण</td><td className="p-2">{formatUnits(expectedMonthlyOutput)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Expected monthly output range</td><td className="p-2 border-r border-gray-300 font-semibold">विजनिर्माण</td><td className="p-2">{formatUnits(expectedMonthlyOutputMin)} to {formatUnits(expectedMonthlyOutputMax)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Lifetime value of electricity generated</td><td className="p-2 border-r border-gray-300 font-semibold">होणारी वीज बचत</td><td className="p-2">{formatCurrency(lifetimeValue)} ({SYSTEM_LIFETIME_YEARS} years)</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Installed system cost</td><td className="p-2 border-r border-gray-300 font-semibold">सिस्टिमचा खर्च</td><td className="p-2">{formatCurrency(systemCost)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Installed system cost</td><td className="p-2 border-r border-gray-300 font-semibold">सिस्टिमचा खर्च</td><td className="p-2">{formatCurrency(designInstallationCost)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">First year value of electricity generated</td><td className="p-2 border-r border-gray-300 font-semibold">पहिल्या वर्षीची वीज बचत</td><td className="p-2">{formatCurrency(firstYearSavings)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Rebate/Subsidy</td><td className="p-2 border-r border-gray-300 font-semibold">सरकारी सवलत</td><td className="p-2">{formatCurrency(incentives)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Net investment</td><td className="p-2 border-r border-gray-300 font-semibold">पहिल्या वर्षात नेट गुंतवणूक</td><td className="p-2">{formatCurrency(netInvestment)}</td></tr>
@@ -290,6 +296,132 @@ function ProposalContent() {
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 10</p>
                 </footer>
             </main>
+            
+            {/* Page 6 */}
+            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4">
+                    <div></div>
+                    <div className="w-1/4">
+                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                    </div>
+                </header>
+
+                <div className="my-4">
+                    <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing</h2>
+                    <p className="mt-2">Below is the pricing schedule and Bill of material for the major components.</p>
+                </div>
+                
+                <section className="mt-8">
+                    <table className="w-full border-collapse text-left text-xs">
+                        <thead className="bg-gray-100">
+                           <tr>
+                                <th className="p-2 border border-gray-300 font-semibold w-2/3">Item</th>
+                                <th className="p-2 border border-gray-300 font-semibold w-1/3 text-right">Amount</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Design, supply, installation, commissioning and support of a {systemSize.toFixed(2)}kW Roof Top Solar System</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(designInstallationCost)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Freight & Insurances</td><td className="p-2 border-x border-gray-300 text-right">Free Issue</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing & Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(ppaProcessingCost)}</td></tr>
+                            <tr className="border-b-2 border-gray-400"><td className="p-2 border-x border-gray-300 font-semibold">System Cost</td><td className="p-2 border-x border-gray-300 text-right font-semibold">{formatCurrency(tableSystemCost)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST @ {gstPercentage}% (70:30 ratio for Goods & Services)</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(gstAmount)}</td></tr>
+                            <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Amount Payable to Affordable Solar Energy</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(amountPayable)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Rebate/Subsidy from Government</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(incentives)}</td></tr>
+                            <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Real Cost to the Customer</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(realCostToCustomer)}</td></tr>
+                        </tbody>
+                    </table>
+                    <p className="text-xs mt-2">Note: CFA/Subsidy depends on eligibility criteria's as per Govt policy (National Portal) & approval by agency post inspection; once approved CFA will be directly transfer to beneficiary's account post final payment of vendor.</p>
+                </section>
+
+                <section className="mt-8">
+                     <h3 className="font-bold text-blue-800 mb-2 text-center text-base">Bill of Material</h3>
+                     <p className="text-center text-xs mb-4">Bill of material for major components</p>
+                     <table className="w-full border-collapse border border-gray-300 text-left text-xs">
+                        <thead className="bg-gray-100">
+                            <tr>
+                                <th className="p-2 border border-gray-300 font-semibold w-1/4">Item</th>
+                                <th className="p-2 border border-gray-300 font-semibold w-1/2">Make</th>
+                                <th className="p-2 border border-gray-300 font-semibold w-1/4">Capacity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 font-semibold">Solar Panels</td>
+                                <td className="p-2 border-x border-gray-300">MNRE/ALMM Approved Mono DCR 440-545wp modules (Waaree/Vikram/Goldi/Rayzon/Renewsys/Axitec OR Equivalent)</td>
+                                <td className="p-2 border-x border-gray-300">{systemSize.toFixed(2)}kW</td>
+                            </tr>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 font-semibold">Grid Tie Inverter</td>
+                                <td className="p-2 border-x border-gray-300">Growatt/GoodWe/Sofar/Evvo (or Equivalent) with Remote Monitoring System</td>
+                                <td className="p-2 border-x border-gray-300">5.00kW</td>
+                            </tr>
+                             <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 font-semibold">AC & DC Junction Box</td>
+                                <td className="p-2 border-x border-gray-300">ACDB & DCDB as per MNRE Guidelines</td>
+                                <td className="p-2 border-x border-gray-300">1 Lot</td>
+                            </tr>
+                             <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 font-semibold">Circuit breakers</td>
+                                <td className="p-2 border-x border-gray-300">ABB/Siemens/Phoenix Contact</td>
+                                <td className="p-2 border-x border-gray-300">As required</td>
+                            </tr>
+                             <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 font-semibold">Energy & Net Meter</td>
+                                <td className="p-2 border-x border-gray-300">DISCOM/MSEDCL Approved</td>
+                                <td className="p-2 border-x border-gray-300">1 Lot</td>
+                            </tr>
+                             <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 font-semibold">Structure</td>
+                                <td className="p-2 border-x border-gray-300">Pre GI (Standard- Front leg 1 meter)</td>
+                                <td className="p-2 border-x border-gray-300">1 Lot</td>
+                            </tr>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 font-semibold">Balance of System</td>
+                                <td className="p-2 border-x border-gray-300">MNRE/MSEDCL approved AC&DC Cables upto DB, Earthing Kit (3No.) with Lighting Arrestor</td>
+                                <td className="p-2 border-x border-gray-300">As required</td>
+                            </tr>
+                            <tr>
+                                <td className="p-2 border-x border-b border-gray-300 font-semibold">Location of Installation</td>
+                                <td className="p-2 border-x border-b border-gray-300">{installationLocation}</td>
+                                <td className="p-2 border-x border-b border-gray-300">1 Lot</td>
+                            </tr>
+                        </tbody>
+                     </table>
+                </section>
+
+                 <section className="mt-8">
+                     <h3 className="font-bold text-blue-800 mb-2 text-center text-base">Customer Responsibilities</h3>
+                     <table className="w-full border-collapse border border-gray-300 text-left text-xs">
+                        <thead className="bg-gray-100">
+                            <tr>
+                                <th className="p-2 border border-gray-300 font-semibold w-[5%]">Sr. No</th>
+                                <th className="p-2 border border-gray-300 font-semibold">Item</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 text-center">1.</td>
+                                <td className="p-2 border-x border-gray-300">Provision of shade free roof/other areas for installation of the solar equipment, any additional infrastructure and civil work will be in scope of customer (If required)</td>
+                            </tr>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-x border-gray-300 text-center">2.</td>
+                                <td className="p-2 border-x border-gray-300">Load Extension & enhancement of existing supply/switchgears like ICTD/ICDO & RCCB/ELCB at metering board/cabinet/room (if required)</td>
+                            </tr>
+                            <tr>
+                                <td className="p-2 border-x border-b border-gray-300 text-center">3.</td>
+                                <td className="p-2 border-x border-b border-gray-300">Purchasing Stamp, Making & signing Power Purchase Agreement (PPA) with local utility & Other relevant agreements & documents as per guidelines by DISCOM & MNRE National Portal</td>
+                            </tr>
+                        </tbody>
+                     </table>
+                </section>
+                
+
+                <footer className="mt-12 pt-4 text-center relative">
+                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "अफोर्डेबल सोलार एनर्जी" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 10</p>
+                </footer>
+            </main>
+
 
         </div>
     </div>

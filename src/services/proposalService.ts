@@ -15,6 +15,9 @@ export interface ProposalData {
     panelType: string;
     systemCost: number;
     incentives: number;
+    ppaProcessingCost: number;
+    gstPercentage: number;
+    installationLocation: 'Roof Mounted' | 'Ground Mounted';
 }
 
 export interface ProposalDocument extends ProposalData {
