@@ -231,9 +231,17 @@ function ProposalContent() {
 
             {/* Page 3 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-start items-start pb-4">
+                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
-                        <Logo showText={false} />
+                        <Logo />
+                    </div>
+                    <div className="text-right text-xs space-y-1">
+                        <h2 className="font-bold text-base">Nature Enterprises</h2>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
+                        <p>Web: www.nature-enterprises.com</p>
+                        <p>CIN: U12345XX2024PTC123456</p>
+                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
 
@@ -294,9 +302,17 @@ function ProposalContent() {
 
             {/* Page 4 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-start items-start pb-4">
+                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
-                        <Logo showText={false} />
+                        <Logo />
+                    </div>
+                    <div className="text-right text-xs space-y-1">
+                        <h2 className="font-bold text-base">Nature Enterprises</h2>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
+                        <p>Web: www.nature-enterprises.com</p>
+                        <p>CIN: U12345XX2024PTC123456</p>
+                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
 
@@ -335,9 +351,17 @@ function ProposalContent() {
             
             {/* Page 5 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-start items-start pb-4">
+                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
-                        <Logo showText={false} />
+                        <Logo />
+                    </div>
+                    <div className="text-right text-xs space-y-1">
+                        <h2 className="font-bold text-base">Nature Enterprises</h2>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
+                        <p>Web: www.nature-enterprises.com</p>
+                        <p>CIN: U12345XX2024PTC123456</p>
+                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
 
@@ -459,9 +483,17 @@ function ProposalContent() {
 
             {/* Page 6 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-start items-start pb-4">
+                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
-                        <Logo showText={false} />
+                        <Logo />
+                    </div>
+                    <div className="text-right text-xs space-y-1">
+                        <h2 className="font-bold text-base">Nature Enterprises</h2>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
+                        <p>Web: www.nature-enterprises.com</p>
+                        <p>CIN: U12345XX2024PTC123456</p>
+                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -574,9 +606,17 @@ function ProposalContent() {
 
             {/* Page 7 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-start items-start pb-4">
+                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
-                        <Logo showText={false} />
+                        <Logo />
+                    </div>
+                    <div className="text-right text-xs space-y-1">
+                        <h2 className="font-bold text-base">Nature Enterprises</h2>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
+                        <p>Web: www.nature-enterprises.com</p>
+                        <p>CIN: U12345XX2024PTC123456</p>
+                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
                 <div className="text-center my-4">
@@ -601,9 +641,17 @@ function ProposalContent() {
 
             {/* Page 8 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-start items-start pb-4">
+                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
-                        <Logo showText={false} />
+                        <Logo />
+                    </div>
+                    <div className="text-right text-xs space-y-1">
+                        <h2 className="font-bold text-base">Nature Enterprises</h2>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
+                        <p>Web: www.nature-enterprises.com</p>
+                        <p>CIN: U12345XX2024PTC123456</p>
+                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
                 <div className="text-center my-8">
@@ -640,9 +688,17 @@ function ProposalContent() {
 
             {/* Page 9 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-start items-start pb-4">
+                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
-                        <Logo showText={false} />
+                        <Logo />
+                    </div>
+                    <div className="text-right text-xs space-y-1">
+                        <h2 className="font-bold text-base">Nature Enterprises</h2>
+                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
+                        <p>Phone: 9595943332</p>
+                        <p>Web: www.nature-enterprises.com</p>
+                        <p>CIN: U12345XX2024PTC123456</p>
+                        <p>MNRE Empanelment No. MNRE/CP/GCRT/X/1234</p>
                     </div>
                 </header>
                 <div className="text-center my-4">
