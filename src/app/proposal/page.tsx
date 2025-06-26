@@ -567,6 +567,46 @@ function ProposalContent() {
                 </footer>
             </main>
 
+            {/* Page 9 */}
+            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4">
+                    <div></div>
+                    <div className="w-1/4">
+                       <img src="/logo-affordable.png" alt="Affordable Energy Logo" />
+                    </div>
+                </header>
+                <div className="text-center my-8">
+                    <h2 className="text-lg font-bold text-orange-600 tracking-wide">Our Process</h2>
+                </div>
+                
+                <section className="flex justify-center my-16">
+                    <div className="grid grid-cols-3 grid-rows-3 gap-x-8 gap-y-12 w-full max-w-2xl items-center text-gray-700">
+                        <div className="text-center font-bold uppercase">CONSULT<br/>WITH YOU</div>
+                        <div className="text-center font-bold uppercase">DEVELOP<br/>SOLUTION</div>
+                        <div className="text-center font-bold uppercase">MAKE<br/>RECOMMENDATIONS</div>
+                        
+                        <div className="text-center font-bold uppercase">REMOTE<br/>MONITORING</div>
+                        <div className="p-4 bg-gray-100 rounded-full border-4 border-gray-300 shadow-md">
+                             <img src="/logo-affordable.png" alt="Affordable Energy Logo" className="w-full" />
+                        </div>
+                        <div className="text-center font-bold uppercase">DESIGN, FABRICATE<br/>& INSTALL</div>
+                        
+                        <div className="text-center font-bold uppercase">ON-GOING<br/>MAINTENANCE</div>
+                        <div className="text-center font-bold uppercase">ON-SITE<br/>MANAGEMENT</div>
+                        <div className="text-center font-bold uppercase">TEST, COMMISSION<br/>& TRAINING</div>
+                    </div>
+                </section>
+
+                <section className="mt-24 text-xs text-red-600 text-justify space-y-1">
+                    <p>Please note this document contains confidential and/or privileged information for the sole use of the intended recipient(s). All electronically supplied data must be checked against an applicable hardcopy version which shall be the only document which Affordable Solar Energy Pvt Ltd warrants accuracy. If you are not the intended recipient, any use, distribution or copying of the information contained in this document is strictly prohibited. If you have received this document in error, please return the sender, immediately delete and destroy any copies of this document. The information provided in this document is solely based on the data provided by the recipient at this point of time. All values are determined mathematically based on standardised conditions. The actual operating results will be dictated significantly by the actual irradiation conditions, the actual efficiency, operating conditions and individual consumption behaviour and can deviate from the calculated results.</p>
+                </section>
+
+                <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
+                    <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 9 of 10</p>
+                </footer>
+            </main>
+
         </div>
     </div>
   );
