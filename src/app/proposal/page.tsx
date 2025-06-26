@@ -288,7 +288,7 @@ function ProposalContent() {
                         <p>Current average monthly bill is {formatCurrency(monthlyBill)} and average monthly energy bill with solar will be <span className="font-bold">₹0.00</span> (Note: Only Energy charges considered. Customer may still have to pay fixed charges of Utility Company and excess energy usage beyond design capacity of solar system)</p>
                         <p>We recommend using net metering in this project as the client has most use during summer months. This will save cost associated with the batteries and increase return on the investment.</p>
                         <p>{name}, {address} यांचा वीज वापर समजून घेण्यासाठी बेसिक स्टडी करण्यात आला. त्यांची वीजेची गरज, जागेवर मिळणारी सौर ऊर्जा व उपलब्ध जागा या माहितीवरून आमचे प्रोप्रायटरी टूल्स वापरून आम्ही त्यांना लागणाऱ्या योग्य सौर ऊर्जा उपकरणाची शिफारस करत आहोत. या कपॅसिटीचे उपकरण व आमची मूल्यवर्धित सेवा आपल्याला आपल्या गुंतवणुकीवर जास्तीत जास्त परतावा मिळवुन देईल.</p>
-                        <p>जागेवर मिळणारी सौर उर्जा व सरासरी वीज वापर याचा विचार करून आपल्याला {systemSize.toFixed(2)}kW कपॅसिटीचे सौर विजनिर्माण उपकरण बसवण्याची शिफारस करत आहोत. या कपॅसिटीचे उपकरण आम्ही दिलेल्या किंमतीत घेतल्यास ते तुमची सध्याची वीज गरज भागून गुंतवणुकीवर 1140% ROI (simple Return on Investment) इतका परतावा मिळेल व गुंतवलेली रक्कम 2.2 वर्षांत वसूल होईल. आम्हाला विश्वास आहे की वरती शिफारस केलेले उपकरण आपल्याला नंतरच्या 25 वर्षात ₹34,20,649 ची बचत करून देईल. सौर ऊर्जा उपकरणे 40 वर्षे टिकतात.</p>
+                        <p>जागेवर मिळणारी सौर उर्जा व सरासरी वीज वापर याचा विचार करून आपल्याला {systemSize.toFixed(2)}kW कपॅसिटीचे सौर विजनिर्माण उपकरण बसवण्याची शिफारस करत आहोत. या कपॅसिटीचे उपकरण आम्ही दिलेल्या किंमतीत घेतल्यास ते तुमची सध्याची तुमची सध्याची वीज गरज भागून गुंतवणुकीवर 1140% ROI (simple Return on Investment) इतका परतावा मिळेल व गुंतवलेली रक्कम 2.2 वर्षांत वसूल होईल. आम्हाला विश्वास आहे की वरती शिफारस केलेले उपकरण आपल्याला नंतरच्या 25 वर्षात ₹34,20,649 ची बचत करून देईल. सौर ऊर्जा उपकरणे 40 वर्षे टिकतात.</p>
                     </div>
                 </section>
                 
@@ -711,7 +711,7 @@ function ProposalContent() {
 
                    <ol className="list-decimal list-inside space-y-2 mt-4">
                         <li>Plant capacity shall be {systemSize.toFixed(2)}KW.</li>
-                        <li>Price {formatCurrency(realCostToCustomer)}</li>
+                        <li>Price {formatCurrency(amountPayable)}</li>
                         <li>You will design, supply, install and commission proposed Solar power system as per MNRE specifications.</li>
                         <li>Terms and Conditions will be as attached with the quotation and are available on <a href="http://www.nature-enterprises.com" className="text-blue-600 underline">www.nature-enterprises.com</a></li>
                         <li>
