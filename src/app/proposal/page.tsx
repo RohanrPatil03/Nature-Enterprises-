@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import React, { Suspense, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Printer, ArrowLeft } from 'lucide-react';
+import { Download, ArrowLeft } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const handleSavePdf = () => {
@@ -102,8 +102,8 @@ function ProposalContent() {
                     Go Back
                 </Button>
                 <Button onClick={handleSavePdf}>
-                    <Printer className="mr-2 h-4 w-4" />
-                    Save as PDF
+                    <Download className="mr-2 h-4 w-4" />
+                    Download PDF to PC
                 </Button>
             </div>
             
