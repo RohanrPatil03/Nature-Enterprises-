@@ -92,7 +92,7 @@ function ProposalContent() {
   const SYSTEM_LIFETIME_YEARS = 25;
   const AVG_ANNUAL_UNITS_PER_KW = 1400;
 
-  // Page 5 Calculations
+  // Page 4 Calculations
   const avgRequiredMonthlyOutput = monthlyBill / COST_PER_UNIT;
   const avgRequiredAnnualOutput = avgRequiredMonthlyOutput * 12;
   const expectedAnnualOutput = systemSize * AVG_ANNUAL_UNITS_PER_KW;
@@ -110,10 +110,8 @@ function ProposalContent() {
     ? designInstallationCost / (expectedAnnualOutput * SYSTEM_LIFETIME_YEARS)
     : 0;
   
-  // Page 6 Calculations
-  const tableSystemCost = designInstallationCost;
-  const amountPayable = tableSystemCost;
-  const realCostToCustomer = amountPayable - incentives;
+  // Page 5 Calculations
+  const amountPayable = designInstallationCost;
 
   const formatCurrency = (value: number) => {
     return `₹ ${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
@@ -362,11 +360,8 @@ function ProposalContent() {
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Design, supply, installation, commissioning and support of a {systemSize.toFixed(2)}kW Roof Top Solar System</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(designInstallationCost)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Freight & Insurances</td><td className="p-2 border-x border-gray-300 text-right">Free Issue</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing & Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
-                            <tr className="border-b-2 border-gray-400"><td className="p-2 border-x border-gray-300 font-semibold">System Cost</td><td className="p-2 border-x border-gray-300 text-right font-semibold">{formatCurrency(tableSystemCost)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST @ {gstPercentage}% (70:30 ratio for Goods & Services)</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST @ 13% (70:30 ratio for Goods & Services)</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
                             <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Amount Payable to Nature Enterprises</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(amountPayable)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Rebate/Subsidy from Government</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(incentives)}</td></tr>
-                            <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Real Cost to the Customer</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(realCostToCustomer)}</td></tr>
                         </tbody>
                     </table>
                     <p className="text-xs mt-2">Note: CFA/Subsidy depends on eligibility criteria's as per Govt policy (National Portal) & approval by agency post inspection; once approved CFA will be directly transfer to beneficiary's account post final payment of vendor.</p>
