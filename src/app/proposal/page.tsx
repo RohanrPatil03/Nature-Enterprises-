@@ -172,21 +172,20 @@ function ProposalContent() {
                 </div>
                 
                 <section className="mt-6 space-y-4 text-gray-800 leading-relaxed text-justify">
-                    <p>Hello Sir/Madam,</p>
-                    <p>Thank you for taking interest in investing in solar energy. We are an Indo-Australian Solar Energy business with <span className="font-bold">local presence since 2016</span>. We have helped over <span className="font-bold">500 customers</span> harness solar energy to reduce their energy bills and save environment. We strongly believe in working to improve living standards of poor and middle-class families across India. We are doing this by generating local employment for unemployed youth and by <span className="font-bold">conveniently providing affordable & reliable</span> solar energy solutions.</p>
-                    <p>Together we can make difference to Global Warming. This is a <span className="font-bold">long-term investment</span> and a project that will help not only you, but also the movement towards a sustainable energy future. Producing <span className="font-bold">your own clean energy</span> is a major step to having an energy-independence, a future which draws closer each day.</p>
-                    <p>As the cost of energy from power grids continues to rise each year, many businesses/households are seeking long-term alternatives to reduce their energy bills. Solar energy is a <span className="font-bold">great alternative</span> to the power from the electricity grid and saves thousands of rupees substantially in the long run while also benefiting the environment.</p>
-                    <p>We have conducted a detailed study of your energy requirements, site details, sunlight at the site to design a solar energy equipment. In this proposal, we have included details regarding the expected impact that a Solar system will have on your overall energy costs. You'll also find information showing payback period of the system given your current and projected energy use, and what your savings beyond that point will be.</p>
-                    <p>We appreciate your consideration of our proposal and hope to build a long-term relationship with you. If you have any questions, please do not hesitate to contact us & when you are comfortable to proceed with the project, please do sign Purchase Order at the end of this document and return it to us.</p>
+                    <p>Greetings,</p>
+                    <p>Thank you sincerely for deciding to install a solar power generation system!</p>
+                    <p>We have been actively working in the solar energy sector in your local area since 2017. With rising electricity tariffs, many families and businesses are now seeking alternative solutions. In such a scenario, solar energy is a long-term, eco-friendly, and cost-effective option.</p>
+                    <p>We have helped many customers reduce their electricity bills and contribute to protecting the environment. A solar system allows you to save thousands of rupees every year while also playing your part in combating global warming.</p>
+                    <p>Generating your own electricity is a major step towards achieving energy independence. It is not only a matter of financial savings but also a responsible investment for a sustainable future.</p>
+                    <p>From the very beginning, we have been committed to providing our customers with high-quality products, competitive pricing, fast service, and reliable assurance. Superior quality, fair pricing, and excellent service are our core values.</p>
+                    <p>Based on the details of your site, energy requirements, and solar potential, we have designed a suitable solar system specifically for you. Thank you for considering our proposal!</p>
+                    <p>If given the opportunity to serve you, we assure you of providing the best and technically sound service.</p>
+                    <p>For any queries or further information, please feel free to contact us. We look forward to building a long-term business relationship with you.</p>
                 </section>
 
                 <section className="mt-8">
-                    <p>Regards,</p>
-                    <p className="font-bold mt-4">Aniket R Patil</p>
-                    <p>Director of Marketing</p>
-                    <p>Mobile: 9595943332</p>
-                    <p>Email: info@nature-enterprises.com</p>
-                    <p>Website: www.nature-enterprises.com</p>
+                    <p>Yours sincerely,</p>
+                    <p className="font-bold mt-4">Nature Enterprises</p>
                 </section>
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
