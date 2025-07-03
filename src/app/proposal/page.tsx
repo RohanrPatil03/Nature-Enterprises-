@@ -186,7 +186,7 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
-                    <p className="font-bold text-blue-800">A MAHADISCOM, MNRE & MEDA Registered Partner!</p>
+                    <p className="font-bold text-blue-800">A MAHADISCOM, MNRE &amp; MEDA Registered Partner!</p>
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 1 of 6</p>
                 </footer>
             </main>
@@ -358,13 +358,13 @@ function ProposalContent() {
                         </thead>
                         <tbody>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Design, supply, installation, commissioning and support of a {systemSize.toFixed(2)}kW Roof Top Solar System</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(designInstallationCost)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Freight & Insurances</td><td className="p-2 border-x border-gray-300 text-right">Free Issue</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing & Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST @ 13% (70:30 ratio for Goods & Services)</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Freight &amp; Insurances</td><td className="p-2 border-x border-gray-300 text-right">Free Issue</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing &amp; Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST 12%</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
                             <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Amount Payable to Nature Enterprises</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(amountPayable)}</td></tr>
                         </tbody>
                     </table>
-                    <p className="text-xs mt-2">Note: CFA/Subsidy depends on eligibility criteria's as per Govt policy (National Portal) & approval by agency post inspection; once approved CFA will be directly transfer to beneficiary's account post final payment of vendor.</p>
+                    <p className="text-xs mt-2">Note: CFA/Subsidy depends on eligibility criteria's as per Govt policy (National Portal) &amp; approval by agency post inspection; once approved CFA will be directly transfer to beneficiary's account post final payment of vendor.</p>
                 </section>
 
                 <section className="mt-8">
@@ -390,8 +390,8 @@ function ProposalContent() {
                                 <td className="p-2 border-x border-gray-300">{inverterCapacity}</td>
                             </tr>
                              <tr className="border-b border-gray-300">
-                                <td className="p-2 border-x border-gray-300 font-semibold">AC & DC Junction Box</td>
-                                <td className="p-2 border-x border-gray-300">ACDB & DCDB as per MNRE Guidelines</td>
+                                <td className="p-2 border-x border-gray-300 font-semibold">AC &amp; DC Junction Box</td>
+                                <td className="p-2 border-x border-gray-300">ACDB &amp; DCDB as per MNRE Guidelines</td>
                                 <td className="p-2 border-x border-gray-300">1 Lot</td>
                             </tr>
                              <tr className="border-b border-gray-300">
@@ -400,7 +400,7 @@ function ProposalContent() {
                                 <td className="p-2 border-x border-gray-300">As required</td>
                             </tr>
                              <tr className="border-b border-gray-300">
-                                <td className="p-2 border-x border-gray-300 font-semibold">Energy & Net Meter</td>
+                                <td className="p-2 border-x border-gray-300 font-semibold">Energy &amp; Net Meter</td>
                                 <td className="p-2 border-x border-gray-300">DISCOM/MSEDCL Approved</td>
                                 <td className="p-2 border-x border-gray-300">1 Lot</td>
                             </tr>
@@ -411,7 +411,7 @@ function ProposalContent() {
                             </tr>
                             <tr className="border-b border-gray-300">
                                 <td className="p-2 border-x border-gray-300 font-semibold">Balance of System</td>
-                                <td className="p-2 border-x border-gray-300">MNRE/MSEDCL approved AC&DC Cables upto DB, Earthing Kit (3No.) with Lighting Arrestor</td>
+                                <td className="p-2 border-x border-gray-300">MNRE/MSEDCL approved AC&amp;DC Cables upto DB, Earthing Kit (3No.) with Lighting Arrestor</td>
                                 <td className="p-2 border-x border-gray-300">As required</td>
                             </tr>
                             <tr>
