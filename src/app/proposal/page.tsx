@@ -124,7 +124,7 @@ function ProposalContent() {
             </div>
             
             {/* Page 1 */}
-            <main className="p-8 sm:p-12 font-sans text-sm flex flex-col min-h-screen">
+            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -181,7 +181,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 2 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page flex flex-col min-h-screen">
+            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -219,7 +219,7 @@ function ProposalContent() {
             </main>
             
             {/* Page 3 */}
-             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page flex flex-col min-h-screen">
+             <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -272,7 +272,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 4 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page flex flex-col min-h-screen">
+            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -313,7 +313,7 @@ function ProposalContent() {
             </main>
             
             {/* Page 5 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page flex flex-col min-h-screen">
+            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -417,7 +417,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 6 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page flex flex-col min-h-screen">
+            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
