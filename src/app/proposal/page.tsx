@@ -479,32 +479,28 @@ function ProposalContent() {
                             <tr className="border-b border-gray-300 align-top">
                                 <td className="p-2 border-r border-gray-300 font-semibold w-1/5">Payment Terms</td>
                                 <td className="p-2">
-                                    <ul className="list-disc list-inside">
-                                        <li>10% of order value as advance with the Purchase Order and</li>
-                                        <li>80% of order value against delivery of Material/System. (Pro rata basis)</li>
-                                        <li>10% of total order value before successful commissioning of the Power plant.</li>
-                                        <li>Delayed payments shall carry interest rate of 1.5% per day of Balance Amount.</li>
+                                    <ul className="list-disc list-inside space-y-1">
+                                        <li>₹5,000 advance for documentation and associated charges.</li>
+                                        <li>70% of the order value against Proforma Invoice (PI) before dispatch of material.</li>
+                                        <li>20% of the total order value upon completion of material installation.</li>
+                                        <li>10% of the total order value before MSEB confirmation.</li>
                                     </ul>
                                 </td>
                             </tr>
                             <tr className="border-b border-gray-300">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Validity</td>
-                                <td className="p-2">7 days from date of submission</td>
+                                <td className="p-2 border-r border-gray-300 font-semibold">Delivery Period</td>
+                                <td className="p-2">Within 15 days from the date of a confirmed Purchase Order and receipt of advance payment.</td>
                             </tr>
-                            <tr className="border-b border-gray-300 align-top">
-                                <td className="p-2 border-r border-gray-300 font-semibold">System cost</td>
-                                <td className="p-2">Price given above includes cost of parts, installation, and commissioning. Installation costs are approximate. This is a standard proposal which may change as per site's conditions after conducting site survey.</td>
+                            <tr className="border-b border-gray-300">
+                                <td className="p-2 border-r border-gray-300 font-semibold">Duties / Taxes</td>
+                                <td className="p-2">GST @ 12% is included in the quotation.</td>
                             </tr>
                             <tr className="border-b border-gray-300 align-top">
                                 <td className="p-2 border-r border-gray-300 font-semibold">Subsidy</td>
-                                <td className="p-2">The CFA/subsidy will be available only for residential applications registered till 31.03.2025 in the National Portal and will be released by Central Govt after clearance by inspecting authority (DISCOM) on successful commissioning and installation of metering system as per specified procedure. The CFA is not be applicable with retrospective effect. Subsidy will be released by the Government based on their schedule that is outside our control. Therefore, Nature Enterprises shall not be responsible for the subsidy payment. Our scope is limited only to apply & submit documents required for the subsidy claim as per Government rule on National Portal.</td>
-                            </tr>
-                            <tr className="border-b border-gray-300 align-top">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Taxes & Duties</td>
                                 <td className="p-2">
-                                    <ul className="list-disc list-inside">
-                                        <li>All applicable GST will be charged as extra on actuals.</li>
-                                        <li>Statutory approvals from local authorities/state electricity distribution company (if require) etc.</li>
+                                    <ul className="list-disc list-inside space-y-1">
+                                        <li>Our responsibility is limited to providing the certificate/token from the government portal (PM Surya Ghar Yojana). The timeline and responsibility for the subsidy amount to be credited to your bank account rests with the government organizations.</li>
+                                        <li>You can track your proposal status online on the government website.</li>
                                     </ul>
                                 </td>
                             </tr>
@@ -513,60 +509,49 @@ function ProposalContent() {
                                 <td className="p-2 space-y-2">
                                     <div>
                                         <p className="font-bold underline">Solar Module</p>
-                                        <p>25 Years Limited Warranty for Generation (10 Years 90% Power Output and next 15 years on 80% power Output) | 10 Years Limited Warranty on Product and Workmanship</p>
+                                        <p>25 Years Limited Warranty for Generation (10 Years @ 90% Power Output and next 15 years @ 80% Power Output).</p>
                                     </div>
                                     <div>
                                         <p className="font-bold underline">Inverter/Controller</p>
-                                        <p>5 - 8 Years Limited Warranty</p>
+                                        <p>5 - 10 Years Limited Warranty.</p>
                                     </div>
                                     <div>
-                                        <p className="font-bold underline">Balance of the System</p>
-                                        <p>The defect liability period shall be for 12 months commencing from date of actual commissioning (including deemed commissioning). During this period, we shall attend to issues free of cost, related to the Solar Photovoltaic system on receiving notification of such defect from the customer.</p>
-                                        <p>Parts and Components, which are repaired or replaced during such period, are warranted for the original warranty period only and shall not carry any extended warranty. If the equipment is not repairable at site, the same has to be sent at our workshop on freight prepaid basis after obtaining our consent in writing and we shall make good the defect and return back to you on freight to pay basis.</p>
-                                        <p>The warranty shall not apply to defects resulting from:</p>
+                                        <p className="font-bold underline">Balance of System</p>
+                                        <p>Net Meter, Generator Meter, ACDB/DCDB, and connectors have a 1-year warranty. Fabrication has a 1-year warranty.</p>
+                                    </div>
+                                    <div>
+                                        <p className="font-bold">The warranty does not apply to defects resulting from:</p>
                                         <ol className="list-decimal list-inside pl-4">
-                                            <li>Wilful damage or negligence, normal wear and tear, Installation and/or maintenance by Purchaser or a third party without supplier's prior written consent.</li>
-                                            <li>Misuse or abuse of Equipment.</li>
-                                            <li>Modifications or alterations made by Purchaser or a third party without supplier's written consent.</li>
+                                            <li>Willful damage or negligence, normal wear and tear, or installation/maintenance by the purchaser or a third party without our prior written consent.</li>
+                                            <li>Misuse or abuse of the equipment.</li>
+                                            <li>Modifications or alterations made by the purchaser or a third party without our written consent.</li>
                                         </ol>
                                     </div>
                                 </td>
                             </tr>
                              <tr className="border-b border-gray-300 align-top">
-                                <td className="p-2 border-r border-gray-300 font-semibold">After Sales Services</td>
+                                <td className="p-2 border-r border-gray-300 font-semibold">Customer Responsibility</td>
                                 <td className="p-2">
-                                    <ol className="list-decimal list-inside">
-                                        <li>We can provide AMC services at additional cost.</li>
-                                        <li>On-site Service calls will be charged on per day basis plus material charges.</li>
-                                    </ol>
-                                </td>
-                            </tr>
-                             <tr className="border-b border-gray-300 align-top">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Delivery / Completion Period</td>
-                                <td className="p-2 space-y-2">
-                                    <p>Within 8 to 10 weeks from the date of your technically and commercially clear Purchase Order along with advance.</p>
-                                    <p>The Delivery/Completion shall be reasonably extended if:</p>
-                                    <ul className="list-disc list-inside pl-4">
-                                        <li>The technical or commercial data required by us to execute the order including advance payment are not made available in time or if subsequent changes, which delay the delivery, are made by the purchaser.</li>
-                                        <li>If the purchaser is behind the schedule with the work, he has to carry out to is late in fulfilling the contractual obligations.</li>
+                                    <ul className="list-disc list-inside space-y-1">
+                                        <li>Provide access to the worksite for delivery and installation.</li>
+                                        <li>Provide a suitable and secure space for storing equipment and materials.</li>
+                                        <li>Provide free electricity and water for installation purposes.</li>
+                                        <li>Any expenses related to load extension will be the customer's responsibility.</li>
+                                        <li>Purchasing stamp paper for required agreements.</li>
+                                        <li>Cost and installation of RCCB and MCB at the meter outlet. A fiber/acrylic box for the meter display is included.</li>
+                                        <li>Approximately 90 days will be required for the MSEB release order and meter installation after system installation is complete.</li>
+                                        <li>This quotation includes standard fabrication (front leg 1 meter). No ladder or walkway is included.</li>
                                     </ul>
-                                    <p>We shall retain the right on equipment, materials or parts supplied by us under this quotation until full value thereof as per our invoice has been fully paid to us as per terms and conditions.</p>
-                                </td>
-                            </tr>
-                              <tr className="border-b border-gray-300 align-top">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Commissioning & Testing</td>
-                                <td className="p-2 space-y-2">
-                                    <p>If the grid is not made available by the customer to us within 15 days of the solar power plant being ready for grid connectivity because of which we cannot conduct the final performance tests, it shall be construed as "Deemed Commissioning" and final payment shall be made by the customer subsequent to such deemed commissioning.</p>
-                                    <p>Once the solar power plant is ready for connection to the Grid and we have conducted the test after such connection successfully whether in presence of the customer or not, the solar power plant shall be considered as commissioned and tested. Confirmation of such commissioning & testing should be accepted by the customer in writing and shall not be unreasonably withheld for no fault on our end.</p>
                                 </td>
                             </tr>
                             <tr className="align-top">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Limitation fo liability & Indemnity</td>
-                                <td className="p-2 space-y-2">
-                                    <p>In no event, we shall be liable for any special, punitive, indirect, or consequential damages of any nature whatsoever, nor for any losses or damages caused by reason of unavailability of the Equipment or the Facility, shutdowns or service interruptions, loss of use, loss of actual or potential profits or revenue, loss of reputation, inventory or use charges, interest charges or cost of capital or any claims made by the customer or other contracting parties or pollution remediation costs. The overall liability by us whether for liquidated damages or otherwise shall not be more than 5 % of the total order value.</p>
-                                    <p>Each Party shall indemnify and hold the other Party harmless from any claims by a third party for loss of or damage to property or death or personal injury arising out of or connected with that Party's negligence while engaged in its activities under the Contract. In the event, such damage or injury is caused by the joint or concurrent negligence of the Supplier/Contractor and the customer, the loss shall be borne by each Party in proportion to its negligence.</p>
-                                    <p>The Liquidated Damages shall be the customer's only remedy for delay in delivery and for any deviations in the supply of equipment and shall constitute the customer's only liability in these respects.</p>
-                                    <p>We strongly recommend having solar system insured after the installation as we will not be liable for the accidental damages.</p>
+                                <td className="p-2 border-r border-gray-300 font-semibold">After-Sales Service</td>
+                                <td className="p-2">
+                                    <p>We provide 1 year of complimentary service assistance. After 1 year, you have two options:</p>
+                                    <ol className="list-decimal list-inside pl-4 mt-1">
+                                        <li>Contact the respective component manufacturers directly via their toll-free numbers. Any transport and service expenses will be your responsibility.</li>
+                                        <li>Request a paid service quotation from us.</li>
+                                    </ol>
                                 </td>
                             </tr>
                         </tbody>
