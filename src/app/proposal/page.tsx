@@ -422,34 +422,7 @@ function ProposalContent() {
                         </tbody>
                      </table>
                 </section>
-
-                 <section className="mt-8">
-                     <h3 className="font-bold text-blue-800 mb-2 text-center text-base">Customer Responsibilities</h3>
-                     <table className="w-full border-collapse border border-gray-300 text-left text-xs">
-                        <thead className="bg-gray-100">
-                            <tr>
-                                <th className="p-2 border border-gray-300 font-semibold w-[5%]">Sr. No</th>
-                                <th className="p-2 border border-gray-300 font-semibold">Item</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="border-b border-gray-300">
-                                <td className="p-2 border-x border-gray-300 text-center">1.</td>
-                                <td className="p-2 border-x border-gray-300">Provision of shade free roof/other areas for installation of the solar equipment, any additional infrastructure and civil work will be in scope of customer (If required)</td>
-                            </tr>
-                            <tr className="border-b border-gray-300">
-                                <td className="p-2 border-x border-gray-300 text-center">2.</td>
-                                <td className="p-2 border-x border-gray-300">Load Extension & enhancement of existing supply/switchgears like ICTD/ICDO & RCCB/ELCB at metering board/cabinet/room (if required)</td>
-                            </tr>
-                            <tr>
-                                <td className="p-2 border-x border-b border-gray-300 text-center">3.</td>
-                                <td className="p-2 border-x border-b border-gray-300">Purchasing Stamp, Making & signing Power Purchase Agreement (PPA) with local utility & Other relevant agreements & documents as per guidelines by DISCOM & MNRE National Portal</td>
-                            </tr>
-                        </tbody>
-                     </table>
-                </section>
                 
-
                 <footer className="mt-12 pt-4 text-center relative">
                      <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 6</p>
