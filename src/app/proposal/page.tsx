@@ -9,10 +9,6 @@ import { Download, ArrowLeft } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const handleSavePdf = () => {
-    // This check ensures the code inside only runs in an Electron renderer process
-    // where Node.js integration is enabled. It prevents the Next.js build from
-    // trying to bundle Node.js modules like 'fs'. We check for `window.require`
-    // which is made available by Electron when `nodeIntegration` is true.
     if (typeof window !== 'undefined' && (window as any).require) {
       try {
         const { ipcRenderer } = (window as any).require('electron');
@@ -22,8 +18,6 @@ const handleSavePdf = () => {
         window.print();
       }
     } else {
-      // If not in Electron (e.g., running in a standard web browser),
-      // fall back to the browser's native print functionality.
       console.warn("Electron's ipcRenderer is not available. Falling back to window.print(). This is expected in a web browser environment.");
       window.print();
     }
@@ -41,10 +35,8 @@ interface ProposalRenderData {
     roofSize: number;
     installationLocation: string;
     inverterCapacity: string;
-    designInstallationCost: number;
+    systemCost: number;
     incentives: number;
-    ppaProcessingCost: number;
-    gstPercentage: number;
 }
 
 function ProposalContent() {
@@ -55,7 +47,6 @@ function ProposalContent() {
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString('en-GB'));
     
-    // This component now safely runs only on the client, avoiding hydration errors.
     const params = new URLSearchParams(window.location.search);
     setData({
         name: params.get('name') || 'N/A',
@@ -69,10 +60,8 @@ function ProposalContent() {
         roofSize: parseFloat(params.get('roofSize') || '0'),
         installationLocation: params.get('installationLocation') || 'Roof Mounted',
         inverterCapacity: params.get('inverterCapacity') || '5.00kW',
-        designInstallationCost: parseFloat(params.get('systemCost') || '0'),
+        systemCost: parseFloat(params.get('systemCost') || '0'),
         incentives: parseFloat(params.get('incentives') || '0'),
-        ppaProcessingCost: parseFloat(params.get('ppaProcessingCost') || '0'),
-        gstPercentage: parseFloat(params.get('gstPercentage') || '0'),
     });
   }, []);
 
@@ -83,14 +72,12 @@ function ProposalContent() {
   const { 
     name, address, systemSize, consumerNumber, load, connectionType, customerType,
     monthlyBill, roofSize, installationLocation, inverterCapacity,
-    designInstallationCost, incentives, ppaProcessingCost, gstPercentage 
+    systemCost, incentives 
   } = data;
 
-  // Constants for calculations
   const COST_PER_UNIT = 10.05;
   const AVG_ANNUAL_UNITS_PER_KW = 1400;
 
-  // Page 4 Calculations
   const avgRequiredMonthlyOutput = monthlyBill / COST_PER_UNIT;
   const avgRequiredAnnualOutput = avgRequiredMonthlyOutput * 12;
   const expectedAnnualOutput = systemSize * AVG_ANNUAL_UNITS_PER_KW;
@@ -98,8 +85,7 @@ function ProposalContent() {
   const expectedMonthlyOutputMin = expectedMonthlyOutput * 0.7;
   const expectedMonthlyOutputMax = expectedMonthlyOutput * 1.2;
   
-  // Page 5 Calculations
-  const amountPayable = designInstallationCost;
+  const amountPayable = systemCost;
 
   const formatCurrency = (value: number) => {
     return `₹ ${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
@@ -110,8 +96,8 @@ function ProposalContent() {
   };
 
   return (
-    <div className="bg-gray-100 p-4 sm:p-8 print:p-0 print:bg-white">
-        <div className="w-full max-w-4xl mx-auto space-y-6 print:space-y-0">
+    <div className="bg-gray-100 print:bg-white">
+        <div className="w-full max-w-4xl mx-auto">
             <div className="flex justify-between items-center p-6 print:hidden">
                 <Button onClick={() => router.back()} variant="outline">
                     <ArrowLeft className="mr-2 h-4 w-4" />
@@ -124,7 +110,7 @@ function ProposalContent() {
             </div>
             
             {/* Page 1 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-auto">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -181,7 +167,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 2 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-auto">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -219,7 +205,7 @@ function ProposalContent() {
             </main>
             
             {/* Page 3 */}
-             <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-auto">
+             <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -255,7 +241,7 @@ function ProposalContent() {
                         </table>
                     </section>
                     
-                     <div className="mt-12 text-center">
+                    <div className="mt-12 text-center">
                         <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing and Payback</h2>
                         <p className="mt-1">खालील टेबल सौर ऊर्जा उपकरणा विषयी सर्व माहिती देते.</p>
                     </div>
@@ -284,14 +270,13 @@ function ProposalContent() {
                     </section>
                 </div>
 
-
                 <footer className="mt-auto pt-4 border-t-2 border-gray-400 text-right">
                     <p className="text-xs text-gray-500">Page 3 of 5</p>
                 </footer>
             </main>
 
             {/* Page 4 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-auto">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -307,7 +292,7 @@ function ProposalContent() {
                     </header>
 
                     <div className="my-4 text-center">
-                        <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing</h2>
+                        <h2 className="text-xl font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Pricing</h2>
                         <p className="mt-2">Below is the pricing schedule and Bill of material for the major components.</p>
                     </div>
                     
@@ -320,7 +305,7 @@ function ProposalContent() {
                             </tr>
                             </thead>
                             <tbody>
-                                <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Design, supply, installation, commissioning and support of a {systemSize.toFixed(2)}kW Roof Top Solar System</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(designInstallationCost)}</td></tr>
+                                <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Design, supply, installation, commissioning and support of a {systemSize.toFixed(2)}kW Roof Top Solar System</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(systemCost)}</td></tr>
                                 <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Freight &amp; Insurances</td><td className="p-2 border-x border-gray-300 text-right">Free Issue</td></tr>
                                 <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing &amp; Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
                                 <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST 12%</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
@@ -332,8 +317,10 @@ function ProposalContent() {
                     </section>
 
                     <section className="mt-8 print:break-inside-avoid">
-                        <h3 className="font-bold text-blue-800 mb-2 text-center text-base">Bill of Material</h3>
-                        <p className="text-center text-xs mb-4">Bill of material for major components</p>
+                        <div className="text-center">
+                            <h3 className="font-bold text-blue-800 mb-2 text-base">Bill of Material</h3>
+                            <p className="text-xs mb-4">Bill of material for major components</p>
+                        </div>
                         <table className="w-full border-collapse border border-gray-300 text-left text-xs">
                             <thead className="bg-gray-100">
                                 <tr>
@@ -389,13 +376,12 @@ function ProposalContent() {
                 </div>
                 
                 <footer className="mt-auto pt-4 flex justify-center items-end text-center">
-                    <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="text-xs text-gray-500 absolute right-10">Page 4 of 5</p>
                 </footer>
             </main>
 
             {/* Page 5 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:h-auto">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -410,7 +396,7 @@ function ProposalContent() {
                         </div>
                     </header>
                     <div className="text-center my-4">
-                        <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Terms and Conditions</h2>
+                        <h2 className="text-xl font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Terms and Conditions</h2>
                     </div>
                     <section className="mt-8 print:break-inside-avoid">
                         <table className="w-full border-collapse border border-gray-300 text-left text-xs">
@@ -495,7 +481,7 @@ function ProposalContent() {
 
 function ProposalSkeleton() {
     return (
-        <div className="min-h-screen bg-gray-50 p-4 sm:p-8 flex justify-center">
+        <div className="bg-gray-100 p-4 sm:p-8 flex justify-center">
             <div className="w-full max-w-4xl space-y-6">
                 <div className="flex justify-between items-center p-6 print:hidden">
                     <Skeleton className="h-10 w-32" />
