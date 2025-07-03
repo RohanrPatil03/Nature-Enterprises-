@@ -247,76 +247,6 @@ function ProposalContent() {
                     </div>
                 </header>
 
-                <div className="text-center my-4">
-                    <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Project Feasibility Report (DPR)</h2>
-                </div>
-
-                <section className="mt-8">
-                    <h3 className="font-bold text-blue-800 mb-2">Customer Details</h3>
-                    <table className="w-full border-collapse border border-gray-300 text-left">
-                        <tbody>
-                            <tr className="border-b border-gray-300">
-                                <td className="p-2 border-r border-gray-300 font-semibold w-1/3">Customer Name ग्राहकाचे नाव:</td>
-                                <td className="p-2">{name}</td>
-                            </tr>
-                            <tr className="border-b border-gray-300">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Consumer Number ग्राहक क्रमांक:</td>
-                                <td className="p-2">{consumerNumber}</td>
-                            </tr>
-                            <tr className="border-b border-gray-300">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Sanctioned Load:</td>
-                                <td className="p-2">{load.toFixed(2)}KW</td>
-                            </tr>
-                             <tr className="border-b border-gray-300">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Connection Type:</td>
-                                <td className="p-2">{connectionType}</td>
-                            </tr>
-                             <tr className="border-b border-gray-300">
-                                <td className="p-2 border-r border-gray-300 font-semibold">Consumer Category:</td>
-                                <td className="p-2">{customerType}</td>
-                            </tr>
-                             <tr>
-                                <td className="p-2 border-r border-gray-300 font-semibold">Avg. Monthly Bill:</td>
-                                <td className="p-2">{formatCurrency(monthlyBill)}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                
-                <section className="mt-8">
-                    <h3 className="font-bold text-blue-800 mb-2">Report Summary</h3>
-                    <div className="space-y-4 text-gray-800 leading-relaxed text-justify">
-                        <p>A basic study was carried out to understand energy requirements of {name}, {address}. The available solar irradiation at the site and using our proprietary tools we have calculated suitable solar options that can be installed on the site based on the available roof space for renewable energy installation.</p>
-                        <p>Considering solar irradiation data at site and average electricity consumption required the customer has been recommended to <span className="font-bold">install a {systemSize.toFixed(2)}kW solar system.</span> This system will meet current demand while delivering <span className="font-bold">1140% ROI</span> (simple Return on investment) and <span className="font-bold">2.2 years to payback</span> at <span className="font-bold">57% IRR</span> (Internal rate of return). We believe this system will <span className="font-bold">save you over ₹34,20,649 over 25 years.</span> Please note typical life of solar panels is about 40 years. Please note average consumption is much lower than the designed capacity. Therefore, the actual returns will be higher than the above numbers.</p>
-                        <p>The investment for solar equipment will be <span className="font-bold">{formatCurrency(designInstallationCost)}.</span> Considering annual electricity saving of <span className="font-bold">{formatCurrency(firstYearSavings)}</span> and accelerated depreciation/subsidy of <span className="font-bold">{formatCurrency(incentives)},</span> the net investment during the first year will be <span className="font-bold">{formatCurrency(netInvestment)}.</span></p>
-                        <p>Current average monthly bill is {formatCurrency(monthlyBill)} and average monthly energy bill with solar will be <span className="font-bold">₹0.00</span> (Note: Only Energy charges considered. Customer may still have to pay fixed charges of Utility Company and excess energy usage beyond design capacity of solar system)</p>
-                        <p>We recommend using net metering in this project as the client has most use during summer months. This will save cost associated with the batteries and increase return on the investment.</p>
-                        <p>{name}, {address} यांचा वीज वापर समजून घेण्यासाठी बेसिक स्टडी करण्यात आला. त्यांची वीजेची गरज, जागेवर मिळणारी सौर ऊर्जा व उपलब्ध जागा या माहितीवरून आमचे प्रोप्रायटरी टूल्स वापरून आम्ही त्यांना लागणाऱ्या योग्य सौर ऊर्जा उपकरणाची शिफारस करत आहोत. या कपॅसिटीचे उपकरण व आमची मूल्यवर्धित सेवा आपल्याला आपल्या गुंतवणुकीवर जास्तीत जास्त परतावा मिळवुन देईल.</p>
-                        <p>जागेवर मिळणारी सौर उर्जा व सरासरी वीज वापर याचा विचार करून आपल्याला {systemSize.toFixed(2)}kW कपॅसिटीचे सौर विजनिर्मिती उपकरण बसवण्याची शिफारस करत आहोत. या कपॅसिटीचे उपकरण आम्ही दिलेल्या किंमतीत घेतल्यास ते तुमची सध्याची तुमची सध्याची वीज गरज भागून गुंतवणुकीवर 1140% ROI (simple Return on Investment) इतका परतावा मिळेल व गुंतवलेली रक्कम 2.2 वर्षांत वसूल होईल. आम्हाला विश्वास आहे की वरती शिफारस केलेले उपकरण आपल्याला नंतरच्या 25 वर्षात ₹34,20,649 ची बचत करून देईल. सौर ऊर्जा उपकरणे 40 वर्षे टिकतात.</p>
-                    </div>
-                </section>
-                
-                <footer className="mt-12 pt-4 text-center relative">
-                    <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 8</p>
-                </footer>
-            </main>
-
-            {/* Page 4 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
-                    <div className="w-1/3">
-                        <Logo />
-                    </div>
-                    <div className="text-right text-xs space-y-1">
-                        <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/p -Tung  , Sangli,</p>
-                        <p>Sangli - Islampur Highway, 416401 .</p>
-                        <p>Phone: 9595943332</p>
-                        <p>Web: www.nature-enterprises.com</p>
-                    </div>
-                </header>
-
                 <div className="my-4">
                     <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing and Payback</h2>
                     <p className="mt-2">In the table below, you can find basic pricing for our recommended solar solution. Please note these numbers are based on the 25 years of life.</p>
@@ -346,11 +276,11 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 text-center relative">
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 8</p>
                 </footer>
             </main>
             
-            {/* Page 5 */}
+            {/* Page 4 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -477,11 +407,11 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 text-center relative">
                      <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 8</p>
                 </footer>
             </main>
 
-            {/* Page 6 */}
+            {/* Page 5 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -599,11 +529,11 @@ function ProposalContent() {
                 </section>
                 <footer className="mt-12 pt-4 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 8</p>
                 </footer>
             </main>
 
-            {/* Page 7 */}
+            {/* Page 6 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -633,11 +563,11 @@ function ProposalContent() {
                 </section>
                 <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 8</p>
                 </footer>
             </main>
 
-            {/* Page 8 */}
+            {/* Page 7 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -716,11 +646,11 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 8 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 8</p>
                 </footer>
             </main>
 
-            {/* Page 9 */}
+            {/* Page 8 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -778,7 +708,7 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 text-center relative" style={{top: '5vh'}}>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 9 of 9</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 8 of 8</p>
                 </footer>
             </main>
         </div>
