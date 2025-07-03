@@ -211,7 +211,6 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
-                    <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 6</p>
                 </footer>
             </main>
