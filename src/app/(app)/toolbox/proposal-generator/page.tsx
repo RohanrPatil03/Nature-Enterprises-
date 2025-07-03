@@ -44,6 +44,7 @@ const proposalFormSchema = z.object({
     required_error: 'You must select an installation location.',
   }),
   systemCost: z.coerce.number().positive({ message: 'System cost must be a positive number.' }),
+  incentives: z.coerce.number().nonnegative({ message: 'Subsidy must be a non-negative number.' }).default(0),
   inverterCapacity: z.string().min(1, { message: 'Please enter inverter capacity.' }),
 });
 
@@ -69,6 +70,7 @@ export default function ProposalGeneratorPage() {
       roofSize: 700,
       installationLocation: 'Roof Mounted',
       systemCost: 300000,
+      incentives: 78000,
       inverterCapacity: '5.00kW',
     },
   });
@@ -297,6 +299,23 @@ export default function ProposalGeneratorPage() {
                         </FormControl>
                         <FormDescription>
                             Enter the total all-inclusive cost for the system.
+                        </FormDescription>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="incentives"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Subsidy Amount (₹)</FormLabel>
+                        <FormControl>
+                        <Input type="number" placeholder="78000" {...field} value={field.value ?? ''} />
+                        </FormControl>
+                        <FormDescription>
+                            Enter the government subsidy amount, if applicable.
                         </FormDescription>
                         <FormMessage />
                     </FormItem>

@@ -15,6 +15,7 @@ export interface ProposalData {
     systemCost: number;
     installationLocation: 'Roof Mounted' | 'Ground Mounted';
     inverterCapacity: string;
+    incentives: number;
 }
 
 export interface ProposalDocument extends ProposalData {

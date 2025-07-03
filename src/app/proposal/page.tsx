@@ -99,7 +99,7 @@ function ProposalContent() {
   const expectedMonthlyOutputMax = expectedMonthlyOutput * 1.2;
   
   // Page 5 Calculations
-  const amountPayable = designInstallationCost;
+  const amountPayable = designInstallationCost - incentives;
 
   const formatCurrency = (value: number) => {
     return `₹ ${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
@@ -338,6 +338,7 @@ function ProposalContent() {
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Freight &amp; Insurances</td><td className="p-2 border-x border-gray-300 text-right">Free Issue</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing &amp; Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST 12%</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Subsidy from Government</td><td className="p-2 border-x border-gray-300 text-right">(-) {formatCurrency(incentives)}</td></tr>
                             <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Amount Payable to Nature Enterprises</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(amountPayable)}</td></tr>
                         </tbody>
                     </table>
