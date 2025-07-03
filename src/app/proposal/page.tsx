@@ -110,8 +110,8 @@ function ProposalContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-8 flex justify-center print:bg-white">
-        <div className="w-full max-w-4xl space-y-6 bg-white shadow-lg print:shadow-none print:space-y-0">
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-8 flex justify-center print:p-0 print:bg-white">
+        <div className="w-full max-w-4xl space-y-6 print:space-y-0">
             <div className="flex justify-between items-center p-6 print:hidden">
                 <Button onClick={() => router.back()} variant="outline">
                     <ArrowLeft className="mr-2 h-4 w-4" />
@@ -124,7 +124,7 @@ function ProposalContent() {
             </div>
             
             {/* Page 1 */}
-            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -181,7 +181,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 2 */}
-            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -219,7 +219,7 @@ function ProposalContent() {
             </main>
             
             {/* Page 3 */}
-             <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
+             <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -238,7 +238,7 @@ function ProposalContent() {
                         <h2 className="text-xl font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Report Summary</h2>
                     </div>
                     
-                    <section className="mt-8 print:break-inside-avoid-page">
+                    <section className="mt-8 print:break-inside-avoid">
                         <table className="w-full border-collapse border border-gray-300 text-left text-sm">
                             <tbody>
                                 <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold w-1/2 bg-gray-50">Customer Details</td><td className="p-2 font-bold">{name}</td></tr>
@@ -255,7 +255,7 @@ function ProposalContent() {
                         </table>
                     </section>
                     
-                    <section className="mt-12 print:break-inside-avoid-page">
+                    <section className="mt-12 print:break-inside-avoid">
                         <h3 className="font-bold text-lg text-blue-800 mb-4">Important Notes:</h3>
                         <ul className="list-disc list-inside space-y-2 text-xs text-gray-700">
                             <li>The CFA/Subsidy amount is subject to change as per government policies. We assist in the application process, but the final disbursement is by the government agency.</li>
@@ -272,7 +272,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 4 */}
-            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -292,7 +292,7 @@ function ProposalContent() {
                         <p className="mt-1">खालील टेबल सौर ऊर्जा उपकरणा विषयी सर्व माहिती देते.</p>
                     </div>
                     
-                    <section className="mt-8 print:break-inside-avoid-page">
+                    <section className="mt-8 print:break-inside-avoid">
                         <table className="w-full border-collapse border border-gray-300 text-left text-xs">
                             <tbody>
                                 <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold w-1/3">System Capacity</td><td className="p-2 border-r border-gray-300 font-semibold w-1/3">सिस्टिम कपॅसिटी</td><td className="p-2 font-bold">{systemSize.toFixed(2)}kW</td></tr>
@@ -313,7 +313,7 @@ function ProposalContent() {
             </main>
             
             {/* Page 5 */}
-            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0 print:break-after-page">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -333,7 +333,7 @@ function ProposalContent() {
                         <p className="mt-2">Below is the pricing schedule and Bill of material for the major components.</p>
                     </div>
                     
-                    <section className="mt-8 print:break-inside-avoid-page">
+                    <section className="mt-8 print:break-inside-avoid">
                         <table className="w-full border-collapse text-left text-xs">
                             <thead className="bg-gray-100">
                             <tr>
@@ -353,7 +353,7 @@ function ProposalContent() {
                         <p className="text-xs mt-2">Note: CFA/Subsidy depends on eligibility criteria's as per Govt policy (National Portal) &amp; approval by agency post inspection; once approved CFA will be directly transfer to beneficiary's account post final payment of vendor.</p>
                     </section>
 
-                    <section className="mt-8 print:break-inside-avoid-page">
+                    <section className="mt-8 print:break-inside-avoid">
                         <h3 className="font-bold text-blue-800 mb-2 text-center text-base">Bill of Material</h3>
                         <p className="text-center text-xs mb-4">Bill of material for major components</p>
                         <table className="w-full border-collapse border border-gray-300 text-left text-xs">
@@ -417,7 +417,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 6 */}
-            <main className="p-10 font-sans text-sm flex flex-col h-screen print:h-auto print:min-h-0">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -434,7 +434,7 @@ function ProposalContent() {
                     <div className="text-center my-4">
                         <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Terms and Conditions</h2>
                     </div>
-                    <section className="mt-8 print:break-inside-avoid-page">
+                    <section className="mt-8 print:break-inside-avoid">
                         <table className="w-full border-collapse border border-gray-300 text-left text-xs">
                             <tbody>
                                 <tr className="border-b border-gray-300 align-top">
