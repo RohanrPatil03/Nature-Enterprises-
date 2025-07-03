@@ -110,8 +110,8 @@ function ProposalContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-8 flex justify-center print:p-0 print:bg-white">
-        <div className="w-full max-w-4xl space-y-6 print:space-y-0">
+    <div className="bg-gray-100 p-4 sm:p-8 print:p-0 print:bg-white">
+        <div className="w-full max-w-4xl mx-auto space-y-6 print:space-y-0">
             <div className="flex justify-between items-center p-6 print:hidden">
                 <Button onClick={() => router.back()} variant="outline">
                     <ArrowLeft className="mr-2 h-4 w-4" />
@@ -124,7 +124,7 @@ function ProposalContent() {
             </div>
             
             {/* Page 1 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -181,7 +181,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 2 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -219,7 +219,7 @@ function ProposalContent() {
             </main>
             
             {/* Page 3 */}
-             <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
+             <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -234,7 +234,7 @@ function ProposalContent() {
                         </div>
                     </header>
 
-                    <div className="my-8">
+                    <div className="my-8 text-center">
                         <h2 className="text-xl font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Report Summary</h2>
                     </div>
                     
@@ -272,7 +272,7 @@ function ProposalContent() {
             </main>
 
             {/* Page 4 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -287,7 +287,7 @@ function ProposalContent() {
                         </div>
                     </header>
 
-                    <div className="my-4">
+                    <div className="my-4 text-center">
                         <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing and Payback</h2>
                         <p className="mt-1">खालील टेबल सौर ऊर्जा उपकरणा विषयी सर्व माहिती देते.</p>
                     </div>
@@ -313,7 +313,7 @@ function ProposalContent() {
             </main>
             
             {/* Page 5 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -328,7 +328,7 @@ function ProposalContent() {
                         </div>
                     </header>
 
-                    <div className="my-4">
+                    <div className="my-4 text-center">
                         <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing</h2>
                         <p className="mt-2">Below is the pricing schedule and Bill of material for the major components.</p>
                     </div>
@@ -411,13 +411,14 @@ function ProposalContent() {
                 </div>
                 
                 <footer className="mt-auto pt-4 flex justify-between items-end">
+                    <div></div>
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="text-xs text-gray-500">Page 5 of 6</p>
                 </footer>
             </main>
 
             {/* Page 6 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:h-screen">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -520,6 +521,7 @@ function ProposalContent() {
                     </section>
                 </div>
                 <footer className="mt-auto pt-4 flex justify-between items-end">
+                    <div></div>
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="text-xs text-gray-500">Page 6 of 6</p>
                 </footer>
