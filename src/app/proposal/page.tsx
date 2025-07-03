@@ -381,12 +381,12 @@ function ProposalContent() {
                         <tbody>
                             <tr className="border-b border-gray-300">
                                 <td className="p-2 border-x border-gray-300 font-semibold">Solar Panels</td>
-                                <td className="p-2 border-x border-gray-300">MNRE/ALMM Approved Mono DCR 440-545wp modules (Waaree/Vikram/Goldi/Rayzon/Renewsys/Axitec OR Equivalent)</td>
+                                <td className="p-2 border-x border-gray-300">MNRE/ALMM Approved Mono DCR 440-575wp modules (Premier/UTL/FUJIYAMA/Rayzon/Renewsys/Axitec OR Equivalent)</td>
                                 <td className="p-2 border-x border-gray-300">{systemSize.toFixed(2)}kW</td>
                             </tr>
                             <tr className="border-b border-gray-300">
                                 <td className="p-2 border-x border-gray-300 font-semibold">Grid Tie Inverter</td>
-                                <td className="p-2 border-x border-gray-300">Growatt/GoodWe/Sofar/Evvo (or Equivalent) with Remote Monitoring System</td>
+                                <td className="p-2 border-x border-gray-300">Growatt/GoodWe/Sofar/UTL (or Equivalent) with Remote Monitoring System</td>
                                 <td className="p-2 border-x border-gray-300">{inverterCapacity}</td>
                             </tr>
                              <tr className="border-b border-gray-300">
