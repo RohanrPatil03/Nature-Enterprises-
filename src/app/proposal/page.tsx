@@ -190,7 +190,7 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
                     <p className="font-bold text-blue-800">A MAHADISCOM, MNRE & MEDA Registered Partner!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 1 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 1 of 9</p>
                 </footer>
             </main>
 
@@ -228,11 +228,62 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 9</p>
+                </footer>
+            </main>
+            
+            {/* Page 3 */}
+             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
+                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
+                    <div className="w-1/3">
+                        <Logo />
+                    </div>
+                    <div className="text-right text-xs space-y-1">
+                        <h2 className="font-bold text-base">Nature Enterprises</h2>
+                        <p>A/p -Tung  , Sangli,</p>
+                        <p>Sangli - Islampur Highway, 416401 .</p>
+                        <p>Phone: 9595943332</p>
+                        <p>Web: www.nature-enterprises.com</p>
+                    </div>
+                </header>
+
+                <div className="my-8">
+                    <h2 className="text-xl font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Report Summary</h2>
+                </div>
+                
+                <section className="mt-8">
+                    <table className="w-full border-collapse border border-gray-300 text-left text-sm">
+                        <tbody>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold w-1/2 bg-gray-50">Customer Details</td><td className="p-2 font-bold">{name}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Address</td><td className="p-2">{address}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Consumer Number(s)</td><td className="p-2">{consumerNumber}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Connected Load (kW)</td><td className="p-2">{load}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Connection Type</td><td className="p-2">{connectionType}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Customer Type</td><td className="p-2">{customerType}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Proposed System Size (kW)</td><td className="p-2">{systemSize.toFixed(2)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Average Monthly Bill (₹)</td><td className="p-2">{monthlyBill.toLocaleString('en-IN')}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Roof Size (sq. ft.)</td><td className="p-2">{roofSize}</td></tr>
+                            <tr><td className="p-2 border-r border-gray-300 font-semibold bg-gray-50">Location of Installation</td><td className="p-2">{installationLocation}</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                 <section className="mt-12">
+                    <h3 className="font-bold text-lg text-blue-800 mb-4">Important Notes:</h3>
+                    <ul className="list-disc list-inside space-y-2 text-xs text-gray-700">
+                        <li>The CFA/Subsidy amount is subject to change as per government policies. We assist in the application process, but the final disbursement is by the government agency.</li>
+                        <li>Any additional civil work, wiring beyond the standard scope, or load enhancement charges are the customer's responsibility.</li>
+                        <li>The proposal is valid for 7 days from the date of submission.</li>
+                    </ul>
+                </section>
+
+
+                <footer className="mt-24 pt-4 border-t-2 border-gray-400 text-center relative">
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 3 */}
+            {/* Page 4 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -276,11 +327,11 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 text-center relative">
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 9</p>
                 </footer>
             </main>
             
-            {/* Page 4 */}
+            {/* Page 5 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -407,11 +458,11 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 text-center relative">
                      <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 5 */}
+            {/* Page 6 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -529,11 +580,11 @@ function ProposalContent() {
                 </section>
                 <footer className="mt-12 pt-4 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 6 */}
+            {/* Page 7 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -563,11 +614,11 @@ function ProposalContent() {
                 </section>
                 <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 7 */}
+            {/* Page 8 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -646,11 +697,11 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 8 of 9</p>
                 </footer>
             </main>
 
-            {/* Page 8 */}
+            {/* Page 9 */}
             <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
                  <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                     <div className="w-1/3">
@@ -708,7 +759,7 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 text-center relative" style={{top: '5vh'}}>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 8 of 8</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 9 of 9</p>
                 </footer>
             </main>
         </div>
