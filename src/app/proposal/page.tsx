@@ -111,9 +111,8 @@ function ProposalContent() {
     : 0;
   
   // Page 6 Calculations
-  const tableSystemCost = designInstallationCost + ppaProcessingCost;
-  const gstAmount = tableSystemCost * (gstPercentage / 100);
-  const amountPayable = tableSystemCost + gstAmount;
+  const tableSystemCost = designInstallationCost;
+  const amountPayable = tableSystemCost;
   const realCostToCustomer = amountPayable - incentives;
 
   const formatCurrency = (value: number) => {
@@ -362,9 +361,9 @@ function ProposalContent() {
                         <tbody>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Design, supply, installation, commissioning and support of a {systemSize.toFixed(2)}kW Roof Top Solar System</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(designInstallationCost)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Freight & Insurances</td><td className="p-2 border-x border-gray-300 text-right">Free Issue</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing & Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(ppaProcessingCost)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">PPA Processing & Liaising with MSEB/MAHADISCOM</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
                             <tr className="border-b-2 border-gray-400"><td className="p-2 border-x border-gray-300 font-semibold">System Cost</td><td className="p-2 border-x border-gray-300 text-right font-semibold">{formatCurrency(tableSystemCost)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST @ {gstPercentage}% (70:30 ratio for Goods & Services)</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(gstAmount)}</td></tr>
+                            <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">GST @ {gstPercentage}% (70:30 ratio for Goods & Services)</td><td className="p-2 border-x border-gray-300 text-right">Included</td></tr>
                             <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Amount Payable to Nature Enterprises</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(amountPayable)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-x border-gray-300">Rebate/Subsidy from Government</td><td className="p-2 border-x border-gray-300 text-right">{formatCurrency(incentives)}</td></tr>
                             <tr className="border-b-2 border-gray-400 bg-gray-100"><td className="p-2 border-x border-gray-300 font-bold">Real Cost to the Customer</td><td className="p-2 border-x border-gray-300 text-right font-bold">{formatCurrency(realCostToCustomer)}</td></tr>
