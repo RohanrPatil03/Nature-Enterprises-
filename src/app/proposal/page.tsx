@@ -88,8 +88,6 @@ function ProposalContent() {
 
   // Constants for calculations
   const COST_PER_UNIT = 10.05;
-  const ANNUAL_TARIFF_ESCALATION = 0.04;
-  const SYSTEM_LIFETIME_YEARS = 25;
   const AVG_ANNUAL_UNITS_PER_KW = 1400;
 
   // Page 4 Calculations
@@ -99,16 +97,6 @@ function ProposalContent() {
   const expectedMonthlyOutput = expectedAnnualOutput / 12;
   const expectedMonthlyOutputMin = expectedMonthlyOutput * 0.7;
   const expectedMonthlyOutputMax = expectedMonthlyOutput * 1.2;
-  const firstYearSavings = expectedAnnualOutput * COST_PER_UNIT;
-  
-  let lifetimeValue = 0;
-  for (let i = 0; i < SYSTEM_LIFETIME_YEARS; i++) {
-    lifetimeValue += expectedAnnualOutput * (COST_PER_UNIT * Math.pow(1 + ANNUAL_TARIFF_ESCALATION, i));
-  }
-  const netInvestment = designInstallationCost - incentives;
-  const costPerUnitWithSolar = designInstallationCost > 0 && expectedAnnualOutput > 0
-    ? designInstallationCost / (expectedAnnualOutput * SYSTEM_LIFETIME_YEARS)
-    : 0;
   
   // Page 5 Calculations
   const amountPayable = designInstallationCost;
@@ -186,7 +174,6 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
-                    <p className="font-bold text-blue-800">A MAHADISCOM, MNRE &amp; MEDA Registered Partner!</p>
                     <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 1 of 6</p>
                 </footer>
             </main>
