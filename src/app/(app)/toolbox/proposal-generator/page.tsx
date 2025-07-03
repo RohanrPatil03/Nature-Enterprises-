@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -23,6 +23,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { saveProposal } from "@/services/proposalService";
+import { Skeleton } from '@/components/ui/skeleton';
 
 const proposalFormSchema = z.object({
   customerType: z.enum(['Residential', 'Commercial'], {
@@ -48,7 +49,7 @@ const proposalFormSchema = z.object({
   inverterCapacity: z.string().min(1, { message: 'Please enter inverter capacity.' }),
 });
 
-export default function ProposalGeneratorPage() {
+function ProposalGeneratorForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -360,4 +361,36 @@ export default function ProposalGeneratorPage() {
         </CardContent>
     </Card>
   );
+}
+
+function ProposalGeneratorSkeleton() {
+    return (
+        <Card className="max-w-2xl mx-auto">
+            <CardHeader>
+                <Skeleton className="h-7 w-48 mb-2" />
+                <Skeleton className="h-4 w-full" />
+            </CardHeader>
+            <CardContent className="space-y-8 pt-6">
+                <div className="space-y-3">
+                    <Skeleton className="h-5 w-24" />
+                    <div className="flex items-center space-x-6">
+                        <Skeleton className="h-6 w-32" />
+                        <Skeleton className="h-6 w-32" />
+                    </div>
+                </div>
+                <div className="space-y-2"><Skeleton className="h-5 w-32" /><Skeleton className="h-10 w-full" /></div>
+                <div className="space-y-2"><Skeleton className="h-5 w-32" /><Skeleton className="h-10 w-full" /></div>
+                <div className="space-y-2"><Skeleton className="h-5 w-32" /><Skeleton className="h-10 w-full" /></div>
+                <Skeleton className="h-10 w-40" />
+            </CardContent>
+        </Card>
+    );
+}
+
+export default function ProposalGeneratorPage() {
+    return (
+        <Suspense fallback={<ProposalGeneratorSkeleton />}>
+            <ProposalGeneratorForm />
+        </Suspense>
+    );
 }
