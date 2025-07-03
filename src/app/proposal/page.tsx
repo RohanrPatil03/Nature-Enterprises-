@@ -175,7 +175,7 @@ function ProposalContent() {
                     </section>
                 </div>
 
-                <footer className="mt-8 pt-4 border-t-2 border-blue-800 text-right">
+                <footer className="mt-auto pt-4 border-t-2 border-blue-800 text-right">
                     <p className="text-xs text-gray-500">Page 1 of 6</p>
                 </footer>
             </main>
@@ -213,7 +213,7 @@ function ProposalContent() {
                         <p className="font-bold mt-4">Nature Enterprises</p>
                     </section>
                 </div>
-                <footer className="mt-8 pt-4 border-t-2 border-blue-800 text-right">
+                <footer className="mt-auto pt-4 border-t-2 border-blue-800 text-right">
                     <p className="text-xs text-gray-500">Page 2 of 6</p>
                 </footer>
             </main>
@@ -238,7 +238,7 @@ function ProposalContent() {
                         <h2 className="text-xl font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Report Summary</h2>
                     </div>
                     
-                    <section className="mt-8">
+                    <section className="mt-8 print:break-inside-avoid-page">
                         <table className="w-full border-collapse border border-gray-300 text-left text-sm">
                             <tbody>
                                 <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold w-1/2 bg-gray-50">Customer Details</td><td className="p-2 font-bold">{name}</td></tr>
@@ -255,7 +255,7 @@ function ProposalContent() {
                         </table>
                     </section>
                     
-                    <section className="mt-12">
+                    <section className="mt-12 print:break-inside-avoid-page">
                         <h3 className="font-bold text-lg text-blue-800 mb-4">Important Notes:</h3>
                         <ul className="list-disc list-inside space-y-2 text-xs text-gray-700">
                             <li>The CFA/Subsidy amount is subject to change as per government policies. We assist in the application process, but the final disbursement is by the government agency.</li>
@@ -266,7 +266,7 @@ function ProposalContent() {
                 </div>
 
 
-                <footer className="mt-8 pt-4 border-t-2 border-gray-400 text-right">
+                <footer className="mt-auto pt-4 border-t-2 border-gray-400 text-right">
                     <p className="text-xs text-gray-500">Page 3 of 6</p>
                 </footer>
             </main>
@@ -292,7 +292,7 @@ function ProposalContent() {
                         <p className="mt-1">खालील टेबल सौर ऊर्जा उपकरणा विषयी सर्व माहिती देते.</p>
                     </div>
                     
-                    <section className="mt-8">
+                    <section className="mt-8 print:break-inside-avoid-page">
                         <table className="w-full border-collapse border border-gray-300 text-left text-xs">
                             <tbody>
                                 <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold w-1/3">System Capacity</td><td className="p-2 border-r border-gray-300 font-semibold w-1/3">सिस्टिम कपॅसिटी</td><td className="p-2 font-bold">{systemSize.toFixed(2)}kW</td></tr>
@@ -307,7 +307,7 @@ function ProposalContent() {
                     </section>
                 </div>
 
-                <footer className="mt-8 pt-4 text-right">
+                <footer className="mt-auto pt-4 text-right">
                     <p className="text-xs text-gray-500">Page 4 of 6</p>
                 </footer>
             </main>
@@ -333,7 +333,7 @@ function ProposalContent() {
                         <p className="mt-2">Below is the pricing schedule and Bill of material for the major components.</p>
                     </div>
                     
-                    <section className="mt-8">
+                    <section className="mt-8 print:break-inside-avoid-page">
                         <table className="w-full border-collapse text-left text-xs">
                             <thead className="bg-gray-100">
                             <tr>
@@ -353,7 +353,7 @@ function ProposalContent() {
                         <p className="text-xs mt-2">Note: CFA/Subsidy depends on eligibility criteria's as per Govt policy (National Portal) &amp; approval by agency post inspection; once approved CFA will be directly transfer to beneficiary's account post final payment of vendor.</p>
                     </section>
 
-                    <section className="mt-8">
+                    <section className="mt-8 print:break-inside-avoid-page">
                         <h3 className="font-bold text-blue-800 mb-2 text-center text-base">Bill of Material</h3>
                         <p className="text-center text-xs mb-4">Bill of material for major components</p>
                         <table className="w-full border-collapse border border-gray-300 text-left text-xs">
@@ -410,7 +410,8 @@ function ProposalContent() {
                     </section>
                 </div>
                 
-                <footer className="mt-8 pt-4 text-right">
+                <footer className="mt-auto pt-4 flex justify-between items-end">
+                    <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="text-xs text-gray-500">Page 5 of 6</p>
                 </footer>
             </main>
@@ -433,7 +434,7 @@ function ProposalContent() {
                     <div className="text-center my-4">
                         <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Terms and Conditions</h2>
                     </div>
-                    <section className="mt-8">
+                    <section className="mt-8 print:break-inside-avoid-page">
                         <table className="w-full border-collapse border border-gray-300 text-left text-xs">
                             <tbody>
                                 <tr className="border-b border-gray-300 align-top">
@@ -518,7 +519,7 @@ function ProposalContent() {
                         </table>
                     </section>
                 </div>
-                <footer className="mt-8 pt-4 flex justify-between items-end">
+                <footer className="mt-auto pt-4 flex justify-between items-end">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
                     <p className="text-xs text-gray-500">Page 6 of 6</p>
                 </footer>
