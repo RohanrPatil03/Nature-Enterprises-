@@ -19,11 +19,7 @@ import {
 
 import {
   LayoutDashboard,
-  Wrench,
   Users,
-  FileText,
-  Globe,
-  MessageSquare,
 } from "lucide-react"
 
 import { Logo } from "@/components/logo"
@@ -31,20 +27,12 @@ import { Logo } from "@/components/logo"
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/customers", icon: Users, label: "Customers" },
-  { href: "/toolbox", icon: Wrench, label: "Toolbox" },
-  { href: "/documents", icon: FileText, label: "Documents" },
-  { href: "/resources", icon: Globe, label: "Resources" },
-  { href: "/forum", icon: MessageSquare, label: "Forum" },
 ]
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
   const getIsActive = (href: string) => {
-    // For toolbox, we want to match /toolbox and /toolbox/*
-    if (href === '/toolbox') {
-        return pathname.startsWith('/toolbox');
-    }
     // For other nested routes
     if (href !== '/dashboard') {
         return pathname.startsWith(href);
@@ -58,7 +46,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     if (pathname.includes('/toolbox/proposal-generator')) return 'Proposal Generator';
     if (pathname.includes('/toolbox/solar-roi-calculator')) return 'Solar ROI Calculator';
     if (currentNavItem) return currentNavItem.label;
-    return 'Solar Resource Hub';
+    return 'Nature Enterprises';
   }
 
   return (
