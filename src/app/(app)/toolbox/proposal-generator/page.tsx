@@ -40,14 +40,10 @@ const proposalFormSchema = z.object({
   systemSize: z.coerce.number().positive({ message: 'System size must be a positive number.' }),
   monthlyBill: z.coerce.number().positive({ message: 'Monthly bill must be a positive number.' }),
   roofSize: z.coerce.number().positive({ message: 'Roof size must be a positive number.' }),
-  panelType: z.string().min(1, { message: 'Please select a panel type.' }),
   installationLocation: z.enum(['Roof Mounted', 'Ground Mounted'], {
     required_error: 'You must select an installation location.',
   }),
   systemCost: z.coerce.number().positive({ message: 'System cost must be a positive number.' }),
-  ppaProcessingCost: z.coerce.number().nonnegative({ message: 'PPA cost must be a non-negative number.' }).default(0),
-  gstPercentage: z.coerce.number().positive({ message: 'GST percentage must be a positive number.' }),
-  incentives: z.coerce.number().nonnegative({ message: 'Incentives must be a non-negative number.' }).default(0),
   inverterCapacity: z.string().min(1, { message: 'Please enter inverter capacity.' }),
 });
 
@@ -71,12 +67,8 @@ export default function ProposalGeneratorPage() {
       systemSize: 5,
       monthlyBill: 5000,
       roofSize: 700,
-      panelType: 'Monocrystalline',
       installationLocation: 'Roof Mounted',
       systemCost: 300000,
-      ppaProcessingCost: 12000,
-      gstPercentage: 13.8,
-      incentives: 75000,
       inverterCapacity: '5.00kW',
     },
   });
@@ -271,31 +263,6 @@ export default function ProposalGeneratorPage() {
                     )}
                   />
                 </div>
-                <FormField
-                  control={form.control}
-                  name="panelType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Panel Type</FormLabel>
-                       <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a panel type" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="Monocrystalline">Monocrystalline</SelectItem>
-                          <SelectItem value="Polycrystalline">Polycrystalline</SelectItem>
-                          <SelectItem value="Thin-Film">Thin-Film</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormDescription>
-                        Choose the type of solar panel for the installation.
-                      </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
 
                 <FormField
                   control={form.control}
@@ -319,65 +286,22 @@ export default function ProposalGeneratorPage() {
                   )}
                 />
 
-                 <div className="space-y-2">
-                    <h3 className="text-lg font-medium">Pricing Details</h3>
-                    <div className="p-4 border rounded-lg space-y-6">
-                        <FormField
-                            control={form.control}
-                            name="systemCost"
-                            render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Design & Installation Cost (₹)</FormLabel>
-                                <FormControl>
-                                <Input type="number" placeholder="300000" {...field} value={field.value ?? ''} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                            )}
-                        />
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <FormField
-                                control={form.control}
-                                name="ppaProcessingCost"
-                                render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>PPA Processing Cost (₹)</FormLabel>
-                                    <FormControl>
-                                    <Input type="number" placeholder="10000" {...field} value={field.value ?? ''} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="gstPercentage"
-                                render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>GST (%)</FormLabel>
-                                    <FormControl>
-                                    <Input type="number" placeholder="13.8" {...field} value={field.value ?? ''} step="0.1" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                                )}
-                            />
-                        </div>
-                        <FormField
-                            control={form.control}
-                            name="incentives"
-                            render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Rebate/Subsidy (₹)</FormLabel>
-                                <FormControl>
-                                <Input type="number" placeholder="78000" {...field} value={field.value ?? ''} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                            )}
-                        />
-                    </div>
-                 </div>
+                <FormField
+                    control={form.control}
+                    name="systemCost"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Design & Installation Cost (₹)</FormLabel>
+                        <FormControl>
+                        <Input type="number" placeholder="300000" {...field} value={field.value ?? ''} />
+                        </FormControl>
+                        <FormDescription>
+                            Enter the total all-inclusive cost for the system.
+                        </FormDescription>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
 
                  <div className="space-y-2">
                     <h3 className="text-lg font-medium">Bill of Materials</h3>

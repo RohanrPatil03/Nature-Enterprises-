@@ -12,11 +12,7 @@ export interface ProposalData {
     systemSize: number;
     monthlyBill: number;
     roofSize: number;
-    panelType: string;
     systemCost: number;
-    incentives: number;
-    ppaProcessingCost: number;
-    gstPercentage: number;
     installationLocation: 'Roof Mounted' | 'Ground Mounted';
     inverterCapacity: string;
 }
