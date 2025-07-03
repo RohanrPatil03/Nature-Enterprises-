@@ -124,7 +124,7 @@ function ProposalContent() {
             </div>
             
             {/* Page 1 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-auto">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -176,12 +176,12 @@ function ProposalContent() {
                 </div>
 
                 <footer className="mt-auto pt-4 border-t-2 border-blue-800 text-right">
-                    <p className="text-xs text-gray-500">Page 1 of 6</p>
+                    <p className="text-xs text-gray-500">Page 1 of 5</p>
                 </footer>
             </main>
 
             {/* Page 2 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-auto">
                 <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -214,12 +214,12 @@ function ProposalContent() {
                     </section>
                 </div>
                 <footer className="mt-auto pt-4 border-t-2 border-blue-800 text-right">
-                    <p className="text-xs text-gray-500">Page 2 of 6</p>
+                    <p className="text-xs text-gray-500">Page 2 of 5</p>
                 </footer>
             </main>
             
             {/* Page 3 */}
-             <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
+             <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-auto">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -255,39 +255,7 @@ function ProposalContent() {
                         </table>
                     </section>
                     
-                    <section className="mt-12 print:break-inside-avoid">
-                        <h3 className="font-bold text-lg text-blue-800 mb-4">Important Notes:</h3>
-                        <ul className="list-disc list-inside space-y-2 text-xs text-gray-700">
-                            <li>The CFA/Subsidy amount is subject to change as per government policies. We assist in the application process, but the final disbursement is by the government agency.</li>
-                            <li>Any additional civil work, wiring beyond the standard scope, or load enhancement charges are the customer's responsibility.</li>
-                            <li>The proposal is valid for 7 days from the date of submission.</li>
-                        </ul>
-                    </section>
-                </div>
-
-
-                <footer className="mt-auto pt-4 border-t-2 border-gray-400 text-right">
-                    <p className="text-xs text-gray-500">Page 3 of 6</p>
-                </footer>
-            </main>
-
-            {/* Page 4 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
-                 <div className="flex-grow">
-                    <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
-                        <div className="w-1/3">
-                            <Logo />
-                        </div>
-                        <div className="text-right text-xs space-y-1">
-                            <h2 className="font-bold text-base">Nature Enterprises</h2>
-                            <p>A/p -Tung  , Sangli,</p>
-                            <p>Sangli - Islampur Highway, 416401 .</p>
-                            <p>Phone: 9595943332</p>
-                            <p>Web: www.nature-enterprises.com</p>
-                        </div>
-                    </header>
-
-                    <div className="my-4 text-center">
+                     <div className="mt-12 text-center">
                         <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing and Payback</h2>
                         <p className="mt-1">खालील टेबल सौर ऊर्जा उपकरणा विषयी सर्व माहिती देते.</p>
                     </div>
@@ -305,15 +273,25 @@ function ProposalContent() {
                             </tbody>
                         </table>
                     </section>
+
+                    <section className="mt-12 print:break-inside-avoid">
+                        <h3 className="font-bold text-lg text-blue-800 mb-4">Important Notes:</h3>
+                        <ul className="list-disc list-inside space-y-2 text-xs text-gray-700">
+                            <li>The CFA/Subsidy amount is subject to change as per government policies. We assist in the application process, but the final disbursement is by the government agency.</li>
+                            <li>Any additional civil work, wiring beyond the standard scope, or load enhancement charges are the customer's responsibility.</li>
+                            <li>The proposal is valid for 7 days from the date of submission.</li>
+                        </ul>
+                    </section>
                 </div>
 
-                <footer className="mt-auto pt-4 text-right">
-                    <p className="text-xs text-gray-500">Page 4 of 6</p>
+
+                <footer className="mt-auto pt-4 border-t-2 border-gray-400 text-right">
+                    <p className="text-xs text-gray-500">Page 3 of 5</p>
                 </footer>
             </main>
-            
-            {/* Page 5 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-screen">
+
+            {/* Page 4 */}
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:break-after-page print:h-auto">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -410,15 +388,14 @@ function ProposalContent() {
                     </section>
                 </div>
                 
-                <footer className="mt-auto pt-4 flex justify-between items-end">
-                    <div></div>
+                <footer className="mt-auto pt-4 flex justify-center items-end text-center">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="text-xs text-gray-500">Page 5 of 6</p>
+                    <p className="text-xs text-gray-500 absolute right-10">Page 4 of 5</p>
                 </footer>
             </main>
 
-            {/* Page 6 */}
-            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:h-screen">
+            {/* Page 5 */}
+            <main className="p-10 font-sans text-sm flex flex-col bg-white shadow-lg print:shadow-none print:h-auto">
                  <div className="flex-grow">
                     <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
                         <div className="w-1/3">
@@ -491,21 +468,6 @@ function ProposalContent() {
                                         </div>
                                     </td>
                                 </tr>
-                                <tr className="border-b border-gray-300 align-top">
-                                    <td className="p-2 border-r border-gray-300 font-semibold">Customer Responsibility</td>
-                                    <td className="p-2">
-                                        <ul className="list-disc list-inside space-y-1">
-                                            <li>Provide access to the worksite for delivery and installation.</li>
-                                            <li>Provide a suitable and secure space for storing equipment and materials.</li>
-                                            <li>Provide free electricity and water for installation purposes.</li>
-                                            <li>Any expenses related to load extension will be the customer's responsibility.</li>
-                                            <li>Purchasing stamp paper for required agreements.</li>
-                                            <li>Cost and installation of RCCB and MCB at the meter outlet. A fiber/acrylic box for the meter display is included.</li>
-                                            <li>Approximately 90 days will be required for the MSEB release order and meter installation after system installation is complete.</li>
-                                            <li>This quotation includes standard fabrication (front leg 1 meter). No ladder or walkway is included.</li>
-                                        </ul>
-                                    </td>
-                                </tr>
                                 <tr className="align-top">
                                     <td className="p-2 border-r border-gray-300 font-semibold">After-Sales Service</td>
                                     <td className="p-2">
@@ -520,10 +482,9 @@ function ProposalContent() {
                         </table>
                     </section>
                 </div>
-                <footer className="mt-auto pt-4 flex justify-between items-end">
-                    <div></div>
-                    <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="text-xs text-gray-500">Page 6 of 6</p>
+                <footer className="mt-auto pt-4 flex justify-center items-end text-center">
+                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
+                    <p className="text-xs text-gray-500 absolute right-10">Page 5 of 5</p>
                 </footer>
             </main>
 
