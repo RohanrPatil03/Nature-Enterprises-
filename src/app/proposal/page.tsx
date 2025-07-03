@@ -33,7 +33,7 @@ interface ProposalRenderData {
     customerType: string;
     monthlyBill: number;
     roofSize: number;
-    installationLocation: string;
+    installationLocation: 'Roof Mounted' | 'Ground Mounted';
     inverterCapacity: string;
     systemCost: number;
     incentives: number;
@@ -41,29 +41,29 @@ interface ProposalRenderData {
 
 function ProposalContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [currentDate, setCurrentDate] = useState('');
   const [data, setData] = useState<ProposalRenderData | null>(null);
 
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString('en-GB'));
     
-    const params = new URLSearchParams(window.location.search);
     setData({
-        name: params.get('name') || 'N/A',
-        address: params.get('address') || 'N/A',
-        systemSize: parseFloat(params.get('systemSize') || '0'),
-        consumerNumber: params.get('consumerNumber') || 'N/A',
-        load: parseFloat(params.get('load') || '0'),
-        connectionType: params.get('connectionType') || 'N/A',
-        customerType: params.get('customerType') || 'N/A',
-        monthlyBill: parseFloat(params.get('monthlyBill') || '0'),
-        roofSize: parseFloat(params.get('roofSize') || '0'),
-        installationLocation: params.get('installationLocation') || 'Roof Mounted',
-        inverterCapacity: params.get('inverterCapacity') || '5.00kW',
-        systemCost: parseFloat(params.get('systemCost') || '0'),
-        incentives: parseFloat(params.get('incentives') || '0'),
+        name: searchParams.get('name') || 'N/A',
+        address: searchParams.get('address') || 'N/A',
+        systemSize: parseFloat(searchParams.get('systemSize') || '0'),
+        consumerNumber: searchParams.get('consumerNumber') || 'N/A',
+        load: parseFloat(searchParams.get('load') || '0'),
+        connectionType: searchParams.get('connectionType') || 'N/A',
+        customerType: searchParams.get('customerType') || 'N/A',
+        monthlyBill: parseFloat(searchParams.get('monthlyBill') || '0'),
+        roofSize: parseFloat(searchParams.get('roofSize') || '0'),
+        installationLocation: (searchParams.get('installationLocation') as 'Roof Mounted' | 'Ground Mounted') || 'Roof Mounted',
+        inverterCapacity: searchParams.get('inverterCapacity') || '5.00kW',
+        systemCost: parseFloat(searchParams.get('systemCost') || '0'),
+        incentives: parseFloat(searchParams.get('incentives') || '0'),
     });
-  }, []);
+  }, [searchParams]);
 
   if (!data) {
     return <ProposalSkeleton />;
