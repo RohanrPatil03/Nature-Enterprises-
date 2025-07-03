@@ -187,7 +187,7 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
                     <p className="font-bold text-blue-800">A MAHADISCOM, MNRE & MEDA Registered Partner!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 1 of 9</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 1 of 6</p>
                 </footer>
             </main>
 
@@ -225,7 +225,7 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 border-t-2 border-blue-800 text-center relative">
                     <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 9</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 2 of 6</p>
                 </footer>
             </main>
             
@@ -276,7 +276,7 @@ function ProposalContent() {
 
 
                 <footer className="mt-24 pt-4 border-t-2 border-gray-400 text-center relative">
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 9</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 3 of 6</p>
                 </footer>
             </main>
 
@@ -324,7 +324,7 @@ function ProposalContent() {
                 </section>
 
                 <footer className="mt-12 pt-4 text-center relative">
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 9</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 4 of 6</p>
                 </footer>
             </main>
             
@@ -452,7 +452,7 @@ function ProposalContent() {
 
                 <footer className="mt-12 pt-4 text-center relative">
                      <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 9</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 5 of 6</p>
                 </footer>
             </main>
 
@@ -574,188 +574,10 @@ function ProposalContent() {
                 </section>
                 <footer className="mt-12 pt-4 text-center relative">
                     <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 9</p>
+                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 6 of 6</p>
                 </footer>
             </main>
 
-            {/* Page 7 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
-                    <div className="w-1/3">
-                        <Logo />
-                    </div>
-                    <div className="text-right text-xs space-y-1">
-                        <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/p -Tung  , Sangli,</p>
-                        <p>Sangli - Islampur Highway, 416401 .</p>
-                        <p>Phone: 9595943332</p>
-                        <p>Web: www.nature-enterprises.com</p>
-                    </div>
-                </header>
-                <div className="text-center my-4">
-                    <h2 className="text-lg font-bold text-red-600 tracking-wide">Benefits of going solar with us</h2>
-                </div>
-                <section className="mt-8 space-y-4 text-gray-800 leading-relaxed text-justify text-sm">
-                    <p><span className="font-bold">1. Experienced company working since 2016 in Solar Industry</span> - We believe in Integrity, Respect & Win-Win business practices. We have served 500+ happy customers till date with our best-in-class solar systems and reliable after sales services. We are Affordable at the same time Convenient & Reliable.</p>
-                    <p><span className="font-bold">2. We will save you money</span> - While there are up-front costs, our customised design ensures utilisation of the last ray of sunlight to minimise your energy bills. With combined over 40 years of experience, our design and finance teams evaluate multiple designs to explore and identify right design that will deliver best return on investment for our customers. In most cases, you will recover your investment in less than three years.</p>
-                    <p><span className="font-bold">3. We make it convenient for you</span> - Our unique business model ensures hassle free delivery and operation of the solar systems supplied by us. There is good chance of having our friendly distributor or installer right near you to ensure timely support. Many times, you don't have to call support number but walk/drive to our representative near you.</p>
-                    <p><span className="font-bold">4. Our people and equipment is highly reliable</span> - We use best quality material around the world to build solar systems for our customers. This is supported with the world class customer service from our employees. This will ensure smooth project delivery and reliable operation of the equipment the equipment supplied by us.</p>
-                    <p><span className="font-bold">5. Our local support will give you peace of mind</span> - In most cases there will be a local support person near you whom you can talk to face-to-face about the support you need. There is no need to talk to the machines to get the support.</p>
-                    <p><span className="font-bold">6. Talk to our customers before you decide</span> - We highly recommend you talking to our customers and physically having a look at our projects. Our customers will tell you about the quality of our services while our equipment quality will talk for itself.</p>
-                    <p><span className="font-bold">7. We help you to get finance for your solar solutions</span> - Our strong relationships with local MFIs and nationalised banks will help you in getting the loan for your solar system. With nationalised banks, you can avail loans at subsidised rates.</p>
-                    <p><span className="font-bold">8. Not enough capital! No issue</span> - We can offer our solar solutions on instalments to ensure your daily life spending is not disturbed. Talk to us if you need more information. Our modularised design gets you started with very small investment that you can expand as you go.</p>
-                    <p><span className="font-bold">9. Insure your system and be worry free</span> - Our obligation free insurance will provide you peace of mind in case of damage to your solar system. Talk to us if you need to protect your system.</p>
-                </section>
-                <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
-                    <p className="font-bold text-blue-800">अनुभवी, नामांकित व अधिकृत व्हेंडर "Nature Enterprises" सोबत सौरवीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 7 of 9</p>
-                </footer>
-            </main>
-
-            {/* Page 8 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
-                    <div className="w-1/3">
-                        <Logo />
-                    </div>
-                    <div className="text-right text-xs space-y-1">
-                        <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/p -Tung  , Sangli,</p>
-                        <p>Sangli - Islampur Highway, 416401 .</p>
-                        <p>Phone: 9595943332</p>
-                        <p>Web: www.nature-enterprises.com</p>
-                    </div>
-                </header>
-                <div className="text-center my-8">
-                    <h2 className="text-lg font-bold text-orange-600 tracking-wide">Our Process</h2>
-                </div>
-                
-                <section className="flex justify-center my-16">
-                    <div className="grid grid-cols-3 grid-rows-3 gap-x-8 gap-y-12 w-full max-w-2xl items-center text-gray-700">
-                        {/* Row 1 */}
-                        {/* Step 1 */}
-                        <div className="text-center font-bold uppercase">
-                            <span className="text-2xl text-primary font-headline">1.</span>
-                            <p className="mt-1">CONSULT<br/>WITH YOU</p>
-                        </div>
-                        {/* Step 2 */}
-                        <div className="text-center font-bold uppercase">
-                            <span className="text-2xl text-primary font-headline">2.</span>
-                            <p className="mt-1">DEVELOP<br/>SOLUTION</p>
-                        </div>
-                        {/* Step 3 */}
-                        <div className="text-center font-bold uppercase">
-                            <span className="text-2xl text-primary font-headline">3.</span>
-                            <p className="mt-1">MAKE<br/>RECOMMENDATIONS</p>
-                        </div>
-
-                        {/* Row 2 */}
-                        {/* Step 8 */}
-                        <div className="text-center font-bold uppercase">
-                            <span className="text-2xl text-primary font-headline">8.</span>
-                            <p className="mt-1">REMOTE<br/>MONITORING</p>
-                        </div>
-                        
-                        <div className="flex justify-center items-center p-4 bg-gray-100 rounded-full border-4 border-gray-300 shadow-md">
-                            <Logo showText={false} />
-                        </div>
-                        
-                        {/* Step 4 */}
-                        <div className="text-center font-bold uppercase">
-                            <span className="text-2xl text-primary font-headline">4.</span>
-                            <p className="mt-1">DESIGN, FABRICATE<br/>& INSTALL</p>
-                        </div>
-
-                        {/* Row 3 */}
-                        {/* Step 7 */}
-                        <div className="text-center font-bold uppercase">
-                            <span className="text-2xl text-primary font-headline">7.</span>
-                            <p className="mt-1">ON-GOING<br/>MAINTENANCE</p>
-                        </div>
-                        {/* Step 6 */}
-                        <div className="text-center font-bold uppercase">
-                            <span className="text-2xl text-primary font-headline">6.</span>
-                            <p className="mt-1">ON-SITE<br/>MANAGEMENT</p>
-                        </div>
-                        {/* Step 5 */}
-                        <div className="text-center font-bold uppercase">
-                            <span className="text-2xl text-primary font-headline">5.</span>
-                            <p className="mt-1">TEST, COMMISSION<br/>& TRAINING</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section className="mt-24 text-xs text-red-600 text-justify space-y-1">
-                    <p>Please note this document contains confidential and/or privileged information for the sole use of the intended recipient(s). All electronically supplied data must be checked against an applicable hardcopy version which shall be the only document which Nature Enterprises warrants accuracy. If you are not the intended recipient, any use, distribution or copying of the information contained in this document is strictly prohibited. If you have received this document in error, please return the sender, immediately delete and destroy any copies of this document. The information provided in this document is solely based on the data provided by the recipient at this point of time. All values are determined mathematically based on standardised conditions. The actual operating results will be dictated significantly by the actual irradiation conditions, the actual efficiency, operating conditions and individual consumption behaviour and can deviate from the calculated results.</p>
-                </section>
-
-                <footer className="mt-12 pt-4 border-t-2 border-gray-400 text-center relative">
-                    <p className="font-bold text-blue-800">सौर वीज निर्मिती करा व प्रदूषण मुक्त व्हा!</p>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 8 of 9</p>
-                </footer>
-            </main>
-
-            {/* Page 9 */}
-            <main className="p-8 sm:p-12 font-sans text-sm print:break-before-page">
-                 <header className="flex justify-between items-start pb-4 border-b-2 border-red-600">
-                    <div className="w-1/3">
-                        <Logo />
-                    </div>
-                    <div className="text-right text-xs space-y-1">
-                        <h2 className="font-bold text-base">Nature Enterprises</h2>
-                        <p>A/p -Tung  , Sangli,</p>
-                        <p>Sangli - Islampur Highway, 416401 .</p>
-                        <p>Phone: 9595943332</p>
-                        <p>Web: www.nature-enterprises.com</p>
-                    </div>
-                </header>
-                <div className="text-center my-4">
-                    <h2 className="text-lg font-bold text-blue-800 tracking-wide border-b-2 border-red-600 inline-block pb-1">Purchase order/Letter of Intent (LOI)</h2>
-                </div>
-
-                <section className="mt-8 space-y-4 text-gray-800 leading-relaxed">
-                   <div>
-                        <p>To</p>
-                        <p className="font-bold">Nature Enterprises</p>
-                        <p>A/P Tung, Dist Sangli, Sangli - Islampur Highway, Tung. 416401</p>
-                   </div>
-                   <div className="mt-6">
-                        <p><span className="font-bold">Subject:</span> <span className="underline">Purchase Order for the design, supply, install & commission the Solar power system</span></p>
-                   </div>
-
-                   <p className="mt-6">This has reference to proposing design, supply, install & commission the Solar power system as per the quotation submitted by you and agreed by us. We are pleased to issue this Purchase Order as an acceptance of the terms proposed by you with the quotation.</p>
-
-                   <ol className="list-decimal list-inside space-y-2 mt-4">
-                        <li>Plant capacity shall be {systemSize.toFixed(2)}KW.</li>
-                        <li>Price {formatCurrency(amountPayable)}</li>
-                        <li>You will design, supply, install and commission proposed Solar power system as per MNRE specifications.</li>
-                        <li>Terms and Conditions will be as attached with the quotation and are available on <a href="http://www.nature-enterprises.com" className="text-blue-600 underline">www.nature-enterprises.com</a></li>
-                        <li>
-                            Our area of work (customer scope)
-                            <ul className="list-[lower-alpha] list-inside pl-6 mt-2 space-y-1">
-                                <li>We shall provide the shade free roof/other areas for the installation of the solar equipment; any additional infrastructure and civil work will be in our scope (If required).</li>
-                                <li>We shall extend our Sanctioned Load if required to be same or above the proposed Solar System Capacity & enhancement of existing supply/switchgears like ICTP/ICDP & RCCB/ELCB at metering panel/board/room (if required)</li>
-                                <li>Power Purchase Agreement (PPA) with local utility: Purchasing Stamp, Making & signing Power Purchase Agreement (PPA) with local utility & Other relevant agreements & documents as per guidelines by DISCOM, vendor shall facilitate the process if any support/guidance required.</li>
-                            </ul>
-                        </li>
-                   </ol>
-
-                    <p className="mt-6">Please proceed with the design, supply, and installation of the proposed solar power system.</p>
-                    <p>Warm Regards,</p>
-
-                    <div className="mt-20 space-y-2">
-                        <p><span className="font-bold">Name:</span> {name}</p>
-                        <p><span className="font-bold">Address:</span> {address}</p>
-                        <p className="mt-4"><span className="font-bold">Date:</span></p>
-                        <p className="mt-12"><span className="font-bold">Signature:</span></p>
-                    </div>
-
-                </section>
-
-                <footer className="mt-12 pt-4 text-center relative" style={{top: '5vh'}}>
-                    <p className="absolute right-0 bottom-0 text-xs text-gray-500">Page 9 of 9</p>
-                </footer>
-            </main>
         </div>
     </div>
   );
