@@ -297,7 +297,6 @@ function ProposalContent() {
 
                 <div className="my-4">
                     <h2 className="text-lg font-bold text-blue-800 tracking-wide">Pricing and Payback</h2>
-                    <p className="mt-2">In the table below, you can find basic pricing for our recommended solar solution. Please note these numbers are based on the 25 years of life.</p>
                     <p className="mt-1">खालील टेबल सौर ऊर्जा उपकरणा विषयी सर्व माहिती देते.</p>
                 </div>
                 
@@ -310,15 +309,7 @@ function ProposalContent() {
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Expected annual output</td><td className="p-2 border-r border-gray-300 font-semibold">वार्षिक विजनिर्माण</td><td className="p-2">{formatUnits(expectedAnnualOutput)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Average required monthly output</td><td className="p-2 border-r border-gray-300 font-semibold">विजेची गरज</td><td className="p-2">{formatUnits(avgRequiredMonthlyOutput)}</td></tr>
                             <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Expected monthly output</td><td className="p-2 border-r border-gray-300 font-semibold">विजनिर्माण</td><td className="p-2">{formatUnits(expectedMonthlyOutput)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Expected monthly output range</td><td className="p-2 border-r border-gray-300 font-semibold">विजनिर्माण</td><td className="p-2">{formatUnits(expectedMonthlyOutputMin)} to {formatUnits(expectedMonthlyOutputMax)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Lifetime value of electricity generated</td><td className="p-2 border-r border-gray-300 font-semibold">होणारी वीज बचत</td><td className="p-2">{formatCurrency(lifetimeValue)} ({SYSTEM_LIFETIME_YEARS} years)</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Installed system cost</td><td className="p-2 border-r border-gray-300 font-semibold">सिस्टिमचा खर्च</td><td className="p-2">{formatCurrency(designInstallationCost)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">First year value of electricity generated</td><td className="p-2 border-r border-gray-300 font-semibold">पहिल्या वर्षीची वीज बचत</td><td className="p-2">{formatCurrency(firstYearSavings)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Rebate/Subsidy</td><td className="p-2 border-r border-gray-300 font-semibold">सरकारी सवलत</td><td className="p-2">{formatCurrency(incentives)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Net investment</td><td className="p-2 border-r border-gray-300 font-semibold">पहिल्या वर्षात नेट गुंतवणूक</td><td className="p-2">{formatCurrency(netInvestment)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Cost/unit without Solar</td><td className="p-2 border-r border-gray-300 font-semibold">सध्याचा पर युनिट खर्च</td><td className="p-2">₹ {COST_PER_UNIT.toFixed(2)}</td></tr>
-                            <tr className="border-b border-gray-300"><td className="p-2 border-r border-gray-300 font-semibold">Cost/unit with Solar</td><td className="p-2 border-r border-gray-300 font-semibold">नवीन पर युनिट खर्च</td><td className="p-2">₹ {costPerUnitWithSolar.toFixed(2)}</td></tr>
-                            <tr><td className="p-2 border-r border-gray-300 font-semibold">Rebate/Subsidy</td><td className="p-2 border-r border-gray-300 font-semibold">सरकारी सवलत</td><td className="p-2">Subsidy</td></tr>
+                            <tr><td className="p-2 border-r border-gray-300 font-semibold">Expected monthly output range</td><td className="p-2 border-r border-gray-300 font-semibold">विजनिर्माण</td><td className="p-2">{formatUnits(expectedMonthlyOutputMin)} to {formatUnits(expectedMonthlyOutputMax)}</td></tr>
                         </tbody>
                     </table>
                 </section>
